@@ -1,0 +1,11 @@
+---
+layout: post
+title: "Java 4 Ever - two thumbs up for the production"
+date: 2010-06-26 09:11
+comments: true
+categories: [JAVA,Geek-Fun]
+---
+
+This video speaks for itself ... 
+<div markdown="1"><object width="400" height="320" type="application/x-shockwave-flash" data="http://www.koreus.com/video/java-4-ever"> <param name="movie" value="http://www.koreus.com/video/java-4-ever"><embed width="400" height="320" src="http://www.koreus.com/video/java-4-ever" type="application/x-shockwave-flash"></object><br> <a href="http://www.koreus.com/video/java-4-ever.html">Java 4-Ever</a> - <a href="http://www.koreus.com/">Buzz</a>
+</div>
