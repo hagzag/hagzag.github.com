@@ -37,6 +37,7 @@ All wev&#39;e seen above is two usages of xmlstarlet which is as I mentioned 10%
 2.  xml editing: _**xmlstarlet ed -O -S -P -u**_ well xml updating to be exact [ _**-u**_ ]
 
 Feel free to get this tool on your favorite OS
+<!-- more -->
 
 Ubutnu:
 

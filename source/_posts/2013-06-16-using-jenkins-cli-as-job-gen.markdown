@@ -36,6 +36,7 @@ execJenkinsCli(){ # excute jenkins-cli jar
                 exec ${cmd_prefix} ${cli_cmd} ${cmd_params} --username ${JENKINS_USER} --password ${JENKINS_PASS}
         fi
 }
+<!-- more -->
 
 execJenkinsCli get-job ${tmpl_job_name}  | \
   ${XML} ed -O -S -P -u &#39;//project/scm/locations/hudson.scm.SubversionSCM_-ModuleLocation/remote&#39; -v ${scm_url} | \
