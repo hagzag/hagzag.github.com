@@ -36,7 +36,6 @@ execJenkinsCli(){ # excute jenkins-cli jar
                 exec ${cmd_prefix} ${cli_cmd} ${cmd_params} --username ${JENKINS_USER} --password ${JENKINS_PASS}
         fi
 }
-<!-- more -->
 
 execJenkinsCli get-job ${tmpl_job_name}  | \
   ${XML} ed -O -S -P -u &#39;//project/scm/locations/hudson.scm.SubversionSCM_-ModuleLocation/remote&#39; -v ${scm_url} | \
@@ -46,7 +45,7 @@ execJenkinsCli get-job ${tmpl_job_name}  | \
 {% endcodeblock %}
 
 The full jobGen wrapper script can be [found here](https://gist.github.com/hagzag/9b0d9d74d1920e248959)
-
+<!-- more -->
 Tieing it all together:
 
 1.  Create a template job [preferably keep it disabled so if it has SCM triggers it doesn&#39;t start on any scm change ...] - see [this gist](https://gist.github.com/hagzag/62b48fee2e28a9cf32c7)
