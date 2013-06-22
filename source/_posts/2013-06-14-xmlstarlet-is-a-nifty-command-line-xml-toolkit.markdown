@@ -3,7 +3,7 @@ layout: post
 title: "xmlstarlet is a nifty Command Line XML Toolkit"
 date: 2013-06-14 09:17
 comments: true
-categories: [ XML, xpath, xmlstarlet, cli, shell, jenkins ]
+categories: [ XML, xpath, xmlstarlet, cli, shell, Jenkins ]
 ---
 {% img left /assets/images/xmlstarlet.png 'xmlstarlet Logo' %}
 

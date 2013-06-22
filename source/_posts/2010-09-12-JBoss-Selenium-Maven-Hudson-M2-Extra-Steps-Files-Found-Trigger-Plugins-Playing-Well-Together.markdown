@@ -3,7 +3,7 @@ layout: post
 title: "JBoss, Selenium, Maven, Hudson, M2 Extra Steps & Files Found Trigger plugins playing well together"
 date: 2010-09-12 18:09                                                         
 comments: true                                                                 
-categories: [JBoss, Selenium, Maven, Hudson, M2 Extra Steps, Files Found Trigger, hudson plugins ]
+categories: [JBoss, Selenium, Maven, Hudson, M2 Extra Steps, Files Found Trigger, Hudson plugins ]
 ---    
 
 JBoss, Selenium, Maven, Hudson, [M2 Extra Steps][0] & [Files Found Trigger][1] plugins - how do all these work together in a continuous build + Integration test life-cycle ? 

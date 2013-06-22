@@ -3,7 +3,7 @@ layout: post
 title: "Maven Deployment Linker - plug-in"
 date: 2011-03-07 09:18
 comments: true
-categories: [Build Tools, Hudson, HudsonCI, plug-ins]
+categories: [Build Tools, Hudson, Hudson plugins]
 ---
 
 {% img left /assets/images/hudson_logo.png 'Hudson Logo' %}This plug-in does something so simple yet very useful instead of archiving artifact it will list the deployments performed at build time to the Maven Proxy you are running regardless to the proxy vendor (Archiva, Artifactory or Nexus).

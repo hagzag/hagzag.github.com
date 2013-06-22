@@ -3,7 +3,7 @@ layout: post
 title: "Hudson - pinned/pinning plugins"
 date: 2010-09-07 19:14
 comments: true
-categories: [ Hudson, Plugin Management, Hudson Plugins]
+categories: [ Hudson, Plugin Management, Hudson plugins]
 ---
 {% img left /assets/images/hudson_logo.png 'Hudson Logo' %}If you wish to "hang on" to a certain plugin which shipps with hudson.war just unpin it in the Manage Hudson \>\> Manage Plugins page - this option is availabe sine [1.374 release][0] (and you can alwasy grab the latest @: [latest][1]) 
 

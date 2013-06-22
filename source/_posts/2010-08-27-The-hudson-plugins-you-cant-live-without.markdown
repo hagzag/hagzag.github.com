@@ -3,7 +3,7 @@ layout: post
 title: "The hudson plug-ins you can't live without"
 date: 2010-08-27 09:18
 comments: true
-categories: [Build Tools, Hudson, HudsonCI, plug-ins]
+categories: [Build Tools, Hudson, Hudson plugins]
 ---
 
 {% img left /assets/images/hudson_logo.png 'Hudson Logo' %}This post was originally posted & active @: [http://www.tikalk.com][0]

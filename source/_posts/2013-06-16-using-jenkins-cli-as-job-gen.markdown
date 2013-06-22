@@ -3,7 +3,7 @@ layout: post
 title: "Using jenkins-cli as job Gen"
 date: 2013-06-16 01:06
 comments: true
-categories: [ jenkins, jenkins-cli, configuration management (cm), job generation, how-to, tutorial ]
+categories: [ Jenkins, jenkins-cli, configuration management (cm), job generation, how-to, tutorial ]
 ---
 
 {% img left /assets/images/jenkins140x140.jpg 'Jenkins logo small' %}
