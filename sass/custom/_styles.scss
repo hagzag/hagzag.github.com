@@ -1,2 +1,50 @@
 // This File is imported last, and will override other styles in the cascade
 // Add styles here to make changes without digging in too much
+
+html { 
+  background: url('/images/train_tracks.jpg') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+body>header {
+	background: transparent;
+	padding-left: 10px;
+	text-shadow: 3px 3px #751590;
+
+	h1 {
+		padding-top: 10px;
+	}
+
+	h2 {
+		color: #FFF;
+	}
+
+	img {
+		float: left;
+		/*padding: 10px 10px 10px 10px;*/
+	}
+}
+
+img.no-br {
+	border: none; 
+	background: transparent;
+}
+
+div.linkedin {
+	text-align: center;
+
+	img {
+		border: none; 
+	}
+}
+/*body {
+	
+#main, #content {
+	background-color: transparent;
+}
+
+}
+*/
