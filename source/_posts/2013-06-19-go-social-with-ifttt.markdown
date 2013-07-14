@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Go Social with ifttt - If This Then That"
-date: 2013-06-18 19:47
+date: 2013-06-19 19:47
 comments: true
 categories: [ If This Then That, social media, ifttt, facebook, twitter, productivity ]
 ---
