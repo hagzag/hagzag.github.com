@@ -8,6 +8,10 @@ categories: [Chef Solo, chef-solo, opscode chef, cm, configuration management]
 {% img left /assets/images/Opscode_chef_logo.png 'Chef Logo' %} For the past ~6 monthes or so I have been working solely with [chef-solo](http://docs.opscode.com/chef_solo.html).
 There are quite a few helpers for solo out there such as:
 
+
+
+
+
 1. soloist - https://github.com/mkocher/soloist
 2. knife-solo - https://github.com/matschaffer/knife-solo
 & a few more.
@@ -32,5 +36,6 @@ Then came [knife-solo_data_bag](https://github.com/thbishop/knife-solo_data_bag)
 Now with a totally bogus knife.rb file I can generate / edit / manager databags with knife-solo & knife-solo_data_bag.
 
 Again, hope you find this useful, I know I do ;)
+
 HP
 
