@@ -40,6 +40,8 @@ _**Create a branch**_:
     git branch hg-pages
     git push origin gh-pages</pre>
 
+<!-- more -->
+
 updating this &quot;site&quot; can be done by editing the stuff you want on the &quot;master&quot; branch, then merge     those changes in the gh-pages branch and finally push those changes to the remote gh-pages which will automatically deploy youe reveal.js presentaion.
 
 the merge sould look somthing like:
