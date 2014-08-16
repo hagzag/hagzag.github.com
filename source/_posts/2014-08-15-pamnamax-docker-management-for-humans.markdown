@@ -37,7 +37,8 @@ Panamax is (and I quote) a containerized app creator with an open-source app mar
 
 ####Using Panamax
 
-After [installing PanaMax](https://www.youtube.com/watch?v=15IKkYCfymk#t=434) and you have panamax up and running on your local machine you can search for existing systems as an example lets take the [piwik exmaple](https://raw.githubusercontent.com/CenturyLinkLabs/panamax-public-templates/master/piwik.pmx) by searching in our local panamax ui via http://localhost:8888 (the default)
+After [installing PanaMax](https://www.youtube.com/watch?v=15IKkYCfymk#t=434) and you have panamax up and running on your local machine you can search for existing systems as an example lets take the [piwik exmaple](https://raw.githubusercontent.com/CenturyLinkLabs/panamax-public-templates/master/piwik.pmx) by searching in our local panamax ui via http://localhost:8888 (the default)<!-- more -->
+
 {% img left /assets/images/panamax_search_piwik.png 'piwik search' %} 
 
 Pressing the "run template" button will result in panamax parsing the pmx(fig) yaml file:
