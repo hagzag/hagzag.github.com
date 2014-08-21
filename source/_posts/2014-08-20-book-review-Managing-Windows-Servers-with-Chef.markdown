@@ -7,7 +7,7 @@ categories: [ Chef, Windows, Windows Azure, winrm, chef windows cookbook, Packt 
 ---
 {% img left /assets/images/2424OS.png 'Book Cover' %} As someone which works quite a bit with Chef and naturally had to do some Chef on Windows, this book really provides a lot of insight into the "Chef on Windows" topic. All the configuration management tools out there support windows in one way or another but IMHO chef's investment into windows despite the fact it isn't the natural OS choice to say the least, is huge compared to the others out there (again IMHO).
 
-This book A natural sequel to “Instant Chef Starter” also by the John Ewart.
+This book [Managing Windows Servers with Chef](https://www.packtpub.com/networking-and-servers/managing-windows-servers-chef) is A natural sequel to “Instant Chef Starter” also by the John Ewart.
 
 One of the big promises of this book is removing the natural recoil *nix sysadmins have from windows configuration management.
 The Book provides a good overview of the [Chef Windows cookbook](https://github.com/opscode-cookbooks/windows) and it's [LWRP's](http://docs.getchef.com/lwrp_windows.html).
