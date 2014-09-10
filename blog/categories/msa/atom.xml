@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: MSA | Fractions on my timeline]]></title>
+  <link href="http://hagzag.github.io/blog/categories/msa/atom.xml" rel="self"/>
+  <link href="http://hagzag.github.io/"/>
+  <updated>2014-09-10T08:13:34+05:30</updated>
+  <id>http://hagzag.github.io/</id>
+  <author>
+    <name><![CDATA[Haggai Philip Zagury]]></name>
+    <email><![CDATA[hagzag@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Docking your services with Docker]]></title>
+    <link href="http://hagzag.github.io/blog/2014/01/29/Docking-your-services-with-Docekr/"/>
+    <updated>2014-01-29T22:03:00+05:30</updated>
+    <id>http://hagzag.github.io/blog/2014/01/29/Docking-your-services-with-Docekr</id>
+    <content type="html"><![CDATA[<p><img class="left" src="/assets/images/docker-logo-100x134.png" title="&lsquo;Docker logo small&rsquo;" >
+The &quot;Big Bang&quot; is an awesome title (don&#39;t mind if I say so &hellip;), our apps are divided into micro-services &ndash; and so is our hosting OS, the following slides attempt to show how LXC and Docker simplify the complexity of our Micro Services deployment.</p>
+
+<p>Presentation is available via:&nbsp;<a href="http://bit.ly/1evpfya">http://bit.ly/1evpfya</a> + embeded below (Continue reading link &hellip;)</p>
+
+<!-- more -->
+
+
+
+
+<script async class="speakerdeck-embed" data-id="d9ce0c606a7c0131697922f4e5e61bb3" data-ratio="1.33333333333333" src="http://hagzag.github.io//speakerdeck.com/assets/embed.js"></script>
+
+
+
+
+<div style="margin-bottom:5px">**[Docking your services_with_docker](https://www.slideshare.net/tikalknowledge/docking-your-serviceswithdocker "Docking your services_with_docker") ** from **[Tikal Knowledge](http://www.slideshare.net/tikalknowledge)**</div>
+
+
+<p>Happy Docking :)</p>
+]]></content>
+  </entry>
+  
+</feed>

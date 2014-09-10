@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: CRLF | Fractions on my timeline]]></title>
+  <link href="http://hagzag.github.io/blog/categories/crlf/atom.xml" rel="self"/>
+  <link href="http://hagzag.github.io/"/>
+  <updated>2014-09-10T08:13:34+05:30</updated>
+  <id>http://hagzag.github.io/</id>
+  <author>
+    <name><![CDATA[Haggai Philip Zagury]]></name>
+    <email><![CDATA[hagzag@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Learn About Continuous Integration With Hudson Directly From the Source]]></title>
+    <link href="http://hagzag.github.io/blog/2010/03/06/laearn-ci-from-the-source/"/>
+    <updated>2010-03-06T09:11:00+05:30</updated>
+    <id>http://hagzag.github.io/blog/2010/03/06/laearn-ci-from-the-source</id>
+    <content type="html"><![CDATA[<p>No explanations needed &ndash; just watch this video if you can spare the time &hellip;</p>
+
+<div markdown="1">
+<object width="640" height="385"> <param value="http://www.youtube.com/v/6k0S4O2PnTc&amp;hl=en_US&amp;fs=1&amp;" name="movie"> <param value="true" name="allowFullScreen"> <param value="always" name="allowscriptaccess"><embed width="640" height="385" allowfullscreen="true" allowscriptaccess="always" type="application/x-shockwave-flash" src="http://www.youtube.com/v/6k0S4O2PnTc&amp;hl=en_US&amp;fs=1&amp;"></object>
+</div>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Apprentelly Ant-1.80RC1 has been release on the 12th of January 2010]]></title>
+    <link href="http://hagzag.github.io/blog/2010/01/06/Ant-early-release/"/>
+    <updated>2010-01-06T09:11:00+05:30</updated>
+    <id>http://hagzag.github.io/blog/2010/01/06/Ant-early-release</id>
+    <content type="html"><![CDATA[<p>Apparently without us noticing it is the 12th of January already and Ant 1.80RC1 has been released :)</p>
+
+<p><img src="/assets/images/ant-180RC1.PNG" alt="Ant - 1.80RC1" /></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Subversion - server-side action - auto add property to file]]></title>
+    <link href="http://hagzag.github.io/blog/2008/11/09/subversion-server-side-action/"/>
+    <updated>2008-11-09T09:11:00+05:30</updated>
+    <id>http://hagzag.github.io/blog/2008/11/09/subversion-server-side-action</id>
+    <content type="html"><![CDATA[<p><img class="left" src="/assets/images/subversion.jpg" title="&lsquo;Subversion Logo&rsquo;" ><strong>Problem:</strong></p>
+
+<p>I am at a clients location which develops on windows and the &ldquo;EOL&rdquo; end of line is what is called CRLF unlike unix/linux which is naturally the servers platform which uses LF only (<a href="http://svnbook.red-bean.com/en/1.1/ch07s02.html">more details about CRLF/LF here</a>).</p>
+
+<p style="text-align:center;">we had to solve two issues</p>
+
+<ol>
+<li>Set a property on the level of SVN to set a default EOL of CRLF to certain file types for example .bat and .properties</li>
+<li>Set the property to all the files with those extensions which already exist in repository.</li>
+</ol>
+
+
+<p>For issue <strong><a href="http://search.twitter.com/search?q=%231">#1</a></strong> a few methods could apply in the client side &ndash; but we wanted to solve this on server side after investigating this issue the solution was quite simple &ndash; with the help of our ALM team of course.</p>
+
+<p>Edit the file called svnserve which is located under $SVNROOT/conf/svnserve.conf and add the following lines:</p>
+
+<pre><code>[miscellany]
+enable-auto-props = yes 
+[auto-props]
+*.png = svn:mime-type=image/png
+*.jpg = svn:mime-type=image/jpeg
+*.bat = svn:eol-style=CRLF
+*.txt = svn:eol-style=CRLF
+*.properties = svn:eol-style=CRLF
+</code></pre>
+
+<p>As you can see I added a few more extensions while I was at it.</p>
+
+<p><strong>Please note:</strong></p>
+
+<p>SVN usually &ldquo;guesses&rdquo; the type of file and has a classification called &ldquo;native&rdquo; the native classification tags the file in its native OS mode for example a .sh file will automatically receive an LF end of line although I guess there are a few extensions which SVN doesn&rsquo;t recognize the result would be a file which is broken up into two lines instead of the original line brakes the developer used whilst editing the file.</p>
+
+<p>for issue <a href="http://search.twitter.com/search?q=%232">#2</a> this has two methods</p>
+
+<p>one: commit files manually + add  svn:eol-style=CRLF to each file then commit it to SVN and of course from this revision onwards the file will have a CRLF eol</p>
+
+<p>second: and the more elegant way is two write a short script which will set a property to all files with .bat &amp; .properties extension and of course submit this to SVN.</p>
+
+<p>I used the following <a href="http://svn.collab.net/repos/svn/trunk/contrib/client-side/svn_apply_autoprops.py">script</a>:  checkout the repository you wish to enforce the properties on in my case &ldquo;trunk&rdquo;</p>
+
+<pre><code>[Myserver]$ mkdir trunk
+[Myserver]$ svn co http://Myserver/svn/repos/trunk trunk
+[Myserver]$ cd trunk
+[Myserver]$ wget http://svn.collab.net/repos/svn/trunk/contrib/client-side/svn_apply_autoprops.py
+[Myserver]$ chmod u+x svn_apply_autoprops.py
+</code></pre>
+
+<p>now run the script &ndash; the script automatically runs on CWD &ldquo;.&rdquo;!</p>
+
+<pre><code>[Myserver]$./svn_apply_autoprops.py
+ 
+</code></pre>
+
+<p>check a few of your files to see that properties were set to your specification &ndash; the specifiactaions are inherited from the $SVNROOT/conf/svnconf.conf file as stated earlier in this article.</p>
+
+<pre><code>[Myserver]$ svn pl svn pl base/javalib/antInstaller/LICENSE-ant.txt
+</code></pre>
+
+<p>your output should be something like:</p>
+
+<p>Properties on &lsquo;base/javalib/antInstaller/LICENSE-ant.txt&rsquo;:<br/>
+svn:eol-style</p>
+
+<p>you can do the same checkup with tortoise.</p>
+
+<p>Once you are sure all properties were made to your WC to your satisfaction you can commit your changes to repository (you will have to have &ldquo;rw&rdquo; perms to trunk in order to commit !)</p>
+
+<pre><code>[Myserver]$ svn commit http://myserver/svn/repos/trunk -m "add properties to files / CRLF property"
+</code></pre>
+
+<p>update / checkout from a different machine / working copy and see if your changes were submitted successfully &ndash;</p>
+
+<p>Thats it, mission accomplished.</p>
+
+<p>Hope you find this useful.</p>
+]]></content>
+  </entry>
+  
+</feed>

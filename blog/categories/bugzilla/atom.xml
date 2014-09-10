@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Bugzilla | Fractions on my timeline]]></title>
+  <link href="http://hagzag.github.io/blog/categories/bugzilla/atom.xml" rel="self"/>
+  <link href="http://hagzag.github.io/"/>
+  <updated>2014-09-10T08:13:34+05:30</updated>
+  <id>http://hagzag.github.io/</id>
+  <author>
+    <name><![CDATA[Haggai Philip Zagury]]></name>
+    <email><![CDATA[hagzag@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Achieving ALM with Open Source @ ILTAM]]></title>
+    <link href="http://hagzag.github.io/blog/2011/11/20/achieving-alm-with-open-source-at-iltam/"/>
+    <updated>2011-11-20T23:40:00+05:30</updated>
+    <id>http://hagzag.github.io/blog/2011/11/20/achieving-alm-with-open-source-at-iltam</id>
+    <content type="html"><![CDATA[<p>As a big fan of open source &amp; the fact I work for <a href="http://www.tikalk.com">Tikal Knowledge</a>, which provide Open Source Solutions for software development,
+ILTAM &ndash; &ldquo;The Israeli Users' Association of Advanced Technologies in Hi-Tech&rdquo;, asked me to give my POV on the subject, from and Open Source perspective of course &ndash; here it is &hellip;</p>
+
+<div markdown="1" align="center">
+    <iframe src="http://prezi.com/embed/eesk5es7zubx/?bgcolor=ffffff&amp;lock_to_path=0&amp;autoplay=no&amp;autohide_ctrls=0&amp;features=undefined&amp;disabled_features=undefined" width="650" height="500" frameBorder="0"></iframe>
+</div>
+
+]]></content>
+  </entry>
+  
+</feed>

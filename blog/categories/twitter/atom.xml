@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: twitter | Fractions on my timeline]]></title>
+  <link href="http://hagzag.github.io/blog/categories/twitter/atom.xml" rel="self"/>
+  <link href="http://hagzag.github.io/"/>
+  <updated>2014-09-10T08:13:34+05:30</updated>
+  <id>http://hagzag.github.io/</id>
+  <author>
+    <name><![CDATA[Haggai Philip Zagury]]></name>
+    <email><![CDATA[hagzag@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Go Social with ifttt - If This Then That]]></title>
+    <link href="http://hagzag.github.io/blog/2013/06/19/go-social-with-ifttt/"/>
+    <updated>2013-06-19T19:47:00+05:30</updated>
+    <id>http://hagzag.github.io/blog/2013/06/19/go-social-with-ifttt</id>
+    <content type="html"><![CDATA[<p><img class="left" src="/assets/images/ifttt.png" title="&lsquo;ifttt logo small&rsquo;" >
+So all I want to do is post a link on facebook everytimr I publish a new article on my <a href="http://octopress.org/">Octopress</a> Post (without the need to do it manually &hellip;).</p>
+
+<p>Create an account @ <a href="https://ifttt.com/">https://ifttt.com/</a><br/><br/><br/>
+Create a rule:
+<img class="center" src="/assets/images/ifttt-start.png" title="&lsquo;ifttt start&rsquo;" ></p>
+
+<p>If RSS
+<img class="center" src="/assets/images/ifttt-stage2.png" title="&lsquo;ifttt stage2&rsquo;" ></p>
+
+<p>Then &ndash; for this exmaple &ndash; post to FaceBook &hellip;
+<img class="center" src="/assets/images/ifttt-facebook.png" title="&lsquo;ifttt stage2&rsquo;" ></p>
+
+<p>I&rsquo;ll submit this post ot github and see if this actually works &ndash; if it does a short status message should rise on my Facebook page.</p>
+
+<!-- more -->
+
+
+<p>you can expand this with much more from existing recipies like the following [ for exmaple using facebook &hellip; ]
+<img class="center" src="/assets/images/Choose_from_existing.png" title="&lsquo;ifttt start&rsquo;" ></p>
+
+<p>Hope you find this useful.</p>
+
+<p>HP</p>
+]]></content>
+  </entry>
+  
+</feed>

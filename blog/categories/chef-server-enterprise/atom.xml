@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Chef server Enterprise | Fractions on my timeline]]></title>
+  <link href="http://hagzag.github.io/blog/categories/chef-server-enterprise/atom.xml" rel="self"/>
+  <link href="http://hagzag.github.io/"/>
+  <updated>2014-09-10T08:13:34+05:30</updated>
+  <id>http://hagzag.github.io/</id>
+  <author>
+    <name><![CDATA[Haggai Philip Zagury]]></name>
+    <email><![CDATA[hagzag@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Chef Server Enterprise features now available in OSS version]]></title>
+    <link href="http://hagzag.github.io/blog/2014/09/10/chef-server-entrprise-features-now-available-in-oss-version/"/>
+    <updated>2014-09-10T07:53:00+05:30</updated>
+    <id>http://hagzag.github.io/blog/2014/09/10/chef-server-entrprise-features-now-available-in-oss-version</id>
+    <content type="html"><![CDATA[<p><img class="left" src="/assets/images/Chef_Mark_Reg-100x100.png" title="&lsquo;Chef logo&rsquo;" >
+<blockquote><p>Today we’re pleased to announce the public availability of the first Chef Server 12 Release Candidate. This release brings the differentiating features of Enterprise Chef, namely multi-tenancy and role-based access control, into Open Source Chef.</p></blockquote></p>
+
+<p>The most exciting features I found &hellip; (among others)
+1.  On-prem supermarket &ndash; start caching those cookbooks into your infrastructure to reduce the download time &hellip;
+2. Reduce the OS footprint thanks to code consolidation, from my test this reduced the installation time and manageability of the server (and it&rsquo;s services).
+3. High Availability (which I still need to checkout for myself &hellip;)
+4. Replication</p>
+
+<p>Read the full post <a href="http://www.getchef.com/blog/2014/09/07/chef-12-release-candidate/?mkt_tok=3RkMMJWWfF9wsRonuq%2FKZKXonjHpfsX77OQuWbHr08Yy0EZ5VunJEUWy2oUCTNQ%2FcOedCQkZHblFnV4NT62jWqINqKMF">here</a></p>
+
+<p>Way to go Chef !</p>
+]]></content>
+  </entry>
+  
+</feed>

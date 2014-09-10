@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Packer | Fractions on my timeline]]></title>
+  <link href="http://hagzag.github.io/blog/categories/packer/atom.xml" rel="self"/>
+  <link href="http://hagzag.github.io/"/>
+  <updated>2014-09-10T08:13:34+05:30</updated>
+  <id>http://hagzag.github.io/</id>
+  <author>
+    <name><![CDATA[Haggai Philip Zagury]]></name>
+    <email><![CDATA[hagzag@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Image CM from the Ground up with packer]]></title>
+    <link href="http://hagzag.github.io/blog/2014/04/25/image-cm-ground-packer/"/>
+    <updated>2014-04-25T22:30:00+05:30</updated>
+    <id>http://hagzag.github.io/blog/2014/04/25/image-cm-ground-packer</id>
+    <content type="html"><![CDATA[<p><img class="left" src="/assets/images/docker-logo-100x134.png" title="&lsquo;Docker logo small&rsquo;" >
+<span style="line-height: 1.6em;">Recently I have had the opportunity to test drive packer.io on a project I am working on, and although I have heard the word packer here and there until you start using it you do not understand the power behind it. As a side note until now there was usage <a href="https://github.com/puppetlabs/Razor">Razor</a>&nbsp;which by the look of it the place where&nbsp;<a href="http://packer.io">packer</a>&nbsp;was inspired from + a better version of <a href="https://github.com/jedi4ever/veewee">veewee</a></span></p>
+
+<p><strong>What is packer ?</strong></p>
+
+<p>From packer.io site &ndash;&gt; Packer&nbsp;is a tool for creating identical machine images for multiple platforms from a single source configuration.</p>
+
+<p>In My words &ndash;&gt; <a href="http://www.packer.io/">Packer</a>, is a complementery tool for DevOps needy of a consistent Infrustructure As Code, taking an image from Dev in to Production &ndash; using the same image in Dev with <a href="http://www.vagrantup.com/">Vagrant</a> (as an exmaple) then pushing it to PROD (AWS for exmaple).</p>
+
+<p>BTW it&#39;s important to note that packer was developed by <span class="vcard-fullname" itemprop="name"><strong>Mitchell Hashimoto</strong> the author of Vagrant, <a href="https://vagrantcloud.com/"><em>Vagrant cloud</em></a> for exmaple really needed a tool like packer in order to provide a way to develop and publish boxes in a consitent manor &ndash; I recommend taking&nbsp; a look at <a href="https://vagrantcloud.com/">Vagrant Cloud </a></span></p>
+
+<p><strong>Why is this important ?</strong></p>
+
+<p>Nowadays building a product doesn&#39;t end with developing a piece of software you in many cases deliver a virtual machine and more and more we find places where we deliver moire than 1 machine, but how do we makw sure this machine can run on multiple cloud provides &ndash; for example AWS &amp; OSTK and many more whilst during development you want to use local hypervisors like VirtualBox, VMware fusion or maybe a local vSphere instance &ndash; how do you make sure all these provisioners will use the same image &ndash;&gt; <strong>Packer</strong> !</p>
+
+<p>Thats not all <strong>packer&nbsp;</strong>also has an integration with Configuration Management Frameworks like Chef / Puppet / Ansible etc which will do the OS customization for you.</p>
+
+<p><strong>How does packer do it (work)</strong></p>
+
+<!-- more -->
+
+
+<p>There is a great approach here in order to create a image which starts from an OS iso and concludes with an <strong>Artifact(s)&nbsp;</strong>which you can take to the cloud ( private / public ) you need a few things:</p>
+
+<ol>
+<li>Template(s) &ndash; a json file which&nbsp;declares:</li>
+<li>Builders &ndash; What type of machines to build AWS, Virtualbox, VMware etc&nbsp;</li>
+<li>Provisioners &ndash; could be shell, chef, puupet, ansible etc&nbsp;</li>
+<li>Post-Processors &ndash; a great exmaple is uploading an artifact to a repository</li>
+</ol>
+
+
+<p><strong>Packer by exmaple:</strong> build for centos 6.4 on virtualbox</p>
+
+<p><u>Builder(s)</u>
+<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+</pre></td><td class='code'><pre><code class='json'><span class='line'><span class="err">&amp;ldquo;builders&amp;rdquo;:</span> <span class="p">[</span><span class="err">&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="err">&lt;pre&gt;&lt;code&gt;</span><span class="p">{</span>
+</span><span class='line'>  <span class="nt">&quot;boot_command&quot;</span><span class="p">:</span> <span class="p">[</span>
+</span><span class='line'>    <span class="s2">&quot;&amp;lt;esc&amp;gt;&quot;</span><span class="p">,</span>
+</span><span class='line'>    <span class="s2">&quot;&amp;lt;wait&amp;gt;linux ks=http://:/anaconda-ks.cfg&amp;lt;enter&amp;gt;&quot;</span>
+</span><span class='line'>  <span class="p">],</span>
+</span><span class='line'>  <span class="nt">&quot;boot_wait&quot;</span><span class="p">:</span> <span class="s2">&quot;5s&quot;</span><span class="p">,</span>
+</span><span class='line'>  <span class="nt">&quot;disk_size&quot;</span><span class="p">:</span> <span class="mi">40000</span><span class="p">,</span>
+</span><span class='line'>  <span class="nt">&quot;guest_os_type&quot;</span><span class="p">:</span> <span class="s2">&quot;RedHat_64&quot;</span><span class="p">,</span>
+</span><span class='line'>  <span class="nt">&quot;headless&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+</span><span class='line'>  <span class="nt">&quot;http_directory&quot;</span><span class="p">:</span> <span class="s2">&quot;./http_directory&quot;</span><span class="p">,</span>
+</span><span class='line'>  <span class="nt">&quot;iso_checksum&quot;</span><span class="p">:</span> <span class="s2">&quot;bb9af2aea1344597e11070abe6b1fcd3&quot;</span><span class="p">,</span>
+</span><span class='line'>  <span class="nt">&quot;iso_checksum_type&quot;</span><span class="p">:</span> <span class="s2">&quot;md5&quot;</span><span class="p">,</span>
+</span><span class='line'>  <span class="nt">&quot;iso_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://mirrors.usinternet.com/centos/6.4/isos/x86_64/CentOS-6.4-x86_64-netinstall.iso&quot;</span><span class="p">,</span>
+</span><span class='line'>  <span class="nt">&quot;ssh_password&quot;</span><span class="p">:</span> <span class="s2">&quot;vagrant&quot;</span><span class="p">,</span>
+</span><span class='line'>  <span class="nt">&quot;ssh_username&quot;</span><span class="p">:</span> <span class="s2">&quot;root&quot;</span><span class="p">,</span>
+</span><span class='line'>  <span class="nt">&quot;ssh_wait_timeout&quot;</span><span class="p">:</span> <span class="s2">&quot;20m&quot;</span><span class="p">,</span>
+</span><span class='line'>  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;virtualbox-iso&quot;</span><span class="p">,</span>
+</span><span class='line'><span class="err">&lt;/code&gt;&lt;/pre&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="err">&lt;p&gt;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+&nbsp;</p>
+
+<p>What you can see from the builder declaration is that packer will simulate a pxe boot server locally (over http) and will run a kickstart installation (this is the same way veewee and razor operates), of course there is a source url for the iso and other important stuff you can see &hellip;</p>
+
+<p>The next section is provisioners which as mentioned be a number of things but in this example I am using shell scripts:</p>
+
+<p><u>Provisioner(s)</u></p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class='json'><span class='line'><span class="err">&amp;ldquo;provisioners&amp;rdquo;:</span> <span class="p">[</span><span class="err">&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="err">&lt;pre&gt;&lt;code&gt;</span><span class="p">{</span>
+</span><span class='line'>  <span class="nt">&quot;script&quot;</span><span class="p">:</span> <span class="s2">&quot;provisioners/install-vbox-additions.sh&quot;</span><span class="p">,</span>
+</span><span class='line'>  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;shell&quot;</span>
+</span><span class='line'><span class="p">},</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="nt">&quot;script&quot;</span><span class="p">:</span> <span class="s2">&quot;provisioners/clean-empty-space.sh&quot;</span><span class="p">,</span>
+</span><span class='line'>  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;shell&quot;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'><span class="err">&lt;/code&gt;&lt;/pre&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="err">&lt;p&gt;</span>  <span class="p">]</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>I guess the&nbsp;<em><strong>install-vbox-guest-additions</strong></em>&nbsp;is understandable but the&nbsp;<strong>​</strong><strong><em>clean-empty-space</em></strong> script is used to save space on the instance just before packaging it (example taken from &ndash;&gt; <a href="https://github.com/gwagner/packer-centos/blob/master/provisioners/clean-empty-space.sh">here</a>).</p>
+
+<p>An example of chef <u>provisioner</u>:</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class='json'><span class='line'><span class="err">&amp;ldquo;type&amp;rdquo;:</span> <span class="err">&amp;ldquo;chef-solo&amp;rdquo;,&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="err">&lt;pre&gt;&lt;code&gt;</span><span class="s2">&quot;cookbook_paths&quot;</span><span class="err">:</span> <span class="p">[</span><span class="s2">&quot;cookbooks&quot;</span><span class="p">]</span><span class="err">,</span>
+</span><span class='line'><span class="s2">&quot;roles_path&quot;</span><span class="err">:</span> <span class="s2">&quot;roles&quot;</span><span class="err">,</span>
+</span><span class='line'><span class="s2">&quot;data_bags_path&quot;</span><span class="err">:</span> <span class="s2">&quot;data_bags&quot;</span><span class="err">,</span>
+</span><span class='line'><span class="s2">&quot;encrypted_data_bag_secret_path&quot;</span><span class="err">:</span> <span class="s2">&quot;.chef/encrypted_data_bag_secret&quot;</span><span class="err">,</span>
+</span><span class='line'><span class="s2">&quot;run_list&quot;</span><span class="err">:</span> <span class="p">[</span>
+</span><span class='line'>  <span class="s2">&quot;role[db-server]&quot;</span><span class="p">,</span>
+</span><span class='line'>  <span class="s2">&quot;role[app1]&quot;</span>
+</span><span class='line'><span class="p">]</span><span class="err">,</span>
+</span><span class='line'><span class="err">&lt;/code&gt;&lt;/pre&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="err">&lt;p&gt;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+Finally once we have an image we want to pack it (and maybe upload it somewhere), this where post-processing operation come in handy:</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='json'><span class='line'><span class="err">&amp;ldquo;post-processors&amp;rdquo;:</span> <span class="p">[</span><span class="err">&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="err">&lt;pre&gt;&lt;code&gt;</span><span class="p">{</span>
+</span><span class='line'>  <span class="nt">&quot;output&quot;</span><span class="p">:</span> <span class="s2">&quot;centos-6_4-64_virtualbox.box&quot;</span><span class="p">,</span>
+</span><span class='line'>  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;vagrant&quot;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'><span class="err">&lt;/code&gt;&lt;/pre&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="err">&lt;p&gt;</span>  <span class="p">]</span><span class="err">,</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+So in this case the post-processor packages the artifact and creates a Vagrant friendly box tar-ball.</p>
+
+<p><u>Post-processor(s)</u> &ndash; vagrant exmaple</p>
+
+<p>A similar example for an aws box would be something like this:</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+</pre></td><td class='code'><pre><code class='json'><span class='line'><span class="p">{</span><span class="err">&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="err">&lt;pre&gt;&lt;code&gt;</span><span class="nt">&quot;builders&quot;</span><span class="p">:</span> <span class="p">[{</span>
+</span><span class='line'>    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;amazon-ebs&quot;</span><span class="p">,</span>
+</span><span class='line'>    <span class="nt">&quot;access_key&quot;</span><span class="p">:</span> <span class="s2">&quot;YOUR_ACCESS_KEY_HERE&quot;</span><span class="p">,</span>
+</span><span class='line'>    <span class="nt">&quot;secret_key&quot;</span><span class="p">:</span> <span class="s2">&quot;YOUR_SECRET_KEY_HERE&quot;</span><span class="p">,</span>
+</span><span class='line'>    <span class="nt">&quot;region&quot;</span><span class="p">:</span> <span class="s2">&quot;nw-west-1&quot;</span><span class="p">,</span>
+</span><span class='line'>    <span class="nt">&quot;source_ami&quot;</span><span class="p">:</span> <span class="s2">&quot;ami-21055220&quot;</span><span class="p">,</span>
+</span><span class='line'>    <span class="nt">&quot;instance_type&quot;</span><span class="p">:</span> <span class="s2">&quot;t1.micro&quot;</span><span class="p">,</span>
+</span><span class='line'>    <span class="nt">&quot;ssh_username&quot;</span><span class="p">:</span> <span class="s2">&quot;ubuntu&quot;</span><span class="p">,</span>
+</span><span class='line'>    <span class="nt">&quot;ssh_timeout&quot;</span><span class="p">:</span> <span class="s2">&quot;10m&quot;</span><span class="p">,</span>
+</span><span class='line'>    <span class="nt">&quot;ami_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Ubuntu_Server_12.04&quot;</span><span class="p">,</span>
+</span><span class='line'>    <span class="nt">&quot;launch_block_device_mappings&quot;</span><span class="p">:</span> <span class="p">[</span>
+</span><span class='line'>        <span class="p">{</span>
+</span><span class='line'>            <span class="nt">&quot;device_name&quot;</span><span class="p">:</span> <span class="s2">&quot;/dev/sda1&quot;</span><span class="p">,</span>
+</span><span class='line'>            <span class="nt">&quot;volume_size&quot;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span>
+</span><span class='line'>            <span class="nt">&quot;delete_on_termination&quot;</span><span class="p">:</span> <span class="kc">true</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>    <span class="p">],</span>
+</span><span class='line'>    <span class="nt">&quot;ami_block_device_mappings&quot;</span><span class="p">:</span> <span class="p">[</span>
+</span><span class='line'>        <span class="p">{</span>
+</span><span class='line'>            <span class="nt">&quot;device_name&quot;</span><span class="p">:</span> <span class="s2">&quot;/dev/sdb&quot;</span><span class="p">,</span>
+</span><span class='line'>            <span class="nt">&quot;virtual_name&quot;</span><span class="p">:</span> <span class="s2">&quot;datadisk&quot;</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>    <span class="p">],</span>
+</span><span class='line'>    <span class="nt">&quot;tags&quot;</span><span class="p">:</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nt">&quot;OS_Version&quot;</span><span class="p">:</span> <span class="s2">&quot;Ubuntu Server 13.10&quot;</span><span class="p">,</span>
+</span><span class='line'>        <span class="nt">&quot;Release&quot;</span><span class="p">:</span> <span class="s2">&quot;Stable&quot;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">}],</span>
+</span><span class='line'><span class="err">&lt;/code&gt;&lt;/pre&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="err">&lt;p&gt;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>You use your AWS_SECRES_KEY &amp; AWS_ACCESS_KEY + use a base ami (ami-21055220) then create a custom image on AWS.</p>
+
+<p>This post just scratches the surface, I hope to write some more about it as I amture with it &ndash;&gt; one of my next tasks is creating a windows image (I wonder how that one pulls through &hellip;).</p>
+
+<p>Hope you enjoyed it.</p>
+
+<p>HP</p>
+]]></content>
+  </entry>
+  
+</feed>

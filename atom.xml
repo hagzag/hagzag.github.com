@@ -1,0 +1,1288 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Fractions on my timeline]]></title>
+  <link href="http://hagzag.github.io/atom.xml" rel="self"/>
+  <link href="http://hagzag.github.io/"/>
+  <updated>2014-09-10T08:13:34+05:30</updated>
+  <id>http://hagzag.github.io/</id>
+  <author>
+    <name><![CDATA[Haggai Philip Zagury]]></name>
+    <email><![CDATA[hagzag@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Chef Server Enterprise features now available in OSS version]]></title>
+    <link href="http://hagzag.github.io/blog/2014/09/10/chef-server-entrprise-features-now-available-in-oss-version/"/>
+    <updated>2014-09-10T07:53:00+05:30</updated>
+    <id>http://hagzag.github.io/blog/2014/09/10/chef-server-entrprise-features-now-available-in-oss-version</id>
+    <content type="html"><![CDATA[<p><img class="left" src="http://hagzag.github.io/assets/images/Chef_Mark_Reg-100x100.png" title="'Chef logo'" ></p>
+
+<blockquote><p>Today we’re pleased to announce the public availability of the first Chef Server 12 Release Candidate. This release brings the differentiating features of Enterprise Chef, namely multi-tenancy and role-based access control, into Open Source Chef.</p></blockquote>
+
+
+<p>The most exciting features I found &hellip; (among others)
+1.  On-prem supermarket &ndash; start caching those cookbooks into your infrastructure to reduce the download time &hellip;
+2. Reduce the OS footprint thanks to code consolidation, from my test this reduced the installation time and manageability of the server (and it&rsquo;s services).
+3. High Availability (which I still need to checkout for myself &hellip;)
+4. Replication</p>
+
+<p>Read the full post <a href="http://www.getchef.com/blog/2014/09/07/chef-12-release-candidate/?mkt_tok=3RkMMJWWfF9wsRonuq%2FKZKXonjHpfsX77OQuWbHr08Yy0EZ5VunJEUWy2oUCTNQ%2FcOedCQkZHblFnV4NT62jWqINqKMF">here</a></p>
+
+<p>Way to go Chef !</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Book Review :: Managing Windows Servers with Chef by John Ewart]]></title>
+    <link href="http://hagzag.github.io/blog/2014/08/20/book-review-Managing-Windows-Servers-with-Chef/"/>
+    <updated>2014-08-20T23:24:00+05:30</updated>
+    <id>http://hagzag.github.io/blog/2014/08/20/book-review-Managing-Windows-Servers-with-Chef</id>
+    <content type="html"><![CDATA[<p><img class="left" src="http://hagzag.github.io/assets/images/2424OS.png" title="'Book Cover'" > As someone which works quite a bit with Chef and naturally had to do some Chef on Windows, this book really provides a lot of insight into the &ldquo;Chef on Windows&rdquo; topic. All the configuration management tools out there support windows in one way or another but IMHO chef&rsquo;s investment into windows despite the fact it isn&rsquo;t the natural OS choice to say the least, is huge compared to the others out there (again IMHO).</p>
+
+<p>This book <a href="https://www.packtpub.com/networking-and-servers/managing-windows-servers-chef">Managing Windows Servers with Chef</a> is A natural sequel to “Instant Chef Starter” also by the John Ewart.</p>
+
+<p>One of the big promises of this book is removing the natural recoil *nix sysadmins have from windows configuration management.
+The Book provides a good overview of the <a href="https://github.com/opscode-cookbooks/windows">Chef Windows cookbook</a> and it&rsquo;s <a href="http://docs.getchef.com/lwrp_windows.html">LWRP&rsquo;s</a>.</p>
+
+<p><strong>Chapter 4 &ldquo;Deploying an Application stack&rdquo;</strong> presented a nice example implementation, although I must say I would have appreciated a more complex example considering this book audience is for sysadmins which are already familiar with Chef.</p>
+
+<p>I liked chapter <strong>5 &ldquo;Managing Cloud Services with Chef&rdquo;</strong> which emphasizes how the different knife plugins for Windows azure, ec2 and rackspace &ldquo;behave&rdquo; with windows hosts as easily it works with linux ones (despite the fact we do not rely on ssh :) ).</p>
+
+<p>The end of the book gives a small taste of <a href="http://rspec.info/">Rspec</a> and <a href="http://docs.getchef.com/chefspec.html">ChefSpec</a> which tries to introduce the <a href="http://en.wikipedia.org/wiki/Test-driven_development">TDD</a> concept into the cookbook development lifecycle &ndash; IMO this topic is extremely important nowadays considering opscode (Operation Code &hellip; not Opscode Chef the old name if Chef Inc.) should be tested as any other code.</p>
+
+<p>The fact the book is short and succinct &ndash; 110 pages (consider prerequisites are you know chef) is a big advantage to such a book.
+There are quite a few techniques I will be taking with me from this book + it&rsquo;s a great addition to my books library.</p>
+
+<p>Hope you enjoy it as much as I did.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[PanaMax - Docker Management for Humans]]></title>
+    <link href="http://hagzag.github.io/blog/2014/08/15/pamnamax-docker-management-for-humans/"/>
+    <updated>2014-08-15T17:57:00+05:30</updated>
+    <id>http://hagzag.github.io/blog/2014/08/15/pamnamax-docker-management-for-humans</id>
+    <content type="html"><![CDATA[<p><img class="left" src="http://hagzag.github.io/assets/images/docker-logo-100x134.png" title="'Docker logo'" >
+As cool as Docker is there is quite a lot of stuff you need to start caring about, service discovery, orchestration, routing and so on, and there is a long line of technologies which help you achieve that, here is quite a long list just as an example:</p>
+
+<ul>
+<li><a href="https://coreos.com">CoreOS</a> &ndash; The orchestrator / Container host operating system comes prepackaged with <a href="https://www.docker.com/">Docker</a>, <a href="https://github.com/coreos/etcd">etcd</a> &amp; <a href="https://github.com/coreos/fleet">fleet</a></li>
+<li><a href="https://github.com/coreos/fleet">fleet</a> &ndash; A distributed init system paired with <a href="https://github.com/coreos/etcd">etcd</a> &amp; <a href="https://coreos.com/using-coreos/systemd">systemd</a></li>
+<li><a href="http://zookeeper.apache.org/">zookeeper</a>, <a href="https://github.com/lonnen/doozer">Doozer</a>, <a href="https://github.com/coreos/etcd">etcd</a>&ndash; share configuration across a cluster of servers (cluster manager)</li>
+<li><a href="https://flynn.io">flynn</a> &ndash; A framework for building distributed systems in the past you might of heard of <a href="https://github.com/flynn/discoverd">discoverd</a> which is now part of flynn.</li>
+<li><a href="http://mesos.apache.org">mesos</a>, <a href="https://github.com/GoogleCloudPlatform/kubernetes">Kubernetes</a>, <a href="http://openshift.github.io/geard/">geard</a>&ndash; cluster managers</li>
+<li><a href="http://www.fig.sh/">fig</a> &ndash; Orchestration of local development environments.</li>
+<li><a href="https://github.com/docker/libswarm">libswarm</a> &ndash; network services &ldquo;composer&rdquo; for containers.</li>
+<li><a href="https://github.com/crosbymichael/skydock">skydock</a> &ndash; Service Discovery for Docker.</li>
+<li><a href="https://github.com/progrium/ambassadord">ambassadord</a>, <a href="https://github.com/progrium/registrator">registrator</a>, <a href="https://github.com/progrium/consulate">consulate</a> &ndash; you will find these three work together in order to enable service registration and discovery / auto discovery for Docker containers, <a href="https://github.com/progrium/registrator">registrator</a> also uses <a href="http://www.consul.io/">consul</a> and <a href="https://github.com/coreos/etcd">etcd</a> in order to do that.</li>
+<li><a href="http://www.consul.io/">consul</a> &ndash; Built based on <a href="http://www.serfdom.io/">serf</a> a service discovery broker.</li>
+<li><a href="https://github.com/progrium/consulate">consulate</a> &ndash; another discovery service based on <a href="http://www.consul.io/">consul</a></li>
+<li><a href="https://github.com/progrium/configurator">configurator</a> &ndash; serve configuration files via REST API</li>
+<li><a href="https://github.com/progrium/registrator">registrator</a> &ndash; service registry bridge (a.k.a <a href="https://github.com/progrium/docksul">docksul</a>)</li>
+</ul>
+
+
+<p>And there is more (believe me I&rsquo;ve done my research &hellip;)
+If you need to spin up a single container you do not need all this stuff, but when you need to launch more than one container in order to bring your system up, and maybe span over more than 1 host you need a few of the tools listed above in order to achieve that.
+Looking at this list and knowing it is potentially mych longer &hellip; think how many tools you need to master in order to launch a POC &hellip; before you can start developing your system and develop a continuous delivery / deployment scheme for it !</p>
+
+<h4>So how can you simplify the development life-cycle of a containerized solution / system ?</h4>
+
+<p><img class="left" src="http://hagzag.github.io/assets/images/pmx_logo.png" title="'Panamax logo'" > Panamax by <a href="http://www.centurylinklabs.com/">centurylinklabs</a> to the rescue.
+Panamax is (and I quote) a containerized app creator with an open-source app marketplace hosted in GitHub, I think the last bit is most important one the fact you can find on github a template of an existing &ldquo;containarized&rdquo; systems is awesome &ndash; very similar to the way you can share Docker files but here instead you get a <a href="http://www.fig.sh/">fig</a> file which describes your environment and &ldquo;tells&rdquo; your containers what to do, who to connect to etc. etc.</p>
+
+<h4>About Panamax</h4>
+
+<p><img class="left" src="http://hagzag.github.io/assets/images/coreos-100x100.png" title="'CoreOs logo'" > PanaMax is naturally based on CoreOs and has made some educated choices for example fleet and etcd which are shipped part of CoreOs, according to Lucas Carlson of <a href="http://www.centurylinklabs.com/">centurylinklabs</a> PanaMax will support other OS&rsquo;s and other orchestration frameworks in the future, as you may understand this was just released a few days ago (August 12 to be precise).</p>
+
+<h4>Using Panamax</h4>
+
+<p>After <a href="https://www.youtube.com/watch?v=15IKkYCfymk#t=434">installing PanaMax</a> and you have panamax up and running on your local machine you can search for existing systems as an example lets take the <a href="https://raw.githubusercontent.com/CenturyLinkLabs/panamax-public-templates/master/piwik.pmx">piwik exmaple</a> by searching in our local panamax ui via <a href="http://localhost:8888">http://localhost:8888</a> (the default)<!-- more --></p>
+
+<p><img class="left" src="http://hagzag.github.io/assets/images/panamax_search_piwik.png" title="'piwik search'" ></p>
+
+<p>Pressing the &ldquo;run template&rdquo; button will result in panamax parsing the pmx(fig) yaml file:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+</pre></td><td class='code'><pre><code class='yaml'><span class='line'><span class="l-Scalar-Plain">images</span><span class="p-Indicator">:</span>
+</span><span class='line'><span class="p-Indicator">-</span> <span class="l-Scalar-Plain">category</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Web Tier</span>
+</span><span class='line'>  <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Piwik</span>
+</span><span class='line'>  <span class="l-Scalar-Plain">source</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">cbeer/piwik</span>
+</span><span class='line'>  <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Piwik web application</span>
+</span><span class='line'>  <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Default</span>
+</span><span class='line'>  <span class="l-Scalar-Plain">ports</span><span class="p-Indicator">:</span>
+</span><span class='line'>  <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">host_port</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">80</span>
+</span><span class='line'>    <span class="l-Scalar-Plain">container_port</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">80</span>
+</span><span class='line'>  <span class="l-Scalar-Plain">links</span><span class="p-Indicator">:</span>
+</span><span class='line'>  <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">service</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">DB</span>
+</span><span class='line'>    <span class="l-Scalar-Plain">alias</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">db</span>
+</span><span class='line'><span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">DB</span>
+</span><span class='line'>  <span class="l-Scalar-Plain">source</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">centurylink/mysql:5.5</span>
+</span><span class='line'>  <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">MySQL</span>
+</span><span class='line'>  <span class="l-Scalar-Plain">environment</span><span class="p-Indicator">:</span>
+</span><span class='line'>    <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">variable</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">MYSQL_ROOT_PASSWORD</span>
+</span><span class='line'>      <span class="l-Scalar-Plain">value</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">pass@word01</span>
+</span><span class='line'>  <span class="l-Scalar-Plain">ports</span><span class="p-Indicator">:</span>
+</span><span class='line'>  <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">host_port</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">3306</span>
+</span><span class='line'>    <span class="l-Scalar-Plain">container_port</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">3306</span>
+</span><span class='line'>  <span class="l-Scalar-Plain">category</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">DB Tier</span>
+</span><span class='line'>  <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">mysql</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Then panamax will download the docker images from the section above in this example: <a href="https://registry.hub.docker.com/u/cbeer/piwik/builds_history/31636/">cbeer/piwik</a> &amp; <a href="https://registry.hub.docker.com/u/centurylink/mysql/builds_history/38801/">centurylink/mysql:5.5</a>
+<img class="left" src="http://hagzag.github.io/assets/images/panamax_run_piwik.png" title="'piwik search'" ></p>
+
+<p>Once the docker images are downloaded and spawn up you can examine the CoreOS Journal log and see exactly what occurred:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">Aug</span> <span class="mi">16</span> <span class="mi">15</span><span class="p">:</span><span class="mi">55</span><span class="p">:</span><span class="mi">53</span> <span class="n">docker</span> <span class="mi">140816</span> <span class="mi">12</span><span class="p">:</span><span class="mi">55</span><span class="p">:</span><span class="mi">53</span> <span class="o">[</span><span class="no">Note</span><span class="o">]</span> <span class="no">Server</span> <span class="n">hostname</span> <span class="p">(</span><span class="n">bind</span><span class="o">-</span><span class="n">address</span><span class="p">):</span> <span class="s1">&#39;0.0.0.0&#39;</span><span class="p">;</span> <span class="ss">port</span><span class="p">:</span> <span class="mi">3306</span>
+</span><span class='line'><span class="no">Aug</span> <span class="mi">16</span> <span class="mi">15</span><span class="p">:</span><span class="mi">55</span><span class="p">:</span><span class="mi">53</span> <span class="n">docker</span> <span class="mi">140816</span> <span class="mi">12</span><span class="p">:</span><span class="mi">55</span><span class="p">:</span><span class="mi">53</span> <span class="o">[</span><span class="no">Note</span><span class="o">]</span> <span class="o">-</span> <span class="s1">&#39;0.0.0.0&#39;</span> <span class="n">resolves</span> <span class="n">to</span> <span class="s1">&#39;0.0.0.0&#39;</span><span class="p">;</span>
+</span><span class='line'><span class="no">Aug</span> <span class="mi">16</span> <span class="mi">15</span><span class="p">:</span><span class="mi">55</span><span class="p">:</span><span class="mi">53</span> <span class="n">docker</span> <span class="mi">140816</span> <span class="mi">12</span><span class="p">:</span><span class="mi">55</span><span class="p">:</span><span class="mi">53</span> <span class="o">[</span><span class="no">Note</span><span class="o">]</span> <span class="no">Server</span> <span class="n">socket</span> <span class="n">created</span> <span class="n">on</span> <span class="ss">IP</span><span class="p">:</span> <span class="s1">&#39;0.0.0.0&#39;</span><span class="o">.</span>
+</span><span class='line'><span class="no">Aug</span> <span class="mi">16</span> <span class="mi">15</span><span class="p">:</span><span class="mi">55</span><span class="p">:</span><span class="mi">53</span> <span class="n">docker</span> <span class="mi">140816</span> <span class="mi">12</span><span class="p">:</span><span class="mi">55</span><span class="p">:</span><span class="mi">53</span> <span class="o">[</span><span class="no">Note</span><span class="o">]</span> <span class="no">Event</span> <span class="ss">Scheduler</span><span class="p">:</span> <span class="no">Loaded</span> <span class="mi">0</span> <span class="n">events</span>
+</span><span class='line'><span class="no">Aug</span> <span class="mi">16</span> <span class="mi">15</span><span class="p">:</span><span class="mi">55</span><span class="p">:</span><span class="mi">53</span> <span class="n">docker</span> <span class="mi">140816</span> <span class="mi">12</span><span class="p">:</span><span class="mi">55</span><span class="p">:</span><span class="mi">53</span> <span class="o">[</span><span class="no">Note</span><span class="o">]</span> <span class="sr">/usr/s</span><span class="n">bin</span><span class="o">/</span><span class="ss">mysqld</span><span class="p">:</span> <span class="n">ready</span> <span class="k">for</span> <span class="n">connections</span><span class="o">.</span>
+</span><span class='line'><span class="no">Aug</span> <span class="mi">16</span> <span class="mi">15</span><span class="p">:</span><span class="mi">55</span><span class="p">:</span><span class="mi">53</span> <span class="n">docker</span> <span class="ss">Version</span><span class="p">:</span> <span class="s1">&#39;5.5.38-0ubuntu0.14.04.1-log&#39;</span> <span class="ss">socket</span><span class="p">:</span> <span class="s1">&#39;/var/run/mysqld/mysqld.sock&#39;</span> <span class="ss">port</span><span class="p">:</span> <span class="mi">3306</span> <span class="p">(</span><span class="no">Ubuntu</span><span class="p">)</span>
+</span><span class='line'><span class="no">Aug</span> <span class="mi">16</span> <span class="mi">16</span><span class="p">:</span><span class="mo">00</span><span class="p">:</span><span class="mi">48</span> <span class="n">systemd</span> <span class="no">Started</span> <span class="no">Piwik</span> <span class="n">web</span> <span class="n">application</span><span class="o">.</span>
+</span><span class='line'><span class="no">Aug</span> <span class="mi">16</span> <span class="mi">16</span><span class="p">:</span><span class="mo">00</span><span class="p">:</span><span class="mi">49</span> <span class="n">docker</span> <span class="no">Error</span> <span class="n">response</span> <span class="n">from</span> <span class="ss">daemon</span><span class="p">:</span> <span class="no">No</span> <span class="n">such</span> <span class="ss">container</span><span class="p">:</span> <span class="no">Piwik</span>
+</span><span class='line'><span class="no">Aug</span> <span class="mi">16</span> <span class="mi">16</span><span class="p">:</span><span class="mo">00</span><span class="p">:</span><span class="mi">49</span> <span class="n">docker</span> <span class="mi">2014</span><span class="o">/</span><span class="mi">08</span><span class="o">/</span><span class="mi">16</span> <span class="mi">13</span><span class="p">:</span><span class="mo">00</span><span class="p">:</span><span class="mi">48</span> <span class="ss">Error</span><span class="p">:</span> <span class="n">failed</span> <span class="n">to</span> <span class="n">remove</span> <span class="n">one</span> <span class="ow">or</span> <span class="n">more</span> <span class="n">containers</span>
+</span><span class='line'><span class="no">Aug</span> <span class="mi">16</span> <span class="mi">16</span><span class="p">:</span><span class="mo">00</span><span class="p">:</span><span class="mi">50</span> <span class="n">docker</span> <span class="sr">/usr/</span><span class="n">lib</span><span class="o">/</span><span class="n">python2</span><span class="o">.</span><span class="mi">7</span><span class="o">/</span><span class="n">dist</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">supervisor</span><span class="o">/</span><span class="n">options</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">295</span><span class="p">:</span> <span class="ss">UserWarning</span><span class="p">:</span> <span class="no">Supervisord</span> <span class="n">is</span> <span class="n">running</span> <span class="n">as</span> <span class="n">root</span> <span class="ow">and</span> <span class="n">it</span> <span class="n">is</span> <span class="n">searching</span> <span class="k">for</span> <span class="n">its</span> <span class="n">configuration</span> <span class="n">file</span> <span class="k">in</span> <span class="n">default</span> <span class="n">locations</span> <span class="p">(</span><span class="n">including</span> <span class="n">its</span> <span class="n">current</span> <span class="n">working</span> <span class="n">directory</span><span class="p">);</span> <span class="n">you</span> <span class="n">probably</span> <span class="n">want</span> <span class="n">to</span> <span class="n">specify</span> <span class="n">a</span> <span class="s2">&quot;-c&quot;</span> <span class="n">argument</span> <span class="n">specifying</span> <span class="n">an</span> <span class="n">absolute</span> <span class="n">path</span> <span class="n">to</span> <span class="n">a</span> <span class="n">configuration</span> <span class="n">file</span> <span class="k">for</span> <span class="n">improved</span> <span class="n">security</span><span class="o">.</span>
+</span><span class='line'><span class="no">Aug</span> <span class="mi">16</span> <span class="mi">16</span><span class="p">:</span><span class="mo">00</span><span class="p">:</span><span class="mi">50</span> <span class="n">docker</span> <span class="s1">&#39;Supervisord is running as root and it is searching &#39;</span>
+</span><span class='line'><span class="no">Aug</span> <span class="mi">16</span> <span class="mi">16</span><span class="p">:</span><span class="mo">00</span><span class="p">:</span><span class="mi">50</span> <span class="n">docker</span> <span class="mi">2014</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">16</span> <span class="mi">13</span><span class="p">:</span><span class="mo">00</span><span class="p">:</span><span class="mi">50</span><span class="p">,</span><span class="mi">924</span> <span class="no">CRIT</span> <span class="no">Supervisor</span> <span class="n">running</span> <span class="n">as</span> <span class="n">root</span> <span class="p">(</span><span class="n">no</span> <span class="n">user</span> <span class="k">in</span> <span class="n">config</span> <span class="n">file</span><span class="p">)</span>
+</span><span class='line'><span class="no">Aug</span> <span class="mi">16</span> <span class="mi">16</span><span class="p">:</span><span class="mo">00</span><span class="p">:</span><span class="mi">50</span> <span class="n">docker</span> <span class="mi">2014</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">16</span> <span class="mi">13</span><span class="p">:</span><span class="mo">00</span><span class="p">:</span><span class="mi">50</span><span class="p">,</span><span class="mi">924</span> <span class="no">WARN</span> <span class="no">Included</span> <span class="n">extra</span> <span class="n">file</span> <span class="s2">&quot;/etc/supervisor/conf.d/supervisord-apache2.conf&quot;</span> <span class="n">during</span> <span class="n">parsing</span>
+</span><span class='line'><span class="no">Aug</span> <span class="mi">16</span> <span class="mi">16</span><span class="p">:</span><span class="mo">00</span><span class="p">:</span><span class="mi">51</span> <span class="n">docker</span> <span class="mi">2014</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">16</span> <span class="mi">13</span><span class="p">:</span><span class="mo">00</span><span class="p">:</span><span class="mi">51</span><span class="p">,</span><span class="mo">076</span> <span class="no">INFO</span> <span class="no">RPC</span> <span class="n">interface</span> <span class="s1">&#39;supervisor&#39;</span> <span class="n">initialized</span>
+</span><span class='line'><span class="no">Aug</span> <span class="mi">16</span> <span class="mi">16</span><span class="p">:</span><span class="mo">00</span><span class="p">:</span><span class="mi">51</span> <span class="n">docker</span> <span class="mi">2014</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">16</span> <span class="mi">13</span><span class="p">:</span><span class="mo">00</span><span class="p">:</span><span class="mi">51</span><span class="p">,</span><span class="mo">076</span> <span class="no">CRIT</span> <span class="no">Server</span> <span class="s1">&#39;unix_http_server&#39;</span> <span class="n">running</span> <span class="n">without</span> <span class="n">any</span> <span class="no">HTTP</span> <span class="n">authentication</span> <span class="n">checking</span>
+</span><span class='line'><span class="no">Aug</span> <span class="mi">16</span> <span class="mi">16</span><span class="p">:</span><span class="mo">00</span><span class="p">:</span><span class="mi">51</span> <span class="n">docker</span> <span class="mi">2014</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">16</span> <span class="mi">13</span><span class="p">:</span><span class="mo">00</span><span class="p">:</span><span class="mi">51</span><span class="p">,</span><span class="mo">076</span> <span class="no">INFO</span> <span class="n">supervisord</span> <span class="n">started</span> <span class="n">with</span> <span class="n">pid</span> <span class="mi">1</span>
+</span><span class='line'><span class="no">Aug</span> <span class="mi">16</span> <span class="mi">16</span><span class="p">:</span><span class="mo">00</span><span class="p">:</span><span class="mi">52</span> <span class="n">docker</span> <span class="mi">2014</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">16</span> <span class="mi">13</span><span class="p">:</span><span class="mo">00</span><span class="p">:</span><span class="mi">52</span><span class="p">,</span><span class="mi">098</span> <span class="no">INFO</span> <span class="ss">spawned</span><span class="p">:</span> <span class="s1">&#39;apache2&#39;</span> <span class="n">with</span> <span class="n">pid</span> <span class="mi">11</span>
+</span><span class='line'><span class="no">Aug</span> <span class="mi">16</span> <span class="mi">16</span><span class="p">:</span><span class="mo">00</span><span class="p">:</span><span class="mi">53</span> <span class="n">docker</span> <span class="mi">2014</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">16</span> <span class="mi">13</span><span class="p">:</span><span class="mo">00</span><span class="p">:</span><span class="mi">53</span><span class="p">,</span><span class="mi">315</span> <span class="no">INFO</span> <span class="ss">success</span><span class="p">:</span> <span class="n">apache2</span> <span class="n">entered</span> <span class="no">RUNNING</span> <span class="n">state</span><span class="p">,</span> <span class="n">process</span> <span class="n">has</span> <span class="n">stayed</span> <span class="n">up</span> <span class="k">for</span> <span class="o">&gt;</span> <span class="n">than</span> <span class="mi">1</span> <span class="n">seconds</span> <span class="p">(</span><span class="n">startsecs</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>As you recall CoreOs ships with fleet so you can basically run any fleet command and see what containers (units) are running on your system:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">core</span><span class="vi">@panamax</span><span class="o">-</span><span class="n">vm</span> <span class="o">~</span> <span class="err">$</span> <span class="n">fleetctl</span> <span class="n">list</span><span class="o">-</span><span class="n">units</span>
+</span><span class='line'><span class="no">UNIT</span>          <span class="no">STATE</span>       <span class="no">LOAD</span>    <span class="no">ACTIVE</span>      <span class="no">SUB</span>     <span class="no">DESC</span>            <span class="no">MACHINE</span>
+</span><span class='line'><span class="no">DB</span><span class="o">.</span><span class="n">service</span>      <span class="n">launched</span> <span class="n">loaded</span>   <span class="n">active</span>       <span class="n">running</span>      <span class="no">MySQL</span>           <span class="mi">0890</span><span class="n">a9ee</span><span class="o">.</span><span class="n">.</span><span class="o">.</span><span class="n">/</span><span class="mi">10</span><span class="o">.</span><span class="mi">0</span><span class="o">.</span><span class="mi">2</span><span class="o">.</span><span class="mi">15</span>
+</span><span class='line'><span class="no">Piwik</span><span class="o">.</span><span class="n">service</span>       <span class="n">launched</span> <span class="n">loaded</span>   <span class="n">active</span>       <span class="n">running</span>      <span class="no">Piwik</span> <span class="n">web</span> <span class="n">application</span> <span class="mi">0890</span><span class="n">a9ee</span><span class="o">.</span><span class="n">.</span><span class="o">.</span><span class="n">/</span><span class="mi">10</span><span class="o">.</span><span class="mi">0</span><span class="o">.</span><span class="mi">2</span><span class="o">.</span><span class="mi">15</span>
+</span><span class='line'><span class="n">jenkins_latest</span><span class="o">.</span><span class="n">service</span>   <span class="n">launched</span> <span class="n">loaded</span>   <span class="n">deactivating</span> <span class="n">stop</span><span class="o">-</span><span class="n">sigterm</span>   <span class="o">-</span>            <span class="mi">0890</span><span class="n">a9ee</span><span class="o">.</span><span class="n">.</span><span class="o">.</span><span class="n">/</span><span class="mi">10</span><span class="o">.</span><span class="mi">0</span><span class="o">.</span><span class="mi">2</span><span class="o">.</span><span class="mi">15</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Of course you can examine each image / service separately from the UI and see the container linking / exposed ports.
+<img class="left" src="http://hagzag.github.io/assets/images/panamax_service_piwik.png" title="'piwik serviceh'" ></p>
+
+<p>Same for the mysql image:<br/>
+you can see the container exposed ports, and system variables which are used by piwik to connect.
+<img class="left" src="http://hagzag.github.io/assets/images/panamax_service_mysql.png" title="'piwik service'" ></p>
+
+<p>The cool thing about panamax is &ldquo;forking&rdquo; a system by performing some changes and &ldquo;save as&rdquo; like so:
+<img class="left" src="http://hagzag.github.io/assets/images/panamax_save_changes.png" title="'save as'" ></p>
+
+<p>The first time you do this you will need to create a github token &ndash; make sure you have the following settings:
+<img class="left" src="http://hagzag.github.io/assets/images/github_app_token.png" title="'github token'" ></p>
+
+<p>Now I should choose my github repository and publish it &hellip;
+<img class="left" src="http://hagzag.github.io/assets/images/panamax_saveas.png" title="'panamax save as'" ></p>
+
+<p>And a few seconds later i have my own clone out there &hellip;
+<img class="left" src="http://hagzag.github.io/assets/images/github_my_fork.png" title="'piwik fork'" ></p>
+
+<h4>To summarize</h4>
+
+<p>Panamax takes away a lot of headaches, it is quite user friendly and easy to share with your colleagues, The power of it being linked to Github is awesome (but may limit the usage for non github users).
+As you could see in this post the steps taken to create a template / clone a template, perform the application wiring (with fleet) was a few clicks &ndash; there is of course an API for panamax but I assume I will be able to discuss that only after I experiment a bit more with it.
+Two thumbs up for <a href="http://www.centurylinklabs.com/">centurylinklabs</a> putting together this great tool &ndash; definitely a tool to keep an eye on.</p>
+
+<p>References used for this article:</p>
+
+<ul>
+<li><a href="http://www.centurylinklabs.com/">centurylinklabs</a> a great resource for Docker &ndash; iv&#8217;e been watching it for some time now &hellip;</li>
+<li><a href="http://panamax.io/">http://panamax.io/</a> &ndash; released Aug 12 2014</li>
+<li><a href="https://coreos.com">CoreOS website</a> &ndash; Linux for Massive Server Deployments</li>
+<li><a href="http://devo.ps/">devo.ps</a> &ndash; An API for Infrastructure</li>
+<li><a href="http://devo.ps/blog/zookeeper-vs-doozer-vs-etcd/">A nice blog post ZooKeeper vs. Doozer vs. Etcd</a></li>
+<li><a href="http://phusion.github.io/baseimage-docker/">Base Image Docker &ndash; worth a read</a></li>
+<li><a href="http://www.centurylinklabs.com/">centurylinklabs</a>&rsquo;s <a href="https://github.com/CenturyLinkLabs/panamax-public-templates">templates repository </a>.</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Jenkins the software development framework for everyone [ JUC 2014 Hertzlia - overview ]]]></title>
+    <link href="http://hagzag.github.io/blog/2014/07/19/JUC-2014-Hertzlia-overview/"/>
+    <updated>2014-07-19T23:00:00+05:30</updated>
+    <id>http://hagzag.github.io/blog/2014/07/19/JUC-2014-Hertzlia-overview</id>
+    <content type="html"><![CDATA[<p><img class="left" src="http://hagzag.github.io/assets/images/jenkins140x140.jpg" title="'Jenkins logo small'" >
+Hi all,</p>
+
+<p>Before I start I would like to say it was overwhelming to see that&nbsp;<em>Kohsuke Kawaguchi</em>, <em>Heath Dorn </em>and all other&nbsp;participants who took the trip to ISRAEL&nbsp;inspite of the delicate situation, took&nbsp;the time to participate in this event. And&nbsp;apart of a short distruption @ 09:15 it was a quite&nbsp;day for the Hertzliya area &hellip;</p>
+
+<p>This blog post is to serve as my JUC summary (Worth noting: this summary wasn&#39;t sponsered / ordered by any company and reflects my personal take of Jenkins and the Jenkins user conference.)</p>
+
+<p><img src="http://hagzag.github.io/assets/images/jenkins-herzlia-2014.jpg" alt="" /></p>
+
+<p><strong>The what (what is this guy talking about ?)</strong></p>
+
+<p>I have to say I had an&nbsp;epiphany this week in the <a href="http://www.cloudbees.com/jenkins-user-conference-2012-israel.cb">JUC Hertzlia</a>, Jenkins or Jenkins-ci as&nbsp;suggested&nbsp;in it name / domain name, isn&#39;t just a build server, its a <strong>Software Development Framework</strong>, it does much more than invoke your favorite build tool &hellip; and give me a chance to explain &hellip;</p>
+
+<p>In past years I used to refer to Jenkins (&amp; Hudson) as &quot;<em>a fancy cron</em> <em>job</em>&quot; (hope I didn&#39;t offend anyone &hellip;), but witnessing such a&nbsp;vast adoption and hearing from many companies about how they use Jenkins to drive their business makes me use this term &quot;<strong><em>framework</em></strong>&quot; because you can literally mold Jenkins into anything you want &hellip; and the&nbsp;<strong><em>for everyone</em></strong> part is to point our its not only for java as many people used to think &hellip; it is really a multi purpose <em><strong>software development framework</strong></em> which empowers our businesses.</p>
+
+<!-- more -->
+
+
+<p>I have just recently completed an Audit for one of my customers @ Tikal, which are using Jenkins to deploy their product into test,&nbsp;pre-prod &amp; prod utilizing tools like <em><strong>mcollective</strong></em>, <em><strong>chef</strong></em> etc, it&#39;s not all about CI anymore ! (KK I suggest a rename), Jenkins is much much more than CI!, the reason I refer to it as a <em>framework</em>, is that there are many more usages to Jenkins which never came to mind until you participate in these conferences &ndash; A huge&nbsp;thanks to <a href="http://www.jfrog.com/">Jfrog</a> &amp; <a href="http://www.cloudbees.com/">Cloudbees</a> for making it happen. I see companies using Jenkins to trigger backup &amp; restore procedures, spin up servers / autoscale (in production) and many more crazy ideas. This is due to the flexibility in Jenkins&#39;s design, ease of use and extensibility &ndash; there are over <strong>900 plugins</strong> to Jenkins. If you need to make Jenkins do something it doesn&#39;t already do &ndash;&gt; let&#39;s write a plugin for it &hellip; And&nbsp;thanks to the design and the tooling offered by the Jenkins community&nbsp;that makes all this possible.</p>
+
+<p><strong>The why / how &ndash; my JUC Hertzlia summary &hellip;</strong></p>
+
+<p>The&nbsp;<em>epiphany &ndash;&gt;&nbsp;</em>In the last 3 JUC&#39;s in ISRAEL (this year was the 4th), I gave a talk on Jenkins and how I use it in the&nbsp;many projects I participate/d in, and this year I felt I have nothing new to say &hellip; and then without noticing and hearing the different talks I noticed I was so wrong (yes I am not always right ;)) &hellip;, Jenkins is the enabler of many processes we implement into our workflow. In <a href="http://prezi.com/u4zb3h6s5vql/devops-4-devlopers/">JUC 2012 presentation</a>&nbsp;I referred to Jenkins as the &quot;<u>conveyor of business</u>&quot; driving our software from concept to production utilizing maven, chef and open-stack and I was happy to see that the talks we witnessed both in 2013 and 2014 are exactly where the&nbsp;<strong>Jenkins framework</strong> is going, you can see plugins &amp; processes which refer to Jenkins as the business enabler, it is now a mission critical system not just a &quot;backend&quot; system used by development.</p>
+
+<p>JUC Hertzlia a had a few great talks by quite a few companies which are all saying how great Jenkins and its&nbsp;<span style="color: rgb(0, 0, 0); font-family: 'trebuchet ms', sans-serif; line-height: normal;">ecosystem</span> are. Creator &amp; maintainer of Jenkins&nbsp;<strong><a href="http://www.cloudbees.com/company-team.cb#KohsukeKawaguchi">Kohsuke Kawaguchi</a>&nbsp;</strong><span style="line-height: 1.6em;">shared the roadmap and a few plugins he was able to reach in order to talk about.&nbsp;As I recall KK himself said he apologizes but these are the plugins he was able to reach in order to talk about and he hopes no one was offended because he didn&#39;t talk about their plugin &hellip;, this reminds me two years ago in 2012 JUC when I talked about the Jenkins Multijob plugin where KK said I had no idea you guys were developing it ;). These are the reasons I call Jenkins a framework is it doing so much and being used in so many ways it is hard to keep track of it.</span></p>
+
+<p>One slide which caught my eye was the following one:</p>
+
+<p><img src="http://hagzag.github.io/assets/images/Leaderboard-1.jpg" alt="" /></p>
+
+<p>Taken from &ndash;&gt; <a href="http://pages.zeroturnaround.com/Java-Tools-Technologies.html?utm_source=Java%20Tools%20&amp;amp;%20Technologies%202014&amp;amp;utm_medium=allreports&amp;amp;utm_campaign=rebellabs&amp;amp;utm_rebellabsid=88">this link</a> and although&nbsp;this slide is very Java oriented (J rebel &hellip;), I think that it gives a clear picture of what is going on in the Java Enterprise market and can reflect on other segments, the numbers may differ give or take 5-10%, which is quite impressive.</p>
+
+<p><a href="http://www.cloudbees.com/company-team.cb#KohsukeKawaguchi">Kohsuke Kawaguchi</a> The Keynote speaker gave the opening and closing talks describing the main project focus which is on <a href="https://github.com/jenkinsci/workflow-plugin">workflow</a> and improving slave connectivity of both JNLP and SSH slaves basically improving they &quot;reporting&quot; capabilities between the master and slave, In addition &quot;out sourcing&quot; / sharing the Jenkins infrastructure testing, One of the pains I have had in a few projects is testing a Jenkins upgrade In one of my previous projects we came up with a set of shell scripts which did that in a very inefficient way, and I think being able to utlize the &quot;Jenkins official integration testing suite&quot; will drive stability into the upgrade lifecycle of Jenkins and perhaps enable us to be less conservative with LTS releases and using more and more cutting edge releases (latest).</p>
+
+<p><img alt="" src="http://hagzag.github.io/assets/images/oops-jenkins.png" style="width: 50px; height: 57px; margin-left: 5px; margin-right: 5px; float: left;" /><span style="line-height: 1.6em;">&nbsp;</span><img alt="" src="http://hagzag.github.io/assets/images/happy-jenkins.png" style="width: 45px; height: 58px; margin-left: 5px; margin-right: 5px; float: left;" />
+There is actually a pattern here we can see more and more of, which was also presented by <em><strong>Ohad Basan</strong></em> from RedHad who described their entire build pipeline using Jenkins and puppet utilizing pattens from the openstack approach of how to utilize Jenkins and achieve a deployment pipeline, Ohad mentioned the <a href="https://wiki.jenkins-ci.org/display/JENKINS/Build+Pipeline+Plugin">build pipeline</a> &amp; <a href="https://wiki.jenkins-ci.org/display/JENKINS/Multijob+Plugin">multijob</a> plugins and how the build pipeline plugin was more flexible considering it could trigger the same build with different parameters in the same execution.</p>
+
+<p>The openstack approach should definitely be looked at when designing a CI &amp; CD solution and it&#39;s open &ndash;&gt;&nbsp;<a href="https://jenkins.openstack.org/">jenkins.openstack.org</a>&nbsp;&amp;&nbsp;<a href="http://ci.openstack.org/jenkins.html">ci.openstack.org/jenkins.html</a>.</p>
+
+<p>Lastly unrelated to the main theme specified above there where three other notable talks:</p>
+
+<ol>
+<li><span class="n fn" style="margin: 0px; padding: 0px; border: 0px; outline: 0px; font-weight: inherit; font-style: inherit; font-family: inherit; vertical-align: baseline; font-variant: inherit; line-height: inherit;"><em><strong>Oren Katz</strong></em> from&nbsp;</span>Liveperson: using Jenkins to test infrastructure and update Ganglia monitor in order to enable their support desk to find issues before they become issues, quite impressive implementation, the only thing I was not clear about was the usage of <em><strong>rsync</strong></em> instead of<strong><em>&nbsp;SCM.</em></strong></li>
+<li><em><em><strong>Nir Koren</strong></em> from SAP:</em> I don&#39;t have this years presentation yet but there is his talk titled &quot;Quality on submit&quot; and <a href="http://www.slideshare.net/AgileSparks/nir-koren-qos?qid=22f1c81b-4986-47e3-b1e3-ed2b0daeeb6a&amp;amp;v=qf1&amp;amp;b=&amp;amp;from_search=1">the slides</a>, Nir describes a process which is quite refreshing in a huge company (65,000 employees) like SAP and how Jenkins plays a key role in their development &amp; deployment processes.</li>
+<li><em><strong>Baruch Sadogursky</strong></em> from&nbsp;JFrog: using bintray to streamline your binaries, another great project (IMO) which enables you to freely store your binaries in the cloud for nothing also referred to &quot;<em><strong>Github for Binaries</strong></em>&quot;</li>
+</ol>
+
+
+<p>To conclude, there are quite a few approaches for how to use Jenkins and I hope this post / JUC summary might introduce a new term &quot;<em><strong>the Jenkins framework</strong></em>&quot;, Jenkins is a project to keep an&nbsp;eye on, for I am not sure if there is a limit to its grasp. Until next year&#39;s JUC &hellip;</p>
+
+<p>Over and out, (references below)</p>
+
+<p>HP&nbsp;</p>
+
+<p>References:</p>
+
+<ol>
+<li>JUC Hertzlia: <a href="http://www.cloudbees.com/jenkins/juc-2014/herzliya">http://www.cloudbees.com/jenkins/juc-2014/herzliya</a></li>
+<li>Cloudbees:&nbsp;<a href="http://www.cloudbees.com/">http://www.cloudbees.com/</a></li>
+<li>JUC 2012 presentation<a href="http://prezi.com/u4zb3h6s5vql/devops-4-devlopers/">http://prezi.com/u4zb3h6s5vql/devops-4-devlopers/</a></li>
+<li>Jenkins / jrevel statistics:&nbsp;<a href="http://pages.zeroturnaround.com/Java-Tools-Technologies.html?utm_source=Java%20Tools%20&amp;amp;%20Technologies%202014&amp;amp;utm_medium=allreports&amp;amp;utm_campaign=rebellabs&amp;amp;utm_rebellabsid=88">this link</a></li>
+<li>Phonix&nbsp;server<em>&nbsp;</em><a href="http://martinfowler.com/bliki/PhoenixServer.html">http://martinfowler.com/bliki/PhoenixServer.html</a></li>
+<li>Snowflake server <a href="http://martinfowler.com/bliki/SnowflakeServer.html">http://martinfowler.com/bliki/SnowflakeServer.html</a></li>
+<li>Chef Jenkins cookbook <a href="https://github.com/opscode-cookbooks/jenkins">https://github.com/opscode-cookbooks/jenkins</a></li>
+<li>Chaos Monkey <a href="https://github.com/Netflix/SimianArmy/wiki/Chaos-Monkey">https://github.com/Netflix/SimianArmy/wiki/Chaos-Monkey</a></li>
+<li>workflow plugin:&nbsp;<a href="https://github.com/jenkinsci/workflow-plugin">https://github.com/jenkinsci/workflow-plugin</a></li>
+<li> Openstack&#39;s jenkins instance: <a href="http://jenkins.openstack.org/">http://jenkins.openstack.org/</a></li>
+<li> Openstakcs ci spec:&nbsp;<a href="http://ci.openstack.org/jenkins.html">http://ci.openstack.org/jenkins.html</a></li>
+<li> Delivery pipeline plugin: <a href="https://wiki.jenkins-ci.org/display/JENKINS/Delivery+Pipeline+Plugin">https://wiki.jenkins-ci.org/display/JENKINS/Delivery+Pipeline+Plugin</a></li>
+<li> MultiJob plugin:&nbsp;<a href="https://wiki.jenkins-ci.org/display/JENKINS/Multijob+Plugin">https://wiki.jenkins-ci.org/display/JENKINS/Multijob+Plugin</a></li>
+</ol>
+
+
+<p>&nbsp;</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Image CM from the Ground up with packer]]></title>
+    <link href="http://hagzag.github.io/blog/2014/04/25/image-cm-ground-packer/"/>
+    <updated>2014-04-25T22:30:00+05:30</updated>
+    <id>http://hagzag.github.io/blog/2014/04/25/image-cm-ground-packer</id>
+    <content type="html"><![CDATA[<p><img class="left" src="http://hagzag.github.io/assets/images/docker-logo-100x134.png" title="'Docker logo small'" >
+<span style="line-height: 1.6em;">Recently I have had the opportunity to test drive packer.io on a project I am working on, and although I have heard the word packer here and there until you start using it you do not understand the power behind it. As a side note until now there was usage <a href="https://github.com/puppetlabs/Razor">Razor</a>&nbsp;which by the look of it the place where&nbsp;<a href="http://packer.io">packer</a>&nbsp;was inspired from + a better version of <a href="https://github.com/jedi4ever/veewee">veewee</a></span></p>
+
+<p><strong>What is packer ?</strong></p>
+
+<p>From packer.io site &ndash;&gt; Packer&nbsp;is a tool for creating identical machine images for multiple platforms from a single source configuration.</p>
+
+<p>In My words &ndash;&gt; <a href="http://www.packer.io/">Packer</a>, is a complementery tool for DevOps needy of a consistent Infrustructure As Code, taking an image from Dev in to Production &ndash; using the same image in Dev with <a href="http://www.vagrantup.com/">Vagrant</a> (as an exmaple) then pushing it to PROD (AWS for exmaple).</p>
+
+<p>BTW it&#39;s important to note that packer was developed by <span class="vcard-fullname" itemprop="name"><strong>Mitchell Hashimoto</strong> the author of Vagrant, <a href="https://vagrantcloud.com/"><em>Vagrant cloud</em></a> for exmaple really needed a tool like packer in order to provide a way to develop and publish boxes in a consitent manor &ndash; I recommend taking&nbsp; a look at <a href="https://vagrantcloud.com/">Vagrant Cloud </a></span></p>
+
+<p><strong>Why is this important ?</strong></p>
+
+<p>Nowadays building a product doesn&#39;t end with developing a piece of software you in many cases deliver a virtual machine and more and more we find places where we deliver moire than 1 machine, but how do we makw sure this machine can run on multiple cloud provides &ndash; for example AWS &amp; OSTK and many more whilst during development you want to use local hypervisors like VirtualBox, VMware fusion or maybe a local vSphere instance &ndash; how do you make sure all these provisioners will use the same image &ndash;&gt; <strong>Packer</strong> !</p>
+
+<p>Thats not all <strong>packer&nbsp;</strong>also has an integration with Configuration Management Frameworks like Chef / Puppet / Ansible etc which will do the OS customization for you.</p>
+
+<p><strong>How does packer do it (work)</strong></p>
+
+<!-- more -->
+
+
+<p>There is a great approach here in order to create a image which starts from an OS iso and concludes with an <strong>Artifact(s)&nbsp;</strong>which you can take to the cloud ( private / public ) you need a few things:</p>
+
+<ol>
+<li>Template(s) &ndash; a json file which&nbsp;declares:</li>
+<li>Builders &ndash; What type of machines to build AWS, Virtualbox, VMware etc&nbsp;</li>
+<li>Provisioners &ndash; could be shell, chef, puupet, ansible etc&nbsp;</li>
+<li>Post-Processors &ndash; a great exmaple is uploading an artifact to a repository</li>
+</ol>
+
+
+<p><strong>Packer by exmaple:</strong> build for centos 6.4 on virtualbox</p>
+
+<p><u>Builder(s)</u></p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+</pre></td><td class='code'><pre><code class='json'><span class='line'><span class="s2">&quot;builders&quot;</span><span class="err">:</span> <span class="p">[</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>      <span class="nt">&quot;boot_command&quot;</span><span class="p">:</span> <span class="p">[</span>
+</span><span class='line'>        <span class="s2">&quot;&lt;esc&gt;&quot;</span><span class="p">,</span>
+</span><span class='line'>        <span class="s2">&quot;&lt;wait&gt;linux ks=http://:/anaconda-ks.cfg&lt;enter&gt;&quot;</span>
+</span><span class='line'>      <span class="p">],</span>
+</span><span class='line'>      <span class="nt">&quot;boot_wait&quot;</span><span class="p">:</span> <span class="s2">&quot;5s&quot;</span><span class="p">,</span>
+</span><span class='line'>      <span class="nt">&quot;disk_size&quot;</span><span class="p">:</span> <span class="mi">40000</span><span class="p">,</span>
+</span><span class='line'>      <span class="nt">&quot;guest_os_type&quot;</span><span class="p">:</span> <span class="s2">&quot;RedHat_64&quot;</span><span class="p">,</span>
+</span><span class='line'>      <span class="nt">&quot;headless&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+</span><span class='line'>      <span class="nt">&quot;http_directory&quot;</span><span class="p">:</span> <span class="s2">&quot;./http_directory&quot;</span><span class="p">,</span>
+</span><span class='line'>      <span class="nt">&quot;iso_checksum&quot;</span><span class="p">:</span> <span class="s2">&quot;bb9af2aea1344597e11070abe6b1fcd3&quot;</span><span class="p">,</span>
+</span><span class='line'>      <span class="nt">&quot;iso_checksum_type&quot;</span><span class="p">:</span> <span class="s2">&quot;md5&quot;</span><span class="p">,</span>
+</span><span class='line'>      <span class="nt">&quot;iso_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://mirrors.usinternet.com/centos/6.4/isos/x86_64/CentOS-6.4-x86_64-netinstall.iso&quot;</span><span class="p">,</span>
+</span><span class='line'>      <span class="nt">&quot;ssh_password&quot;</span><span class="p">:</span> <span class="s2">&quot;vagrant&quot;</span><span class="p">,</span>
+</span><span class='line'>      <span class="nt">&quot;ssh_username&quot;</span><span class="p">:</span> <span class="s2">&quot;root&quot;</span><span class="p">,</span>
+</span><span class='line'>      <span class="nt">&quot;ssh_wait_timeout&quot;</span><span class="p">:</span> <span class="s2">&quot;20m&quot;</span><span class="p">,</span>
+</span><span class='line'>      <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;virtualbox-iso&quot;</span><span class="p">,</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>&nbsp;</p>
+
+<p>What you can see from the builder declaration is that packer will simulate a pxe boot server locally (over http) and will run a kickstart installation (this is the same way veewee and razor operates), of course there is a source url for the iso and other important stuff you can see &hellip;</p>
+
+<p>The next section is provisioners which as mentioned be a number of things but in this example I am using shell scripts:</p>
+
+<p><u>Provisioner(s)</u></p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='json'><span class='line'><span class="s2">&quot;provisioners&quot;</span><span class="err">:</span> <span class="p">[</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>      <span class="nt">&quot;script&quot;</span><span class="p">:</span> <span class="s2">&quot;provisioners/install-vbox-additions.sh&quot;</span><span class="p">,</span>
+</span><span class='line'>      <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;shell&quot;</span>
+</span><span class='line'>    <span class="p">},</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>      <span class="nt">&quot;script&quot;</span><span class="p">:</span> <span class="s2">&quot;provisioners/clean-empty-space.sh&quot;</span><span class="p">,</span>
+</span><span class='line'>      <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;shell&quot;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>  <span class="p">]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>I guess the&nbsp;<em><strong>install-vbox-guest-additions</strong></em>&nbsp;is understandable but the&nbsp;<strong>​</strong><strong><em>clean-empty-space</em></strong> script is used to save space on the instance just before packaging it (example taken from &ndash;&gt; <a href="https://github.com/gwagner/packer-centos/blob/master/provisioners/clean-empty-space.sh">here</a>).</p>
+
+<p>An example of chef <u>provisioner</u>:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='json'><span class='line'><span class="s2">&quot;type&quot;</span><span class="err">:</span> <span class="s2">&quot;chef-solo&quot;</span><span class="err">,</span>
+</span><span class='line'>    <span class="s2">&quot;cookbook_paths&quot;</span><span class="err">:</span> <span class="p">[</span><span class="s2">&quot;cookbooks&quot;</span><span class="p">]</span><span class="err">,</span>
+</span><span class='line'>    <span class="s2">&quot;roles_path&quot;</span><span class="err">:</span> <span class="s2">&quot;roles&quot;</span><span class="err">,</span>
+</span><span class='line'>    <span class="s2">&quot;data_bags_path&quot;</span><span class="err">:</span> <span class="s2">&quot;data_bags&quot;</span><span class="err">,</span>
+</span><span class='line'>    <span class="s2">&quot;encrypted_data_bag_secret_path&quot;</span><span class="err">:</span> <span class="s2">&quot;.chef/encrypted_data_bag_secret&quot;</span><span class="err">,</span>
+</span><span class='line'>    <span class="s2">&quot;run_list&quot;</span><span class="err">:</span> <span class="p">[</span>
+</span><span class='line'>      <span class="s2">&quot;role[db-server]&quot;</span><span class="p">,</span>
+</span><span class='line'>      <span class="s2">&quot;role[app1]&quot;</span>
+</span><span class='line'>    <span class="p">]</span><span class="err">,</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Finally once we have an image we want to pack it (and maybe upload it somewhere), this where post-processing operation come in handy:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='json'><span class='line'><span class="s2">&quot;post-processors&quot;</span><span class="err">:</span> <span class="p">[</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>      <span class="nt">&quot;output&quot;</span><span class="p">:</span> <span class="s2">&quot;centos-6_4-64_virtualbox.box&quot;</span><span class="p">,</span>
+</span><span class='line'>      <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;vagrant&quot;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>  <span class="p">]</span><span class="err">,</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>So in this case the post-processor packages the artifact and creates a Vagrant friendly box tar-ball.</p>
+
+<p><u>Post-processor(s)</u> &ndash; vagrant exmaple</p>
+
+<p>A similar example for an aws box would be something like this:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+</pre></td><td class='code'><pre><code class='json'><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="nt">&quot;builders&quot;</span><span class="p">:</span> <span class="p">[{</span>
+</span><span class='line'>      <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;amazon-ebs&quot;</span><span class="p">,</span>
+</span><span class='line'>      <span class="nt">&quot;access_key&quot;</span><span class="p">:</span> <span class="s2">&quot;YOUR_ACCESS_KEY_HERE&quot;</span><span class="p">,</span>
+</span><span class='line'>      <span class="nt">&quot;secret_key&quot;</span><span class="p">:</span> <span class="s2">&quot;YOUR_SECRET_KEY_HERE&quot;</span><span class="p">,</span>
+</span><span class='line'>      <span class="nt">&quot;region&quot;</span><span class="p">:</span> <span class="s2">&quot;nw-west-1&quot;</span><span class="p">,</span>
+</span><span class='line'>      <span class="nt">&quot;source_ami&quot;</span><span class="p">:</span> <span class="s2">&quot;ami-21055220&quot;</span><span class="p">,</span>
+</span><span class='line'>      <span class="nt">&quot;instance_type&quot;</span><span class="p">:</span> <span class="s2">&quot;t1.micro&quot;</span><span class="p">,</span>
+</span><span class='line'>      <span class="nt">&quot;ssh_username&quot;</span><span class="p">:</span> <span class="s2">&quot;ubuntu&quot;</span><span class="p">,</span>
+</span><span class='line'>      <span class="nt">&quot;ssh_timeout&quot;</span><span class="p">:</span> <span class="s2">&quot;10m&quot;</span><span class="p">,</span>
+</span><span class='line'>      <span class="nt">&quot;ami_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Ubuntu_Server_12.04&quot;</span><span class="p">,</span>
+</span><span class='line'>      <span class="nt">&quot;launch_block_device_mappings&quot;</span><span class="p">:</span> <span class="p">[</span>
+</span><span class='line'>          <span class="p">{</span>
+</span><span class='line'>              <span class="nt">&quot;device_name&quot;</span><span class="p">:</span> <span class="s2">&quot;/dev/sda1&quot;</span><span class="p">,</span>
+</span><span class='line'>              <span class="nt">&quot;volume_size&quot;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span>
+</span><span class='line'>              <span class="nt">&quot;delete_on_termination&quot;</span><span class="p">:</span> <span class="kc">true</span>
+</span><span class='line'>          <span class="p">}</span>
+</span><span class='line'>      <span class="p">],</span>
+</span><span class='line'>      <span class="nt">&quot;ami_block_device_mappings&quot;</span><span class="p">:</span> <span class="p">[</span>
+</span><span class='line'>          <span class="p">{</span>
+</span><span class='line'>              <span class="nt">&quot;device_name&quot;</span><span class="p">:</span> <span class="s2">&quot;/dev/sdb&quot;</span><span class="p">,</span>
+</span><span class='line'>              <span class="nt">&quot;virtual_name&quot;</span><span class="p">:</span> <span class="s2">&quot;datadisk&quot;</span>
+</span><span class='line'>          <span class="p">}</span>
+</span><span class='line'>      <span class="p">],</span>
+</span><span class='line'>      <span class="nt">&quot;tags&quot;</span><span class="p">:</span> <span class="p">{</span>
+</span><span class='line'>          <span class="nt">&quot;OS_Version&quot;</span><span class="p">:</span> <span class="s2">&quot;Ubuntu Server 13.10&quot;</span><span class="p">,</span>
+</span><span class='line'>          <span class="nt">&quot;Release&quot;</span><span class="p">:</span> <span class="s2">&quot;Stable&quot;</span>
+</span><span class='line'>      <span class="p">}</span>
+</span><span class='line'>  <span class="p">}],</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>You use your AWS_SECRES_KEY &amp; AWS_ACCESS_KEY + use a base ami (ami-21055220) then create a custom image on AWS.</p>
+
+<p>This post just scratches the surface, I hope to write some more about it as I amture with it &ndash;&gt; one of my next tasks is creating a windows image (I wonder how that one pulls through &hellip;).</p>
+
+<p>Hope you enjoyed it.</p>
+
+<p>HP</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Docker Service Discovery with Skydns and Skydock]]></title>
+    <link href="http://hagzag.github.io/blog/2014/01/31/docker-service-discovery-skydns-and-skydock/"/>
+    <updated>2014-01-31T14:31:00+05:30</updated>
+    <id>http://hagzag.github.io/blog/2014/01/31/docker-service-discovery-skydns-and-skydock</id>
+    <content type="html"><![CDATA[<p><img class="left" src="http://hagzag.github.io/assets/images/docker-logo-100x134.png" title="'Docker logo small'" >
+Hi guys,</p>
+
+<p>I stumbled upon skydock on github =&gt;&nbsp;<a href="https://github.com/crosbymichael/skydock">https://github.com/crosbymichael/skydock</a>,&nbsp;<span style="line-height: 1.6em;">Sky dock uses </span><a href="https://github.com/skynetservices/skydns">skydns</a><span style="line-height: 1.6em;"> for service resolution via dns using </span><a href="https://github.com/skynetservices/skydns">skydns</a><span style="line-height: 1.6em;"> service.</span></p>
+
+<p><span style="line-height: 1.6em;">Gave it a try myself and it looks promising especially when skydock and skydns have a small foot print runnig as containers, according to michael he is working on a cross docker feature which means name resolution will work with more than 1 instance of Docker which sounds like a service discovery solution to an entire landscape &ndash; Star this repo on github this looks like a killer adon to Docker which will make the usage very very easy in terms of configuration.</span></p>
+
+<p><span style="line-height: 1.6em;">In addition you will see that you also get loadbalancing out of the box &ndash; this will be a killer feature when it will be abl to run between more than one Dokcer daemon.</span></p>
+
+<!-- more -->
+
+
+<p><span style="line-height: 1.6em;">I followed Michael Crosby&#39;s</span>&nbsp;demo on this awesome tool on youtube:</p>
+
+<object width="770" height="433"><param name="movie" value="//www.youtube.com/v/Nw42q1ofrV0?version=3&amp;hl=en_US"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://hagzag.github.io//www.youtube.com/v/Nw42q1ofrV0?version=3&amp;hl=en_US" type="application/x-shockwave-flash" width="770" height="433" allowscriptaccess="always" allowfullscreen="true"></embed></object>
+
+
+<p>As always hope you find this useful.</p>
+
+<p>Happy Docking :)</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Docking your services with Docker]]></title>
+    <link href="http://hagzag.github.io/blog/2014/01/29/Docking-your-services-with-Docekr/"/>
+    <updated>2014-01-29T22:03:00+05:30</updated>
+    <id>http://hagzag.github.io/blog/2014/01/29/Docking-your-services-with-Docekr</id>
+    <content type="html"><![CDATA[<p><img class="left" src="http://hagzag.github.io/assets/images/docker-logo-100x134.png" title="'Docker logo small'" >
+The &quot;Big Bang&quot; is an awesome title (don&#39;t mind if I say so &hellip;), our apps are divided into micro-services &ndash; and so is our hosting OS, the following slides attempt to show how LXC and Docker simplify the complexity of our Micro Services deployment.</p>
+
+<p>Presentation is available via:&nbsp;<a href="http://bit.ly/1evpfya">http://bit.ly/1evpfya</a> + embeded below (Continue reading link &hellip;)</p>
+
+<!-- more -->
+
+
+
+
+<script async class="speakerdeck-embed" data-id="d9ce0c606a7c0131697922f4e5e61bb3" data-ratio="1.33333333333333" src="http://hagzag.github.io//speakerdeck.com/assets/embed.js"></script>
+
+
+
+
+<div style="margin-bottom:5px">**[Docking your services_with_docker](https://www.slideshare.net/tikalknowledge/docking-your-serviceswithdocker &#8220;Docking your services_with_docker&#8221;) ** from **[Tikal Knowledge](http://www.slideshare.net/tikalknowledge)**</div>
+
+
+<p>Happy Docking :)</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Docker Friendly Vagrant Box]]></title>
+    <link href="http://hagzag.github.io/blog/2014/01/22/Docekr-Frendly-Vagrant-Box/"/>
+    <updated>2014-01-22T22:03:00+05:30</updated>
+    <id>http://hagzag.github.io/blog/2014/01/22/Docekr-Frendly-Vagrant-Box</id>
+    <content type="html"><![CDATA[<p><img class="left" src="http://hagzag.github.io/assets/images/docker-logo-100x134.png" title="'Docker logo small'" >
+A stunning title I know &ndash; too many fancy words :)</p>
+
+<p>Make a long story short if you need (like me) to run docker on a vm &ndash; consdering I can&#39;t run LXC on my mac, and you want a lightweight linux distro to test drive docker, there are two great resources I came across:</p>
+
+<ol>
+<li>Use the default vagrant box which shipps with docker&#39;s git repository (<a href="https://github.com/dotcloud/docker">https://github.com/dotcloud/docker</a>) &ndash; see <a href="https://github.com/dotcloud/docker/blob/master/Vagrantfile">Vagrantfile</a></li>
+<li><p>User boot2docker linux distro (<a href="https://github.com/steeve/boot2docker">https://github.com/steeve/boot2docker</a>) &ndash; or even better use boot2docker image box complements of vagrant&#39;s author&nbsp;Mitchell Hashimoto. The vagrant box can beadded by running:&nbsp;</p>
+
+<p><pre style="box-sizing: border-box; font-family: Consolas, 'Liberation Mono', Courier, monospace; margin-top: 15px; margin-bottom: 15px; background-color: rgb(248, 248, 248); border: 1px solid rgb(221, 221, 221); line-height: 19px; overflow: auto; padding: 6px 10px; border-top-left-radius: 3px; border-top-right-radius: 3px; border-bottom-right-radius: 3px; border-bottom-left-radius: 3px; word-wrap: normal;">
+<code>vagrant init boot2docker https://github.com/mitchellh/boot2docker-vagrant-box/releases/download/v0.3.0/boot2docker.box</code></pre></p></li>
+</ol>
+
+
+<p>Happy Docking :)</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Tikal Fuseday - Jenkins as a service]]></title>
+    <link href="http://hagzag.github.io/blog/2014/01/05/fuseday-jenkins-as-a-service/"/>
+    <updated>2014-01-05T18:28:00+05:30</updated>
+    <id>http://hagzag.github.io/blog/2014/01/05/fuseday-jenkins-as-a-service</id>
+    <content type="html"><![CDATA[<p><img class="left" src="http://hagzag.github.io/assets/images/jenkins140x140.jpg" title="'Jenkins logo small'" ></p>
+
+<h2>Synopsis</h2>
+
+<p>In order to summarize our Fuse day I would like to take a moment and explain our end goal.</p>
+
+<p>The <strong><em>end goal</em></strong> consist of:</p>
+
+<ul>
+<li>Amazon Instance running multiple tenants of Jenkins</li>
+<li>A CLI / Web interface which will eventually manage this &ldquo;Multi Jenkins&rdquo; instance in a way that one can create a new instance on the fly.</li>
+<li><p>At the tenant level:</p>
+
+<ul>
+<li>Each tenant will utilize the Jenkins scm sync plugin and in that manor maintain configuration in a git repo for disaster recovery.</li>
+<li>Each tenant will have it&rsquo;s own custom authentication and authorization strategy.</li>
+<li>Each Jenkins tenant will have is own plugin-stack and we already know we might have different tenant types for example Java, Ruby etc, so we would like to have 1 base plugin- stack + a domain specific plugin-stack suitable for each tenant type.</li>
+<li>Each tenant will have it&rsquo;s own listen port, hence we will need a reverse proxy to serve clean urls for each tenant based on his name / dns name.</li>
+</ul>
+</li>
+</ul>
+
+
+<!-- more -->
+
+
+<h2>The Plan</h2>
+
+<p>We gathered around the white board [well, it was really a transparent window, but don&rsquo;t be picky] and discussed our options&nbsp;&ndash; we cam up with two options:</p>
+
+<ol>
+<li>Use <a href="https://github.com/opscode-cookbooks/jenkins">Opscode&rsquo;s Jenkins chef cookbook</a> with some customizations in order to support the requirements above.</li>
+<li>Use Docker which will, instantiate isolated Jenkins tenants on one Amazon instance.</li>
+</ol>
+
+
+<p>We had a good feeling we will not be able to do all these tasks in one day, but we have to start somewhere &hellip;</p>
+
+<p>So we split into two groups <strong>One group the Chef Group</strong> &amp; the <strong>Docker group</strong>.</p>
+
+<p>Each group had an initial goal running a Jenkins instance using Chef &amp; Docker and once that is achieved start building the plugin sets.</p>
+
+<p>In the Chef Group<strong> [ Schachar Ben Zeev, Yoram Micaeli, Timor Raiman &amp; yours truly ] we did the following</strong>:</p>
+
+<p>&nbsp;</p>
+
+<h3>Chef</h3>
+
+<p>Use: <a href="https://github.com/tikalk-cookbooks/alm">https://github.com/tikalk-cookbooks/alm</a> a chef-solo repository which manages all the dependency and can be used by us in order to develop it.</p>
+
+<p>&nbsp;</p>
+
+<h3>Vagrant</h3>
+
+<p>Use Vagrant in order to instantiate a local instance on Virtual Box and start iterating on that see <a href="https://github.com/tikalk-cookbooks/alm/blob/master/Vagrantfile">Vagranfile on github</a> &ndash; in this use case&nbsp;<strong><em>vagrant up ci</em></strong><em> would do the trick of running 1 instance of jenkins ci-server on our vm.</em></p>
+
+<p><em>So by lunch we had a Vagrant file with a VirtualBox instance running</em></p>
+
+<p>The way we achieved that was by creating a chef role and instructed the Vagrant provisioner to use it:</p>
+
+<p><img src="http://hagzag.github.io/assets/images/image001.png" alt="" /></p>
+
+<p>So our cookbook at this stage is empty, no need to do anything for this first instance!</p>
+
+<p>The key in this is our <strong><em>chef.add_role</em></strong>, which sets some parameters used by the Jenkins cookbook:</p>
+
+<p><img src="http://hagzag.github.io/assets/images/image004.png" alt="" /></p>
+
+<p>&nbsp;</p>
+
+<p>At this stage it hit us we will need some mechanism of invoking chef on our machine and editing the run-list / node object (our &ldquo;dna.json&rdquo; file in the Vagrant jargon) in order to be able to run more than 1 Jenkins instance, In addition to that we had to start building our plugin-stacks.</p>
+
+<p>Timor came up with an idea, which suggested we would generate a datbag per tenant with the following parameters:</p>
+
+<ol>
+<li>Tenant id =&gt; numerical value</li>
+<li>Company Name =&gt; the name of the customer</li>
+<li>Dns Prefix (e-mail suffix) / fqdn of the tenant</li>
+<li>Expire Date &ndash; considering it&rsquo;s a time based tenant it will be removed / blocked if the Expire data is larger than this date.</li>
+<li>Purge Date &ndash; how long is the tenants grace period</li>
+<li>Jenkins Version &ndash; what version of Jenkins is this tenant going to run</li>
+<li>Sync SCM repo &ndash; the repository we will store the data in</li>
+<li>Plugin stacks &ndash; an Array of plugin sets selected by the customer</li>
+<li>Specific plugins &ndash; a plugin set outside of the stacks</li>
+</ol>
+
+
+<p>We came up with this 1<sup>st</sup> version of databag:</p>
+
+<p><img src="http://hagzag.github.io/assets/images/image006.png" alt="" /></p>
+
+<p>And whilst we were using data bags we thought why not hold the plugin-sets in a database too like so:</p>
+
+<p>The base databag:</p>
+
+<p><img src="http://hagzag.github.io/assets/images/image008.png" alt="" /></p>
+
+<p>A Stack (Java) specific databag:</p>
+
+<p><img src="http://hagzag.github.io/assets/images/image010.png" alt="" /></p>
+
+<p>At this stage we started to understand how we could use the chef paradigm utilizing the node object and define a service, we had to do the following:</p>
+
+<ol>
+<li>Collect the information needed in order to construct the databag per user &ndash; based on the hellorandm example</li>
+<li>Connect to the remote machine and run chef (chef solo / server is still debatable) with that json file</li>
+<li>Analyze the chef-run input in order to determine it&rsquo;s success / failure</li>
+<li>Report back to the cli/ui tool.</li>
+</ol>
+
+
+<p>At this stage we ran out of time, but what we are now taking offline is:</p>
+
+<ol>
+<li>Continue the chef-solo + data bag route where we insatiate new tenants from the Jenkins cookbook &ndash; in the current state of the cookbook it looks like we will need to write our own / expand it to facilitate more than 1 Jenkins tenant on 1 Amazon Instance.</li>
+<li>Writing a rest based service which will run on the amazon instance and listen on a web&nbsp; / cli tool for a json object. Once delivered the service will then invoke chef on the node with the new tenant. Another option I am checking out is using <a href="http://puppetlabs.com/mcollective">Mcollective</a> in order to pass a json to the node and instantiate the run (Mcollective already has a CLI ! &ndash; so perhaps all we need to do is expand it for our needs ?)</li>
+</ol>
+
+
+<p>I stumbled upon &ldquo;<a href="http://www.cryptocracy.com/blog/2011/08/21/using-mcollective-with-chef/">Mcollective with chef</a>&rdquo; blog post which is worth cheking out.</p>
+
+<ol>
+<li>Consider combining Docker / Vagrant to do the heavy lifting: The second route in parallel just concluded and reported their finding on Docker (stay tuned for their blog post and findings) &ndash; Another &ldquo;Timor search&rdquo; yielded <a href="https://github.com/hw-cookbooks/lxc">https://github.com/hw-cookbooks/lxc</a> which is basically doing &ldquo;Docker style&rdquo; management of LXC instances so we could have a complete isolated instance running on LXC hosting mutipule Jenkins tenants in this case we will not need to expand the Jenkins cookbook &hellip;</li>
+<li>Write the CLI to interact with the service running on the instance</li>
+<li>Write the Web</li>
+</ol>
+
+
+<p>To summarize: It was a good experience seeing different point of views and methods on how to accomplish this, we will definitely continue hacking on this in our Bi-Weekly workshops and of course following Fuse Days.</p>
+
+<p>We would most appreciate your comments / suggestions / ideas we might have missed.</p>
+
+<p>In addition, the Chef related work is on github under the <a href="https://github.com/tikalk-cookbooks">tikalk-cookbooks</a> organization with the <a href="https://github.com/tikalk-cookbooks/alm">ALM</a> &ndash; &ldquo;chef repo&rdquo; and others feel free to smooch around.</p>
+
+<p>Happy Hacking.</p>
+
+<p>HP</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Git - adding forgotten files]]></title>
+    <link href="http://hagzag.github.io/blog/2013/12/27/git-adding-forgotten-files/"/>
+    <updated>2013-12-27T21:28:00+05:30</updated>
+    <id>http://hagzag.github.io/blog/2013/12/27/git-adding-forgotten-files</id>
+    <content type="html"><![CDATA[<p><img class="left" src="http://hagzag.github.io/assets/images/git_logo.jpg" title="'Git Logo'" >How many time have you committed something to git and forgot to add a file (or two &hellip;), if this was perforce / subversion / other,&nbsp;your screwed :) with git all you need to do is:</p>
+
+<p><span style="white-space: pre-wrap; background-color: rgb(247, 247, 247); color: rgb(34, 34, 34); font-family: 'Courier 10 Pitch', Courier, monospace; font-size: 15px; line-height: 21px; font-style: italic;">git commit &mdash;amend &ndash;C HEAD</span></p>
+
+<p>This instructs git too add any indexed files to the commit + the &#39;-C&#39; reuses your previous commit message &ndash; no need to re-type it !</p>
+
+<p>Please note: this works nicely before you push to a remote, if you already pushed the &quot;missing&nbsp; files&quot; commit to your remote master you will have to pull &amp; merge which makes the 1 commit ( &quot;missing files&quot; commit) into 3 which kind of takes the point out of doing this &hellip; so make sure you use this technique wisely.&nbsp;</p>
+
+<p><span style="line-height: 1.6em;">Have I told you lately how git is awesome :)</span></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Who moved my BOX ?]]></title>
+    <link href="http://hagzag.github.io/blog/2013/12/03/who-moved-my-box/"/>
+    <updated>2013-12-03T17:32:00+05:30</updated>
+    <id>http://hagzag.github.io/blog/2013/12/03/who-moved-my-box</id>
+    <content type="html"><![CDATA[<p><img class="left" src="http://hagzag.github.io/assets/images/CCTOTB.png" title="'Keep Clam'" >
+Hi everyone !</p>
+
+<p>Who moved my BOX ? &ndash; the opening / pitch presentation for <a href="http://www.meetup.com/full-stack-developer-il/events/148415092/">&quot;Chef &amp; Vagrant: DEVOPS perfect couple&quot; meetup</a>&nbsp;last Thursday.</p>
+
+<br/>
+
+
+<br/>
+
+
+<br/>
+
+
+<br/>
+
+
+<br/>
+
+
+<div markdown="1" align="center">
+<iframe frameborder="0" height="400" src="http://prezi.com/embed/tpmzmzaz0vcy/?bgcolor=ffffff&amp;lock_to_path=0&amp;autoplay=0&amp;autohide_ctrls=0&amp;features=undefined&amp;disabled_features=undefined" width="550"></iframe>
+</div>
+
+
+<object width="770" height="433"><param name="movie" value="//www.youtube.com/v/TnnHgxOtM_k?version=3&amp;hl=en_US"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://hagzag.github.io//www.youtube.com/v/TnnHgxOtM_k?version=3&amp;hl=en_US" type="application/x-shockwave-flash" width="770" height="433" allowscriptaccess="always" allowfullscreen="true"></embed></object>
+
+
+<p>If you were there &ndash; it was good to see you, if not here is the presentation &ndash; enjoy</p>
+
+<p>Thanks</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Deploy reveal.js slideshow on github-pages]]></title>
+    <link href="http://hagzag.github.io/blog/2013/11/05/deploy-reveal-dot-js-slideshow-on-github-pages/"/>
+    <updated>2013-11-05T21:03:00+05:30</updated>
+    <id>http://hagzag.github.io/blog/2013/11/05/deploy-reveal-dot-js-slideshow-on-github-pages</id>
+    <content type="html"><![CDATA[<p>Originally posted on <a href="http://www.tikalk.com">Tikal Knolwedge&rsquo;s webiste</a> @ this <a href="http://www.tikalk.com/alm/deploy-revealjs-slideshow-github-pages">link</a><br></p>
+
+<p><img class="left" src="http://hagzag.github.io/assets/images/gh-pages.png" title="'gh-pages'" >Deploy <a href="https://github.com/hakimel/reveal.js/">reveal.js slideshow</a> on github-pages was ridiculously easy.</p>
+
+<p>Cloned reveal.js master branch to my local machine:</p>
+
+<pre><code>git clone git@github.com:hakimel/reveal.js.git
+</code></pre>
+
+<p>Remove the history &ndash; of you want to preserve history ( <strong>git remote rm origin</strong> and add your new remote)</p>
+
+<pre><code>rm -Rf .git 
+</code></pre>
+
+<p>Add your new remote (you need to create a repository first)</p>
+
+<pre><code>git remote add origin git@github.com:tikalk-cookbooks/chef_workshop_presentation.git
+</code></pre>
+
+<p>You know the rest &hellip;</p>
+
+<pre><code>git add .
+git commit -m "Initial commit"
+git push origin master
+</code></pre>
+
+<p>In order to push master to github pages you should create a branch names <em><strong>gh-pages</strong></em> and it&nbsp;<strong>must</strong> be named that, the commit &amp; push to this branch and about 2 minuets later you can browse to your presentation on gh-pages.</p>
+
+<p><em><strong>Create a branch</strong></em>:</p>
+
+<pre><code>git branch hg-pages
+git push origin gh-pages&lt;/pre&gt;
+</code></pre>
+
+<!-- more -->
+
+
+<p>updating this &quot;site&quot; can be done by editing the stuff you want on the &quot;master&quot; branch, then merge     those changes in the gh-pages branch and finally push those changes to the remote gh-pages which will automatically deploy youe reveal.js presentaion.</p>
+
+<p>the merge sould look somthing like:</p>
+
+<pre><code>hagzag-Lap-hagzag:chef_workshop_presentaion(master) $ git checkout gh-pages&amp;nbsp;
+
+hagzag-Lap-hagzag:chef_workshop_presentaion(gh-pages) $ git merge master&amp;nbsp;
+Updating 0f4f1e1..fb0d73d
+
+Fast-forward
+
+css/custom.css | &amp;nbsp; 4 ++++
+
+index.html &amp;nbsp; &amp;nbsp; | 104 +++++++++++++++++++++++++++++++++++++++++++++++++-----------    --------------------------------------------
+
+2 files changed, 53 insertions(+), 55 deletions(-)
+
+create mode 100644 css/custom.css
+
+git push origin gh-pages
+</code></pre>
+
+<p>the url is built from the followng pattern:</p>
+
+<pre><code>[github_username].github.io/[repo_name]
+</code></pre>
+
+<p>in this case:</p>
+
+<p><a href="http://tikalk-cookbooks.github.io/chef_workshop_presentation/#/">http://tikalk-cookbooks.github.io/chef_workshop_presentation/</a></p>
+
+<p>Hope you find this useful !</p>
+
+<p>HP</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Manage Data Bags in Solo mode]]></title>
+    <link href="http://hagzag.github.io/blog/2013/10/27/manage-data-bags-in-solo-mode/"/>
+    <updated>2013-10-27T15:08:00+05:30</updated>
+    <id>http://hagzag.github.io/blog/2013/10/27/manage-data-bags-in-solo-mode</id>
+    <content type="html"><![CDATA[<p><img class="left" src="http://hagzag.github.io/assets/images/Opscode_chef_logo.png" title="'Chef Logo'" > For the past ~6 monthes or so I have been working solely with <a href="http://docs.opscode.com/chef_solo.html">chef-solo</a>.
+There are quite a few helpers for solo out there such as:</p>
+
+<ol>
+<li>soloist &ndash; <a href="https://github.com/mkocher/soloist">https://github.com/mkocher/soloist</a></li>
+<li>knife-solo &ndash; <a href="https://github.com/matschaffer/knife-solo">https://github.com/matschaffer/knife-solo</a>
+&amp; a few more.</li>
+</ol>
+
+
+<p>What kept annoying me for some time is I couldn&rsquo;t manage databas with knife whilst working in solo mode &hellip; ARRRRRRGH!!!</p>
+
+<p>It looked somthing like:</p>
+
+<pre><code>[oper@sandbox chef_repo]$ knife data bag create admins
+ERROR: The object you are looking for could not be found
+Response: &lt;!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN"&gt;
+&lt;html&gt;&lt;head&gt;
+&lt;title&gt;404 Not Found&lt;/title&gt;
+&lt;/head&gt;&lt;body&gt;
+&lt;h1&gt;Not Found&lt;/h1&gt;
+&lt;p&gt;The requested URL /data was not found on this server.&lt;/p&gt;
+&lt;hr&gt;
+&lt;address&gt;Apache/2.2.15 (CentOS) Server at : Port 80&lt;/address&gt;
+&lt;/body&gt;&lt;/html&gt;
+</code></pre>
+
+<p>Then came <a href="https://github.com/thbishop/knife-solo_data_bag">knife-solo_data_bag</a> I am quite embaressed to say ;) I haven&rsquo;t found this sooner.
+Now with a totally bogus knife.rb file I can generate / edit / manager databags with knife-solo &amp; knife-solo_data_bag.</p>
+
+<p>Again, hope you find this useful, I know I do ;)</p>
+
+<p>HP</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[S3 - Mounting s3 buckets with S3fs]]></title>
+    <link href="http://hagzag.github.io/blog/2013/10/20/mounting-s3-buckets-with-f3fs/"/>
+    <updated>2013-10-20T20:32:00+05:30</updated>
+    <id>http://hagzag.github.io/blog/2013/10/20/mounting-s3-buckets-with-f3fs</id>
+    <content type="html"><![CDATA[<p><img class="left" src="http://hagzag.github.io/assets/images/amazon-s3.png" title="'S3 logo'" >A <code>cheap</code> solution on Amazon s3 for uploading files to s3 via SSH</p>
+
+<p>I needed to upload files from my Corporate environment in a <code>push mode</code> meaning I do not open any &ldquo;special&rdquo; ports in my environemnt in order to enable users to put files on S3.
+I am curentelly testing to see how robust this solution really is but basically what I found myself doing is install s3fs (<a href="https://code.google.com/p/s3fs/">link to project page</a>) like so:</p>
+
+<pre><code>wget http://s3fs.googlecode.com/files/s3fs-1.73.tar.gz
+tar xvzf s3fs-1.73.tar.gz
+cd s3fs-1.73
+./configure --prefix=/usr
+make &amp;&amp; make install
+</code></pre>
+
+<p>I was installing this for Suse but for Amazon linux/redhat etc you might find a package see: <a href="http://rpmfind.net/linux/rpm2html/search.php?query=fuse-s3fs">here</a>.</p>
+
+<p>Once the package is installed you can use <code>s3fs</code></p>
+
+<pre><code>s3fs BUCKET:[PATH] MOUNTPOINT [OPTION]...
+
+s3fs dev_tools /mnt/dev_tools/ 
+</code></pre>
+
+<p>Worth noting you do not need to specify the s3 url, you only specify the bucket name !</p>
+
+<p>The same thing / very similir in <code>/etc/fstab</code> will look like so:</p>
+
+<pre><code>s3fs#dev_tools /mnt/dev_tools fuse allow_other,user=youruser 0 0
+</code></pre>
+
+<p>The mount opts are <strong>extreemly important</strong> &ndash; without the <code>allow_other</code> flag the user cannot write to the directory.</p>
+
+<p>This is really awesome &ndash; we now jsut need to make sure the connectivity is reliable / fast enough and this will become very usefull.</p>
+
+<p>As always hope you find this useful.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[BITBUCKET :: Discover which SSH-KEY you added to which BitBucket Account]]></title>
+    <link href="http://hagzag.github.io/blog/2013/10/13/bitbucket-discover-which-ssh-key-you-added-to-which-user/"/>
+    <updated>2013-10-13T21:02:00+05:30</updated>
+    <id>http://hagzag.github.io/blog/2013/10/13/bitbucket-discover-which-ssh-key-you-added-to-which-user</id>
+    <content type="html"><![CDATA[<p><img class="left" src="http://hagzag.github.io/assets/images/bblogo.png" title="'BitBucket logo'" >If you don&rsquo;t know what bitbucket is it might be because you never need <code>free &amp; private</code> git repository &hellip;</p>
+
+<p>I needed them so often for different projects / consultancies which had to be private, I forgot which account has my laptops private key, Which was <strong>frustrating</strong> for I was trying to add the ssh key to my account and it kept saying <strong>&ldquo;Someone has already registered that SSH key&rdquo;</strong>, at first i thought &ldquo;What do they care &ndash; I can add the same key to 10 accounts?&rdquo;</p>
+
+<p>Well, I guess security wise the BitBucket guys know why, and I tend to agree with them, The big question which came to mind was how do I know which account is using my key ?</p>
+
+<p>So apparentelly the answer is quite simple:</p>
+
+<pre><code>ssh -T git@bitbucket.org
+</code></pre>
+
+<p>which yielded:</p>
+
+<pre><code>logged in as tikalk_hagzag
+You can use git or hg to connect to Bitbucket. Shell access is disabled.
+</code></pre>
+
+<p>Once I knew which account was using the key I could remove it and add it to the account I wanted &ndash; just in case you were wondering which key you addedd to which account.</p>
+
+<p>As always hope you find this info useful.</p>
+
+<p>After writing this post I stubled upon: <a href="https://confluence.atlassian.com/display/BBKB/SSH+key+is+already+registered">this link</a></p>
+
+<p>Until next time HP</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Cheffile &amp; 'librarian locks']]></title>
+    <link href="http://hagzag.github.io/blog/2013/08/16/cheffile-and-librarian-locks/"/>
+    <updated>2013-08-16T00:56:00+05:30</updated>
+    <id>http://hagzag.github.io/blog/2013/08/16/cheffile-and-librarian-locks</id>
+    <content type="html"><![CDATA[<p><img class="left" src="http://hagzag.github.io/assets/images/librarian.png" title="'librarian chef'" >
+If you don&rsquo;t know what librarian is &ndash; get to know it :) (it makes life much easier)[<a href="http://rubydoc.info/gems/librarian-chef">http://rubydoc.info/gems/librarian-chef</a>] than way back when &hellip;</p>
+
+<p>The most annoying thing happend to me earlier this evening, I was working on a cookbook [A chef cookbook &hellip;, I don&rsquo;t actually do the cooking at home :)], and running librarian install yielded the following error:</p>
+
+<pre><code>"Cheffile and Cheffile.lock are out of sync!"
+</code></pre>
+
+<p>So like a good boy I remoced the Cheffile.lock and ran it again resulting with the same damn error message &hellip; arrrrrr !</p>
+
+<p>So after examening my Cheffile over and over I noticed I have listed a dependency from two different location somthing like the followin [ clieng url&rsquo;s omitted from snippet ]:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'> <span class="c">#!/usr/bin/env ruby</span>
+</span><span class='line'>  <span class="c">#^syntax detection</span>
+</span><span class='line'>  site <span class="s2">&quot;http://shelf.clients_domain.corp:8080&quot;</span>
+</span><span class='line'>  cookbook <span class="s1">&#39;simple_proxy&#39;</span>, :git <span class="o">=</span>&gt; <span class="s1">&#39;git://clients_domain.corp/hagzag/simple_proxy.git&#39;</span>, :ref <span class="o">=</span>&gt; <span class="s1">&#39;master&#39;</span>
+</span><span class='line'>  cookbook <span class="s1">&#39;nw-abap&#39;</span>,     :git <span class="o">=</span>&gt; <span class="s1">&#39;git://clients_domain.corp/hagzag/nw-abap.git&#39;</span>, :ref <span class="o">=</span>&gt; <span class="s1">&#39;master&#39;</span>
+</span><span class='line'>  cookbook <span class="s1">&#39;sapinst&#39;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c"># for lvm volume creation do this once ...</span>
+</span><span class='line'>  cookbook <span class="s1">&#39;lvm&#39;</span>, :site <span class="o">=</span>&gt; <span class="s1">&#39;http://clients_domain.corp:8080&#39;</span>
+</span><span class='line'>  cookbook <span class="s1">&#39;sap-lvm&#39;</span>
+</span><span class='line'>  cookbook <span class="s1">&#39;line&#39;</span>,      :site <span class="o">=</span>&gt; <span class="s1">&#39;http://community.opscode.com/api/v1&#39;</span>
+</span><span class='line'>
+</span><span class='line'>  cookbook <span class="s1">&#39;nfs&#39;</span>, :site <span class="o">=</span>&gt; <span class="s1">&#39;http://clients_domain.corp:8080&#39;</span>
+</span><span class='line'>  cookbook <span class="s1">&#39;line&#39;</span>, :site <span class="o">=</span>&gt; <span class="s1">&#39;http://clients_domain.corp:8080&#39;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>If you look a line numbers 11 &amp; 14 you will see I am specifying the smae cookbook from tow different sources &hellip;, this is a good thing, your dependecny mechanisem / tool isn&rsquo;t making decitions for you [ unlike Maven for exmaple &hellip; ].</p>
+
+<p>So in order to avoid this error and to comtinue working I had to remove one if the lines and I was good to go.</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'> ...
+</span><span class='line'>  <span class="c">#cookbook &#39;line&#39;,      :site =&gt; &#39;http://community.opscode.com/api/v1&#39;</span>
+</span><span class='line'>
+</span><span class='line'>  cookbook <span class="s1">&#39;nfs&#39;</span>, :site <span class="o">=</span>&gt; <span class="s1">&#39;http://clients_domain.corp:8080&#39;</span>
+</span><span class='line'>  cookbook <span class="s1">&#39;line&#39;</span>, :site <span class="o">=</span>&gt; <span class="s1">&#39;http://clients_domain.corp:8080&#39;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Another fraction on my time line &hellip;</p>
+
+<p>Enjoy.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[X11 on mointain lion - where?]]></title>
+    <link href="http://hagzag.github.io/blog/2013/08/11/x11-on-mointain-lion-where-did-it-go/"/>
+    <updated>2013-08-11T08:12:00+05:30</updated>
+    <id>http://hagzag.github.io/blog/2013/08/11/x11-on-mointain-lion-where-did-it-go</id>
+    <content type="html"><![CDATA[<p><img class="left" src="http://hagzag.github.io/assets/images/X11-icon.png" title="'X11-icon'" > I needed to get X11 forwarding on my Macosx Mountain Lion, (this post applies to every MaxOS since 10.8.x) see apples&rsquo;s kb on the subject @<a href="http://support.apple.com/kb/HT5293">http://support.apple.com/kb/HT5293</a>.</p>
+
+<p>Just go to <a href="http://xquartz.macosforge.org/">http://xquartz.macosforge.org/</a> and grab the latest <a href="http://xquartz.macosforge.org/downloads/SL/XQuartz-2.7.4.dmg">dmg</a>.</p>
+
+<p>Once XQuartz is installed you must logout / login from your system and then you can X11 forwad via Teminal like so:</p>
+
+<pre><code>ssh -X username@host
+</code></pre>
+
+<p>Enjoy.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Install Xcode CLI Tools via Script]]></title>
+    <link href="http://hagzag.github.io/blog/2013/07/13/install-xcode-cli-tools-via-script/"/>
+    <updated>2013-07-13T22:24:00+05:30</updated>
+    <id>http://hagzag.github.io/blog/2013/07/13/install-xcode-cli-tools-via-script</id>
+    <content type="html"><![CDATA[<p><img class="left" src="http://hagzag.github.io/assets/images/xcode_cli.png" title="'Xcode CLI Tools'" >
+Well just got a mac from my new project <a href="http://www.facebook.com/photo.php?fbid=10151661183017850&amp;l=69918509f3">FB Status</a>&hellip; &ndash; couldn&rsquo;t resist it :)</p>
+
+<p>One of the tasks was to setup an environment, and learn what a mac is :), a few days later I&rsquo;m in love but still I need a way to destroy an recover
+my environment.
+I have a few plans like bash_it / oh_my_zsh &amp; others, but until then I put togter a few scripts [ more to come ], the first of them is this one installing Xcode CLI Tools on Mac OSX Mountain Lion.</p>
+
+<p>Install or (un-install) with the following simple command:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'> sudo bash &lt; &lt;<span class="o">(</span>curl -L https://raw.github.com/hagzag/xcode-cli-install/master/install.sh<span class="o">)</span>
+</span><span class='line'>  sudo bash &lt; &lt;<span class="o">(</span>curl -L https://raw.github.com/hagzag/xcode-cli-install/master/uninstall.sh<span class="o">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The essence &hellip; see the rest on <a href="https://github.com/hagzag/xcode-cli-install">Github</a></p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>detect_osx_version<span class="o">()</span> <span class="o">{</span>
+</span><span class='line'>  <span class="nv">result</span><span class="o">=</span><span class="sb">`</span>sw_vers -productVersion<span class="sb">`</span>
+</span><span class='line'>  ...
+</span><span class='line'>  <span class="nv">osxversion</span><span class="o">=</span><span class="s2">&quot;10.8&quot;</span>
+</span><span class='line'>  <span class="nv">osxvername</span><span class="o">=</span><span class="s2">&quot;Mountain Lion&quot;</span>
+</span><span class='line'>  <span class="nv">cltools</span><span class="o">=</span>xcode462_cltools_10_86938259a.dmg
+</span><span class='line'>  <span class="nv">mountpath</span><span class="o">=</span><span class="s2">&quot;/Volumes/Command Line Tools (Mountain Lion)&quot;</span>
+</span><span class='line'>  <span class="nv">mpkg</span><span class="o">=</span><span class="s2">&quot;Command Line Tools (Mountain Lion).mpkg&quot;</span>
+</span><span class='line'>  <span class="nv">pkg_url</span><span class="o">=</span><span class="s2">&quot;https://www.dropbox.com/s/hw45wvjxrkrl59x/xcode462_cltools_10_86938259a.dmg&quot;</span>
+</span><span class='line'>  <span class="nv">pkgmd5</span><span class="o">=</span><span class="s2">&quot;90c5db99a589c269efa542ff0272fc28&quot;</span>
+</span><span class='line'>  ...
+</span><span class='line'><span class="o">}</span>
+</span><span class='line'>download_tools <span class="o">()</span> <span class="o">{</span>
+</span><span class='line'>  <span class="k">if</span> <span class="o">[</span> -f /tmp/<span class="nv">$cltools</span> <span class="o">]</span>; <span class="k">then</span>
+</span><span class='line'><span class="k">    if</span> <span class="o">[</span> <span class="sb">`</span>md5 -q /tmp/<span class="nv">$cltools</span><span class="sb">`</span> <span class="o">=</span> <span class="s2">&quot;${pkgmd5}&quot;</span> <span class="o">]</span>; <span class="k">then</span>
+</span><span class='line'><span class="k">      </span><span class="nb">echo</span> -e <span class="s2">&quot;$info $cltools already downloaded to /tmp/$cltools.&quot;</span>
+</span><span class='line'>    <span class="k">else</span>
+</span><span class='line'><span class="k">       </span>rm -f /tmp/<span class="nv">$cltools</span>
+</span><span class='line'>    <span class="k">fi</span>
+</span><span class='line'><span class="k">  else</span>
+</span><span class='line'><span class="k">    </span><span class="nb">cd</span> /tmp <span class="o">&amp;&amp;</span> wget <span class="nv">$pkg_url</span> -O ./<span class="nv">$cltools</span>
+</span><span class='line'>  <span class="k">fi</span>
+</span><span class='line'><span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'>install_tools<span class="o">()</span> <span class="o">{</span>
+</span><span class='line'>  <span class="c"># Mount the Command Line Tools dmg</span>
+</span><span class='line'>  <span class="nb">echo</span> -e <span class="s2">&quot;$info Mounting Command Line Tools...&quot;</span>
+</span><span class='line'>  hdiutil mount -nobrowse /tmp/<span class="nv">$cltools</span>
+</span><span class='line'>  <span class="c"># Run the Command Line Tools Installer</span>
+</span><span class='line'>  <span class="nb">echo</span> -e <span class="s2">&quot;$info Installing Command Line Tools...&quot;</span>
+</span><span class='line'>  installer -pkg <span class="s2">&quot;$mountpath/$mpkg&quot;</span> -target <span class="s2">&quot;/Volumes/Macintosh HD&quot;</span>
+</span><span class='line'>  <span class="c"># Unmount the Command Line Tools dmg</span>
+</span><span class='line'>  <span class="nb">echo</span> -e <span class="s2">&quot;$info Unmounting Command Line Tools...&quot;</span>
+</span><span class='line'>  hdiutil unmount <span class="s2">&quot;$mountpath&quot;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nv">gcc_bin</span><span class="o">=</span><span class="sb">`</span>which gcc<span class="sb">`</span>
+</span><span class='line'>  gcc --version &amp;&gt;/dev/null <span class="o">&amp;&amp;</span> <span class="nb">echo</span> -e <span class="s2">&quot;$info gcc found in $gcc_bin&quot;</span>
+</span><span class='line'><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><img class="right" src="http://hagzag.github.io/assets/images/DropBox_logo.png" title="'DropBox logo'" ></p>
+
+<p>I took the liberty (not sure it&rsquo;s mine to take &hellip; but still), locating Xcode CLI tools for both mountain lion (10.8) and Lion (10.7) on <a href="http://www.dropbox.com">DropBox</a>, ecause Apple (like Oracle and other Giants) won&rsquo;t let you download without a userid / pass which is quite irretating &hellip;</p>
+
+<p>As Always hope you guy&rsquo;s enjoy this.
+HP</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[JUC video - .Net CI/CD with Jenkins]]></title>
+    <link href="http://hagzag.github.io/blog/2013/07/08/juc-video-net-ci-slash-cd-with-jenkins/"/>
+    <updated>2013-07-08T22:37:00+05:30</updated>
+    <id>http://hagzag.github.io/blog/2013/07/08/juc-video-net-ci-slash-cd-with-jenkins</id>
+    <content type="html"><![CDATA[<p>The guy&rsquo;s from <a href="http://www.jfrog.com/">Jfrog</a> were kind enough to put this session on youtube &ndash; here it is enjoy</p>
+
+<iframe width="770" height="433" src="http://hagzag.github.io//www.youtube.com/embed/C5-98Fln1jg" frameborder="0" allowfullscreen></iframe>
+
+
+<p>comments are welcome !
+HP</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Go Social with ifttt - If This Then That]]></title>
+    <link href="http://hagzag.github.io/blog/2013/06/19/go-social-with-ifttt/"/>
+    <updated>2013-06-19T19:47:00+05:30</updated>
+    <id>http://hagzag.github.io/blog/2013/06/19/go-social-with-ifttt</id>
+    <content type="html"><![CDATA[<p><img class="left" src="http://hagzag.github.io/assets/images/ifttt.png" title="'ifttt logo small'" >
+So all I want to do is post a link on facebook everytimr I publish a new article on my <a href="http://octopress.org/">Octopress</a> Post (without the need to do it manually &hellip;).</p>
+
+<p>Create an account @ <a href="https://ifttt.com/">https://ifttt.com/</a><br/><br/><br/>
+Create a rule:
+<img class="center" src="http://hagzag.github.io/assets/images/ifttt-start.png" title="'ifttt start'" ></p>
+
+<p>If RSS
+<img class="center" src="http://hagzag.github.io/assets/images/ifttt-stage2.png" title="'ifttt stage2'" ></p>
+
+<p>Then &ndash; for this exmaple &ndash; post to FaceBook &hellip;
+<img class="center" src="http://hagzag.github.io/assets/images/ifttt-facebook.png" title="'ifttt stage2'" ></p>
+
+<p>I&rsquo;ll submit this post ot github and see if this actually works &ndash; if it does a short status message should rise on my Facebook page.</p>
+
+<!-- more -->
+
+
+<p>you can expand this with much more from existing recipies like the following [ for exmaple using facebook &hellip; ]
+<img class="center" src="http://hagzag.github.io/assets/images/Choose_from_existing.png" title="'ifttt start'" ></p>
+
+<p>Hope you find this useful.</p>
+
+<p>HP</p>
+]]></content>
+  </entry>
+  
+</feed>

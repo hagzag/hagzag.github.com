@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Geek-Fun | Fractions on my timeline]]></title>
+  <link href="http://hagzag.github.io/blog/categories/geek-fun/atom.xml" rel="self"/>
+  <link href="http://hagzag.github.io/"/>
+  <updated>2014-09-10T08:13:34+05:30</updated>
+  <id>http://hagzag.github.io/</id>
+  <author>
+    <name><![CDATA[Haggai Philip Zagury]]></name>
+    <email><![CDATA[hagzag@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Java 4 Ever - two thumbs up for the production]]></title>
+    <link href="http://hagzag.github.io/blog/2010/06/26/Java-4-Ever/"/>
+    <updated>2010-06-26T09:11:00+05:30</updated>
+    <id>http://hagzag.github.io/blog/2010/06/26/Java-4-Ever</id>
+    <content type="html"><![CDATA[<p>This video speaks for itself &hellip;</p>
+
+<div markdown="1"><object width="400" height="320" type="application/x-shockwave-flash" data="http://www.koreus.com/video/java-4-ever"> <param name="movie" value="http://www.koreus.com/video/java-4-ever"><embed width="400" height="320" src="http://www.koreus.com/video/java-4-ever" type="application/x-shockwave-flash"></object><br> <a href="http://www.koreus.com/video/java-4-ever.html">Java 4-Ever</a> - <a href="http://www.koreus.com/">Buzz</a>
+</div>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[The first OSS baby rocker]]></title>
+    <link href="http://hagzag.github.io/blog/2009/09/01/first-oss-baby-rocker/"/>
+    <updated>2009-09-01T19:14:00+05:30</updated>
+    <id>http://hagzag.github.io/blog/2009/09/01/first-oss-baby-rocker</id>
+    <content type="html"><![CDATA[<p>There should be a special place for geeks like this, quite old but still does the trick!
+see the following video:</p>
+
+<div markdown="1">
+<object width="425" height="344"> <param value="http://www.youtube.com/v/bYcF_xX2DE8&amp;hl=en&amp;fs=1&amp;color1=0xe1600f&amp;color2=0xfebd01" name="movie"> <param value="true" name="allowFullScreen"> <param value="always" name="allowscriptaccess"><embed width="425" height="344" allowfullscreen="true" allowscriptaccess="always" type="application/x-shockwave-flash" src="http://www.youtube.com/v/bYcF_xX2DE8&amp;hl=en&amp;fs=1&amp;color1=0xe1600f&amp;color2=0xfebd01"></object>
+</div>
+
+]]></content>
+  </entry>
+  
+</feed>

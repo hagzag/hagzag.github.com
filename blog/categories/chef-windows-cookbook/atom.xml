@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: chef windows cookbook | Fractions on my timeline]]></title>
+  <link href="http://hagzag.github.io/blog/categories/chef-windows-cookbook/atom.xml" rel="self"/>
+  <link href="http://hagzag.github.io/"/>
+  <updated>2014-09-10T08:13:34+05:30</updated>
+  <id>http://hagzag.github.io/</id>
+  <author>
+    <name><![CDATA[Haggai Philip Zagury]]></name>
+    <email><![CDATA[hagzag@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Book Review :: Managing Windows Servers with Chef by John Ewart]]></title>
+    <link href="http://hagzag.github.io/blog/2014/08/20/book-review-Managing-Windows-Servers-with-Chef/"/>
+    <updated>2014-08-20T23:24:00+05:30</updated>
+    <id>http://hagzag.github.io/blog/2014/08/20/book-review-Managing-Windows-Servers-with-Chef</id>
+    <content type="html"><![CDATA[<p><img class="left" src="/assets/images/2424OS.png" title="&lsquo;Book Cover&rsquo;" > As someone which works quite a bit with Chef and naturally had to do some Chef on Windows, this book really provides a lot of insight into the &ldquo;Chef on Windows&rdquo; topic. All the configuration management tools out there support windows in one way or another but IMHO chef&rsquo;s investment into windows despite the fact it isn&rsquo;t the natural OS choice to say the least, is huge compared to the others out there (again IMHO).</p>
+
+<p>This book <a href="https://www.packtpub.com/networking-and-servers/managing-windows-servers-chef">Managing Windows Servers with Chef</a> is A natural sequel to “Instant Chef Starter” also by the John Ewart.</p>
+
+<p>One of the big promises of this book is removing the natural recoil *nix sysadmins have from windows configuration management.
+The Book provides a good overview of the <a href="https://github.com/opscode-cookbooks/windows">Chef Windows cookbook</a> and it&rsquo;s <a href="http://docs.getchef.com/lwrp_windows.html">LWRP&rsquo;s</a>.</p>
+
+<p><strong>Chapter 4 &ldquo;Deploying an Application stack&rdquo;</strong> presented a nice example implementation, although I must say I would have appreciated a more complex example considering this book audience is for sysadmins which are already familiar with Chef.</p>
+
+<p>I liked chapter <strong>5 &ldquo;Managing Cloud Services with Chef&rdquo;</strong> which emphasizes how the different knife plugins for Windows azure, ec2 and rackspace &ldquo;behave&rdquo; with windows hosts as easily it works with linux ones (despite the fact we do not rely on ssh :) ).</p>
+
+<p>The end of the book gives a small taste of <a href="http://rspec.info/">Rspec</a> and <a href="http://docs.getchef.com/chefspec.html">ChefSpec</a> which tries to introduce the <a href="http://en.wikipedia.org/wiki/Test-driven_development">TDD</a> concept into the cookbook development lifecycle &ndash; IMO this topic is extremely important nowadays considering opscode (Operation Code &hellip; not Opscode Chef the old name if Chef Inc.) should be tested as any other code.</p>
+
+<p>The fact the book is short and succinct &ndash; 110 pages (consider prerequisites are you know chef) is a big advantage to such a book.
+There are quite a few techniques I will be taking with me from this book + it&rsquo;s a great addition to my books library.</p>
+
+<p>Hope you enjoy it as much as I did.</p>
+]]></content>
+  </entry>
+  
+</feed>

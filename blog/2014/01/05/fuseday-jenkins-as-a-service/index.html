@@ -1,0 +1,451 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Tikal Fuseday - Jenkins as a service - Fractions on my timeline</title>
+  <meta name="author" content="Haggai Philip Zagury">
+
+  
+  <meta name="description" content="Synopsis In order to summarize our Fuse day I would like to take a moment and explain our end goal. The end goal consist of: Amazon Instance running &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://hagzag.github.io/blog/2014/01/05/fuseday-jenkins-as-a-service">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Fractions on my timeline" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-38752767-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner">
+
+<hgroup>
+	<!-- <div class="left" style="float:left; width: 128px; height: 128px;"> -->
+		<img src="/images/Line-chart-icon.png" alt="icon">
+	<!-- </div>	 -->
+  	<!-- <div class="right" style="float:left; position: relative;"> -->
+	  <h1><a href="/">Fractions on my timeline</a></h1>
+	  
+	    <h2>My "journeys", challenges and stuff I want to say</h2>
+	  
+  	<!-- </div>	 -->
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:hagzag.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Tikal Fuseday - Jenkins as a Service</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-01-05T18:28:00+05:30" pubdate data-updated="true">Jan 5<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p><img class="left" src="/assets/images/jenkins140x140.jpg" title="'Jenkins logo small'" ></p>
+
+<h2>Synopsis</h2>
+
+<p>In order to summarize our Fuse day I would like to take a moment and explain our end goal.</p>
+
+<p>The <strong><em>end goal</em></strong> consist of:</p>
+
+<ul>
+<li>Amazon Instance running multiple tenants of Jenkins</li>
+<li>A CLI / Web interface which will eventually manage this &ldquo;Multi Jenkins&rdquo; instance in a way that one can create a new instance on the fly.</li>
+<li><p>At the tenant level:</p>
+
+<ul>
+<li>Each tenant will utilize the Jenkins scm sync plugin and in that manor maintain configuration in a git repo for disaster recovery.</li>
+<li>Each tenant will have it&rsquo;s own custom authentication and authorization strategy.</li>
+<li>Each Jenkins tenant will have is own plugin-stack and we already know we might have different tenant types for example Java, Ruby etc, so we would like to have 1 base plugin- stack + a domain specific plugin-stack suitable for each tenant type.</li>
+<li>Each tenant will have it&rsquo;s own listen port, hence we will need a reverse proxy to serve clean urls for each tenant based on his name / dns name.</li>
+</ul>
+</li>
+</ul>
+
+
+<!-- more -->
+
+
+<h2>The Plan</h2>
+
+<p>We gathered around the white board [well, it was really a transparent window, but don&rsquo;t be picky] and discussed our options&nbsp;&ndash; we cam up with two options:</p>
+
+<ol>
+<li>Use <a href="https://github.com/opscode-cookbooks/jenkins">Opscode&rsquo;s Jenkins chef cookbook</a> with some customizations in order to support the requirements above.</li>
+<li>Use Docker which will, instantiate isolated Jenkins tenants on one Amazon instance.</li>
+</ol>
+
+
+<p>We had a good feeling we will not be able to do all these tasks in one day, but we have to start somewhere &hellip;</p>
+
+<p>So we split into two groups <strong>One group the Chef Group</strong> &amp; the <strong>Docker group</strong>.</p>
+
+<p>Each group had an initial goal running a Jenkins instance using Chef &amp; Docker and once that is achieved start building the plugin sets.</p>
+
+<p>In the Chef Group<strong> [ Schachar Ben Zeev, Yoram Micaeli, Timor Raiman &amp; yours truly ] we did the following</strong>:</p>
+
+<p>&nbsp;</p>
+
+<h3>Chef</h3>
+
+<p>Use: <a href="https://github.com/tikalk-cookbooks/alm">https://github.com/tikalk-cookbooks/alm</a> a chef-solo repository which manages all the dependency and can be used by us in order to develop it.</p>
+
+<p>&nbsp;</p>
+
+<h3>Vagrant</h3>
+
+<p>Use Vagrant in order to instantiate a local instance on Virtual Box and start iterating on that see <a href="https://github.com/tikalk-cookbooks/alm/blob/master/Vagrantfile">Vagranfile on github</a> &ndash; in this use case&nbsp;<strong><em>vagrant up ci</em></strong><em> would do the trick of running 1 instance of jenkins ci-server on our vm.</em></p>
+
+<p><em>So by lunch we had a Vagrant file with a VirtualBox instance running</em></p>
+
+<p>The way we achieved that was by creating a chef role and instructed the Vagrant provisioner to use it:</p>
+
+<p><img src="/assets/images/image001.png" alt="" /></p>
+
+<p>So our cookbook at this stage is empty, no need to do anything for this first instance!</p>
+
+<p>The key in this is our <strong><em>chef.add_role</em></strong>, which sets some parameters used by the Jenkins cookbook:</p>
+
+<p><img src="/assets/images/image004.png" alt="" /></p>
+
+<p>&nbsp;</p>
+
+<p>At this stage it hit us we will need some mechanism of invoking chef on our machine and editing the run-list / node object (our &ldquo;dna.json&rdquo; file in the Vagrant jargon) in order to be able to run more than 1 Jenkins instance, In addition to that we had to start building our plugin-stacks.</p>
+
+<p>Timor came up with an idea, which suggested we would generate a datbag per tenant with the following parameters:</p>
+
+<ol>
+<li>Tenant id =&gt; numerical value</li>
+<li>Company Name =&gt; the name of the customer</li>
+<li>Dns Prefix (e-mail suffix) / fqdn of the tenant</li>
+<li>Expire Date &ndash; considering it&rsquo;s a time based tenant it will be removed / blocked if the Expire data is larger than this date.</li>
+<li>Purge Date &ndash; how long is the tenants grace period</li>
+<li>Jenkins Version &ndash; what version of Jenkins is this tenant going to run</li>
+<li>Sync SCM repo &ndash; the repository we will store the data in</li>
+<li>Plugin stacks &ndash; an Array of plugin sets selected by the customer</li>
+<li>Specific plugins &ndash; a plugin set outside of the stacks</li>
+</ol>
+
+
+<p>We came up with this 1<sup>st</sup> version of databag:</p>
+
+<p><img src="/assets/images/image006.png" alt="" /></p>
+
+<p>And whilst we were using data bags we thought why not hold the plugin-sets in a database too like so:</p>
+
+<p>The base databag:</p>
+
+<p><img src="/assets/images/image008.png" alt="" /></p>
+
+<p>A Stack (Java) specific databag:</p>
+
+<p><img src="/assets/images/image010.png" alt="" /></p>
+
+<p>At this stage we started to understand how we could use the chef paradigm utilizing the node object and define a service, we had to do the following:</p>
+
+<ol>
+<li>Collect the information needed in order to construct the databag per user &ndash; based on the hellorandm example</li>
+<li>Connect to the remote machine and run chef (chef solo / server is still debatable) with that json file</li>
+<li>Analyze the chef-run input in order to determine it&rsquo;s success / failure</li>
+<li>Report back to the cli/ui tool.</li>
+</ol>
+
+
+<p>At this stage we ran out of time, but what we are now taking offline is:</p>
+
+<ol>
+<li>Continue the chef-solo + data bag route where we insatiate new tenants from the Jenkins cookbook &ndash; in the current state of the cookbook it looks like we will need to write our own / expand it to facilitate more than 1 Jenkins tenant on 1 Amazon Instance.</li>
+<li>Writing a rest based service which will run on the amazon instance and listen on a web&nbsp; / cli tool for a json object. Once delivered the service will then invoke chef on the node with the new tenant. Another option I am checking out is using <a href="http://puppetlabs.com/mcollective">Mcollective</a> in order to pass a json to the node and instantiate the run (Mcollective already has a CLI ! &ndash; so perhaps all we need to do is expand it for our needs ?)</li>
+</ol>
+
+
+<p>I stumbled upon &ldquo;<a href="http://www.cryptocracy.com/blog/2011/08/21/using-mcollective-with-chef/">Mcollective with chef</a>&rdquo; blog post which is worth cheking out.</p>
+
+<ol>
+<li>Consider combining Docker / Vagrant to do the heavy lifting: The second route in parallel just concluded and reported their finding on Docker (stay tuned for their blog post and findings) &ndash; Another &ldquo;Timor search&rdquo; yielded <a href="https://github.com/hw-cookbooks/lxc">https://github.com/hw-cookbooks/lxc</a> which is basically doing &ldquo;Docker style&rdquo; management of LXC instances so we could have a complete isolated instance running on LXC hosting mutipule Jenkins tenants in this case we will not need to expand the Jenkins cookbook &hellip;</li>
+<li>Write the CLI to interact with the service running on the instance</li>
+<li>Write the Web</li>
+</ol>
+
+
+<p>To summarize: It was a good experience seeing different point of views and methods on how to accomplish this, we will definitely continue hacking on this in our Bi-Weekly workshops and of course following Fuse Days.</p>
+
+<p>We would most appreciate your comments / suggestions / ideas we might have missed.</p>
+
+<p>In addition, the Chef related work is on github under the <a href="https://github.com/tikalk-cookbooks">tikalk-cookbooks</a> organization with the <a href="https://github.com/tikalk-cookbooks/alm">ALM</a> &ndash; &ldquo;chef repo&rdquo; and others feel free to smooch around.</p>
+
+<p>Happy Hacking.</p>
+
+<p>HP</p>
+</div>
+
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Haggai Philip Zagury</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-01-05T18:28:00+05:30" pubdate data-updated="true">Jan 5<span>th</span>, 2014</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/fuseday/'>fuseday</a>, <a class='category' href='/blog/categories/jenkins/'>jenkins</a>, <a class='category' href='/blog/categories/tikal/'>tikal</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://hagzag.github.io/blog/2014/01/05/fuseday-jenkins-as-a-service/" data-via="hagzag" data-counturl="http://hagzag.github.io/blog/2014/01/05/fuseday-jenkins-as-a-service/" >Tweet</a>
+  
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2013/12/27/git-adding-forgotten-files/" title="Previous Post: Git - adding forgotten files">&laquo; Git - adding forgotten files</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2014/01/22/Docekr-Frendly-Vagrant-Box/" title="Next Post: Docker Friendly Vagrant Box">Docker Friendly Vagrant Box &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="facebook_comments" aria-live="polite">
+      <noscript>Please enable JavaScript to view the comments powered by facebook</a></noscript>
+<div
+  class="fb-comments"
+  data-href="http://hagzag.github.io/blog/2014/01/05/fuseday-jenkins-as-a-service/"
+  data-num-posts="2"
+  data-width="800"
+  data-colorscheme="light" ></div>
+
+    </div>
+  </section>
+
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <span>
+  	<div class="linkedin">
+		<a href="http://about.me/hagzag"><img src="/images/Aboutme_gray_logo.png" width="160" height="33" border="0" alt="View Haggai Philip Zagury's profile on About.me"></a>
+
+  	<img src="/images/profile_large.png" alt="my_pic" width="150" height="150">
+		<a href="http://il.linkedin.com/in/hagzag"><img src="http://www.linkedin.com/img/webpromo/btn_myprofile_160x33.png" width="160" height="33" border="0" alt="View Haggai Philip Zagury's profile on LinkedIn"></a>
+	</div>
+ </span>
+</section>
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/09/10/chef-server-entrprise-features-now-available-in-oss-version/">Chef Server Enterprise Features Now Available in OSS Version</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/08/20/book-review-Managing-Windows-Servers-with-Chef/">Book Review :: Managing Windows Servers With Chef by John Ewart</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/08/15/pamnamax-docker-management-for-humans/">PanaMax - Docker Management for Humans</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/07/19/JUC-2014-Hertzlia-overview/">Jenkins the Software Development Framework for Everyone [ JUC 2014 Hertzlia - Overview ]</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/04/25/image-cm-ground-packer/">Image CM From the Ground Up With Packer</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/hagzag">@hagzag</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'hagzag',
+            count: 5,
+            skip_forks: false,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+<section class="googleplus googleplus-hidden">
+  <h1>
+    <a href="https://plus.google.com/hagzag?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+<a href="http://internetdefenseleague.org"><img src="http://internetdefenseleague.org/images/badges/final/super_badge.png" alt="Member of The Internet Defense League" /></a>
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Haggai Philip Zagury -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id; js.async = true;
+  //js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  js.src = "//connect.facebook.net/en_US/all.js#appId=222612811167194&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

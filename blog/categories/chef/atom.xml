@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: chef | Fractions on my timeline]]></title>
+  <link href="http://hagzag.github.io/blog/categories/chef/atom.xml" rel="self"/>
+  <link href="http://hagzag.github.io/"/>
+  <updated>2014-09-10T08:13:34+05:30</updated>
+  <id>http://hagzag.github.io/</id>
+  <author>
+    <name><![CDATA[Haggai Philip Zagury]]></name>
+    <email><![CDATA[hagzag@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Who moved my BOX ?]]></title>
+    <link href="http://hagzag.github.io/blog/2013/12/03/who-moved-my-box/"/>
+    <updated>2013-12-03T17:32:00+05:30</updated>
+    <id>http://hagzag.github.io/blog/2013/12/03/who-moved-my-box</id>
+    <content type="html"><![CDATA[<p><img class="left" src="/assets/images/CCTOTB.png" title="&lsquo;Keep Clam&rsquo;" >
+Hi everyone !</p>
+
+<p>Who moved my BOX ? &ndash; the opening / pitch presentation for <a href="http://www.meetup.com/full-stack-developer-il/events/148415092/">&quot;Chef &amp; Vagrant: DEVOPS perfect couple&quot; meetup</a>&nbsp;last Thursday.</p>
+
+<br/>
+
+
+<br/>
+
+
+<br/>
+
+
+<br/>
+
+
+<br/>
+
+
+<div markdown="1" align="center">
+<iframe frameborder="0" height="400" src="http://prezi.com/embed/tpmzmzaz0vcy/?bgcolor=ffffff&amp;lock_to_path=0&amp;autoplay=0&amp;autohide_ctrls=0&amp;features=undefined&amp;disabled_features=undefined" width="550"></iframe>
+</div>
+
+
+<object width="770" height="433"><param name="movie" value="//www.youtube.com/v/TnnHgxOtM_k?version=3&amp;hl=en_US"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://hagzag.github.io//www.youtube.com/v/TnnHgxOtM_k?version=3&amp;hl=en_US" type="application/x-shockwave-flash" width="770" height="433" allowscriptaccess="always" allowfullscreen="true"></embed></object>
+
+
+<p>If you were there &ndash; it was good to see you, if not here is the presentation &ndash; enjoy</p>
+
+<p>Thanks</p>
+]]></content>
+  </entry>
+  
+</feed>

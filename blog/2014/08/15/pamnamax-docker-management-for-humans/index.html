@@ -1,0 +1,494 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>PanaMax - Docker Management for Humans - Fractions on my timeline</title>
+  <meta name="author" content="Haggai Philip Zagury">
+
+  
+  <meta name="description" content="As cool as Docker is there is quite a lot of stuff you need to start caring about, service discovery, orchestration, routing and so on, and there is &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://hagzag.github.io/blog/2014/08/15/pamnamax-docker-management-for-humans">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Fractions on my timeline" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-38752767-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner">
+
+<hgroup>
+	<!-- <div class="left" style="float:left; width: 128px; height: 128px;"> -->
+		<img src="/images/Line-chart-icon.png" alt="icon">
+	<!-- </div>	 -->
+  	<!-- <div class="right" style="float:left; position: relative;"> -->
+	  <h1><a href="/">Fractions on my timeline</a></h1>
+	  
+	    <h2>My "journeys", challenges and stuff I want to say</h2>
+	  
+  	<!-- </div>	 -->
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:hagzag.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">PanaMax - Docker Management for Humans</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-08-15T17:57:00+05:30" pubdate data-updated="true">Aug 15<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p><img class="left" src="/assets/images/docker-logo-100x134.png" title="'Docker logo'" >
+As cool as Docker is there is quite a lot of stuff you need to start caring about, service discovery, orchestration, routing and so on, and there is a long line of technologies which help you achieve that, here is quite a long list just as an example:</p>
+
+<ul>
+<li><a href="https://coreos.com">CoreOS</a> &ndash; The orchestrator / Container host operating system comes prepackaged with <a href="https://www.docker.com/">Docker</a>, <a href="https://github.com/coreos/etcd">etcd</a> &amp; <a href="https://github.com/coreos/fleet">fleet</a></li>
+<li><a href="https://github.com/coreos/fleet">fleet</a> &ndash; A distributed init system paired with <a href="https://github.com/coreos/etcd">etcd</a> &amp; <a href="https://coreos.com/using-coreos/systemd">systemd</a></li>
+<li><a href="http://zookeeper.apache.org/">zookeeper</a>, <a href="https://github.com/lonnen/doozer">Doozer</a>, <a href="https://github.com/coreos/etcd">etcd</a>&ndash; share configuration across a cluster of servers (cluster manager)</li>
+<li><a href="https://flynn.io">flynn</a> &ndash; A framework for building distributed systems in the past you might of heard of <a href="https://github.com/flynn/discoverd">discoverd</a> which is now part of flynn.</li>
+<li><a href="http://mesos.apache.org">mesos</a>, <a href="https://github.com/GoogleCloudPlatform/kubernetes">Kubernetes</a>, <a href="http://openshift.github.io/geard/">geard</a>&ndash; cluster managers</li>
+<li><a href="http://www.fig.sh/">fig</a> &ndash; Orchestration of local development environments.</li>
+<li><a href="https://github.com/docker/libswarm">libswarm</a> &ndash; network services &ldquo;composer&rdquo; for containers.</li>
+<li><a href="https://github.com/crosbymichael/skydock">skydock</a> &ndash; Service Discovery for Docker.</li>
+<li><a href="https://github.com/progrium/ambassadord">ambassadord</a>, <a href="https://github.com/progrium/registrator">registrator</a>, <a href="https://github.com/progrium/consulate">consulate</a> &ndash; you will find these three work together in order to enable service registration and discovery / auto discovery for Docker containers, <a href="https://github.com/progrium/registrator">registrator</a> also uses <a href="http://www.consul.io/">consul</a> and <a href="https://github.com/coreos/etcd">etcd</a> in order to do that.</li>
+<li><a href="http://www.consul.io/">consul</a> &ndash; Built based on <a href="http://www.serfdom.io/">serf</a> a service discovery broker.</li>
+<li><a href="https://github.com/progrium/consulate">consulate</a> &ndash; another discovery service based on <a href="http://www.consul.io/">consul</a></li>
+<li><a href="https://github.com/progrium/configurator">configurator</a> &ndash; serve configuration files via REST API</li>
+<li><a href="https://github.com/progrium/registrator">registrator</a> &ndash; service registry bridge (a.k.a <a href="https://github.com/progrium/docksul">docksul</a>)</li>
+</ul>
+
+
+<p>And there is more (believe me I&rsquo;ve done my research &hellip;)
+If you need to spin up a single container you do not need all this stuff, but when you need to launch more than one container in order to bring your system up, and maybe span over more than 1 host you need a few of the tools listed above in order to achieve that.
+Looking at this list and knowing it is potentially mych longer &hellip; think how many tools you need to master in order to launch a POC &hellip; before you can start developing your system and develop a continuous delivery / deployment scheme for it !</p>
+
+<h4>So how can you simplify the development life-cycle of a containerized solution / system ?</h4>
+
+<p><img class="left" src="/assets/images/pmx_logo.png" title="'Panamax logo'" > Panamax by <a href="http://www.centurylinklabs.com/">centurylinklabs</a> to the rescue.
+Panamax is (and I quote) a containerized app creator with an open-source app marketplace hosted in GitHub, I think the last bit is most important one the fact you can find on github a template of an existing &ldquo;containarized&rdquo; systems is awesome &ndash; very similar to the way you can share Docker files but here instead you get a <a href="http://www.fig.sh/">fig</a> file which describes your environment and &ldquo;tells&rdquo; your containers what to do, who to connect to etc. etc.</p>
+
+<h4>About Panamax</h4>
+
+<p><img class="left" src="/assets/images/coreos-100x100.png" title="'CoreOs logo'" > PanaMax is naturally based on CoreOs and has made some educated choices for example fleet and etcd which are shipped part of CoreOs, according to Lucas Carlson of <a href="http://www.centurylinklabs.com/">centurylinklabs</a> PanaMax will support other OS&rsquo;s and other orchestration frameworks in the future, as you may understand this was just released a few days ago (August 12 to be precise).</p>
+
+<h4>Using Panamax</h4>
+
+<p>After <a href="https://www.youtube.com/watch?v=15IKkYCfymk#t=434">installing PanaMax</a> and you have panamax up and running on your local machine you can search for existing systems as an example lets take the <a href="https://raw.githubusercontent.com/CenturyLinkLabs/panamax-public-templates/master/piwik.pmx">piwik exmaple</a> by searching in our local panamax ui via <a href="http://localhost:8888">http://localhost:8888</a> (the default)<!-- more --></p>
+
+<p><img class="left" src="/assets/images/panamax_search_piwik.png" title="'piwik search'" ></p>
+
+<p>Pressing the &ldquo;run template&rdquo; button will result in panamax parsing the pmx(fig) yaml file:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+</pre></td><td class='code'><pre><code class='yaml'><span class='line'><span class="l-Scalar-Plain">images</span><span class="p-Indicator">:</span>
+</span><span class='line'><span class="p-Indicator">-</span> <span class="l-Scalar-Plain">category</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Web Tier</span>
+</span><span class='line'>  <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Piwik</span>
+</span><span class='line'>  <span class="l-Scalar-Plain">source</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">cbeer/piwik</span>
+</span><span class='line'>  <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Piwik web application</span>
+</span><span class='line'>  <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Default</span>
+</span><span class='line'>  <span class="l-Scalar-Plain">ports</span><span class="p-Indicator">:</span>
+</span><span class='line'>  <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">host_port</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">80</span>
+</span><span class='line'>    <span class="l-Scalar-Plain">container_port</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">80</span>
+</span><span class='line'>  <span class="l-Scalar-Plain">links</span><span class="p-Indicator">:</span>
+</span><span class='line'>  <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">service</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">DB</span>
+</span><span class='line'>    <span class="l-Scalar-Plain">alias</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">db</span>
+</span><span class='line'><span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">DB</span>
+</span><span class='line'>  <span class="l-Scalar-Plain">source</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">centurylink/mysql:5.5</span>
+</span><span class='line'>  <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">MySQL</span>
+</span><span class='line'>  <span class="l-Scalar-Plain">environment</span><span class="p-Indicator">:</span>
+</span><span class='line'>    <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">variable</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">MYSQL_ROOT_PASSWORD</span>
+</span><span class='line'>      <span class="l-Scalar-Plain">value</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">pass@word01</span>
+</span><span class='line'>  <span class="l-Scalar-Plain">ports</span><span class="p-Indicator">:</span>
+</span><span class='line'>  <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">host_port</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">3306</span>
+</span><span class='line'>    <span class="l-Scalar-Plain">container_port</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">3306</span>
+</span><span class='line'>  <span class="l-Scalar-Plain">category</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">DB Tier</span>
+</span><span class='line'>  <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">mysql</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Then panamax will download the docker images from the section above in this example: <a href="https://registry.hub.docker.com/u/cbeer/piwik/builds_history/31636/">cbeer/piwik</a> &amp; <a href="https://registry.hub.docker.com/u/centurylink/mysql/builds_history/38801/">centurylink/mysql:5.5</a>
+<img class="left" src="/assets/images/panamax_run_piwik.png" title="'piwik search'" ></p>
+
+<p>Once the docker images are downloaded and spawn up you can examine the CoreOS Journal log and see exactly what occurred:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">Aug</span> <span class="mi">16</span> <span class="mi">15</span><span class="p">:</span><span class="mi">55</span><span class="p">:</span><span class="mi">53</span> <span class="n">docker</span> <span class="mi">140816</span> <span class="mi">12</span><span class="p">:</span><span class="mi">55</span><span class="p">:</span><span class="mi">53</span> <span class="o">[</span><span class="no">Note</span><span class="o">]</span> <span class="no">Server</span> <span class="n">hostname</span> <span class="p">(</span><span class="n">bind</span><span class="o">-</span><span class="n">address</span><span class="p">):</span> <span class="s1">&#39;0.0.0.0&#39;</span><span class="p">;</span> <span class="ss">port</span><span class="p">:</span> <span class="mi">3306</span>
+</span><span class='line'><span class="no">Aug</span> <span class="mi">16</span> <span class="mi">15</span><span class="p">:</span><span class="mi">55</span><span class="p">:</span><span class="mi">53</span> <span class="n">docker</span> <span class="mi">140816</span> <span class="mi">12</span><span class="p">:</span><span class="mi">55</span><span class="p">:</span><span class="mi">53</span> <span class="o">[</span><span class="no">Note</span><span class="o">]</span> <span class="o">-</span> <span class="s1">&#39;0.0.0.0&#39;</span> <span class="n">resolves</span> <span class="n">to</span> <span class="s1">&#39;0.0.0.0&#39;</span><span class="p">;</span>
+</span><span class='line'><span class="no">Aug</span> <span class="mi">16</span> <span class="mi">15</span><span class="p">:</span><span class="mi">55</span><span class="p">:</span><span class="mi">53</span> <span class="n">docker</span> <span class="mi">140816</span> <span class="mi">12</span><span class="p">:</span><span class="mi">55</span><span class="p">:</span><span class="mi">53</span> <span class="o">[</span><span class="no">Note</span><span class="o">]</span> <span class="no">Server</span> <span class="n">socket</span> <span class="n">created</span> <span class="n">on</span> <span class="ss">IP</span><span class="p">:</span> <span class="s1">&#39;0.0.0.0&#39;</span><span class="o">.</span>
+</span><span class='line'><span class="no">Aug</span> <span class="mi">16</span> <span class="mi">15</span><span class="p">:</span><span class="mi">55</span><span class="p">:</span><span class="mi">53</span> <span class="n">docker</span> <span class="mi">140816</span> <span class="mi">12</span><span class="p">:</span><span class="mi">55</span><span class="p">:</span><span class="mi">53</span> <span class="o">[</span><span class="no">Note</span><span class="o">]</span> <span class="no">Event</span> <span class="ss">Scheduler</span><span class="p">:</span> <span class="no">Loaded</span> <span class="mi">0</span> <span class="n">events</span>
+</span><span class='line'><span class="no">Aug</span> <span class="mi">16</span> <span class="mi">15</span><span class="p">:</span><span class="mi">55</span><span class="p">:</span><span class="mi">53</span> <span class="n">docker</span> <span class="mi">140816</span> <span class="mi">12</span><span class="p">:</span><span class="mi">55</span><span class="p">:</span><span class="mi">53</span> <span class="o">[</span><span class="no">Note</span><span class="o">]</span> <span class="sr">/usr/s</span><span class="n">bin</span><span class="o">/</span><span class="ss">mysqld</span><span class="p">:</span> <span class="n">ready</span> <span class="k">for</span> <span class="n">connections</span><span class="o">.</span>
+</span><span class='line'><span class="no">Aug</span> <span class="mi">16</span> <span class="mi">15</span><span class="p">:</span><span class="mi">55</span><span class="p">:</span><span class="mi">53</span> <span class="n">docker</span> <span class="ss">Version</span><span class="p">:</span> <span class="s1">&#39;5.5.38-0ubuntu0.14.04.1-log&#39;</span> <span class="ss">socket</span><span class="p">:</span> <span class="s1">&#39;/var/run/mysqld/mysqld.sock&#39;</span> <span class="ss">port</span><span class="p">:</span> <span class="mi">3306</span> <span class="p">(</span><span class="no">Ubuntu</span><span class="p">)</span>
+</span><span class='line'><span class="no">Aug</span> <span class="mi">16</span> <span class="mi">16</span><span class="p">:</span><span class="mo">00</span><span class="p">:</span><span class="mi">48</span> <span class="n">systemd</span> <span class="no">Started</span> <span class="no">Piwik</span> <span class="n">web</span> <span class="n">application</span><span class="o">.</span>
+</span><span class='line'><span class="no">Aug</span> <span class="mi">16</span> <span class="mi">16</span><span class="p">:</span><span class="mo">00</span><span class="p">:</span><span class="mi">49</span> <span class="n">docker</span> <span class="no">Error</span> <span class="n">response</span> <span class="n">from</span> <span class="ss">daemon</span><span class="p">:</span> <span class="no">No</span> <span class="n">such</span> <span class="ss">container</span><span class="p">:</span> <span class="no">Piwik</span>
+</span><span class='line'><span class="no">Aug</span> <span class="mi">16</span> <span class="mi">16</span><span class="p">:</span><span class="mo">00</span><span class="p">:</span><span class="mi">49</span> <span class="n">docker</span> <span class="mi">2014</span><span class="o">/</span><span class="mi">08</span><span class="o">/</span><span class="mi">16</span> <span class="mi">13</span><span class="p">:</span><span class="mo">00</span><span class="p">:</span><span class="mi">48</span> <span class="ss">Error</span><span class="p">:</span> <span class="n">failed</span> <span class="n">to</span> <span class="n">remove</span> <span class="n">one</span> <span class="ow">or</span> <span class="n">more</span> <span class="n">containers</span>
+</span><span class='line'><span class="no">Aug</span> <span class="mi">16</span> <span class="mi">16</span><span class="p">:</span><span class="mo">00</span><span class="p">:</span><span class="mi">50</span> <span class="n">docker</span> <span class="sr">/usr/</span><span class="n">lib</span><span class="o">/</span><span class="n">python2</span><span class="o">.</span><span class="mi">7</span><span class="o">/</span><span class="n">dist</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">supervisor</span><span class="o">/</span><span class="n">options</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">295</span><span class="p">:</span> <span class="ss">UserWarning</span><span class="p">:</span> <span class="no">Supervisord</span> <span class="n">is</span> <span class="n">running</span> <span class="n">as</span> <span class="n">root</span> <span class="ow">and</span> <span class="n">it</span> <span class="n">is</span> <span class="n">searching</span> <span class="k">for</span> <span class="n">its</span> <span class="n">configuration</span> <span class="n">file</span> <span class="k">in</span> <span class="n">default</span> <span class="n">locations</span> <span class="p">(</span><span class="n">including</span> <span class="n">its</span> <span class="n">current</span> <span class="n">working</span> <span class="n">directory</span><span class="p">);</span> <span class="n">you</span> <span class="n">probably</span> <span class="n">want</span> <span class="n">to</span> <span class="n">specify</span> <span class="n">a</span> <span class="s2">&quot;-c&quot;</span> <span class="n">argument</span> <span class="n">specifying</span> <span class="n">an</span> <span class="n">absolute</span> <span class="n">path</span> <span class="n">to</span> <span class="n">a</span> <span class="n">configuration</span> <span class="n">file</span> <span class="k">for</span> <span class="n">improved</span> <span class="n">security</span><span class="o">.</span>
+</span><span class='line'><span class="no">Aug</span> <span class="mi">16</span> <span class="mi">16</span><span class="p">:</span><span class="mo">00</span><span class="p">:</span><span class="mi">50</span> <span class="n">docker</span> <span class="s1">&#39;Supervisord is running as root and it is searching &#39;</span>
+</span><span class='line'><span class="no">Aug</span> <span class="mi">16</span> <span class="mi">16</span><span class="p">:</span><span class="mo">00</span><span class="p">:</span><span class="mi">50</span> <span class="n">docker</span> <span class="mi">2014</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">16</span> <span class="mi">13</span><span class="p">:</span><span class="mo">00</span><span class="p">:</span><span class="mi">50</span><span class="p">,</span><span class="mi">924</span> <span class="no">CRIT</span> <span class="no">Supervisor</span> <span class="n">running</span> <span class="n">as</span> <span class="n">root</span> <span class="p">(</span><span class="n">no</span> <span class="n">user</span> <span class="k">in</span> <span class="n">config</span> <span class="n">file</span><span class="p">)</span>
+</span><span class='line'><span class="no">Aug</span> <span class="mi">16</span> <span class="mi">16</span><span class="p">:</span><span class="mo">00</span><span class="p">:</span><span class="mi">50</span> <span class="n">docker</span> <span class="mi">2014</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">16</span> <span class="mi">13</span><span class="p">:</span><span class="mo">00</span><span class="p">:</span><span class="mi">50</span><span class="p">,</span><span class="mi">924</span> <span class="no">WARN</span> <span class="no">Included</span> <span class="n">extra</span> <span class="n">file</span> <span class="s2">&quot;/etc/supervisor/conf.d/supervisord-apache2.conf&quot;</span> <span class="n">during</span> <span class="n">parsing</span>
+</span><span class='line'><span class="no">Aug</span> <span class="mi">16</span> <span class="mi">16</span><span class="p">:</span><span class="mo">00</span><span class="p">:</span><span class="mi">51</span> <span class="n">docker</span> <span class="mi">2014</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">16</span> <span class="mi">13</span><span class="p">:</span><span class="mo">00</span><span class="p">:</span><span class="mi">51</span><span class="p">,</span><span class="mo">076</span> <span class="no">INFO</span> <span class="no">RPC</span> <span class="n">interface</span> <span class="s1">&#39;supervisor&#39;</span> <span class="n">initialized</span>
+</span><span class='line'><span class="no">Aug</span> <span class="mi">16</span> <span class="mi">16</span><span class="p">:</span><span class="mo">00</span><span class="p">:</span><span class="mi">51</span> <span class="n">docker</span> <span class="mi">2014</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">16</span> <span class="mi">13</span><span class="p">:</span><span class="mo">00</span><span class="p">:</span><span class="mi">51</span><span class="p">,</span><span class="mo">076</span> <span class="no">CRIT</span> <span class="no">Server</span> <span class="s1">&#39;unix_http_server&#39;</span> <span class="n">running</span> <span class="n">without</span> <span class="n">any</span> <span class="no">HTTP</span> <span class="n">authentication</span> <span class="n">checking</span>
+</span><span class='line'><span class="no">Aug</span> <span class="mi">16</span> <span class="mi">16</span><span class="p">:</span><span class="mo">00</span><span class="p">:</span><span class="mi">51</span> <span class="n">docker</span> <span class="mi">2014</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">16</span> <span class="mi">13</span><span class="p">:</span><span class="mo">00</span><span class="p">:</span><span class="mi">51</span><span class="p">,</span><span class="mo">076</span> <span class="no">INFO</span> <span class="n">supervisord</span> <span class="n">started</span> <span class="n">with</span> <span class="n">pid</span> <span class="mi">1</span>
+</span><span class='line'><span class="no">Aug</span> <span class="mi">16</span> <span class="mi">16</span><span class="p">:</span><span class="mo">00</span><span class="p">:</span><span class="mi">52</span> <span class="n">docker</span> <span class="mi">2014</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">16</span> <span class="mi">13</span><span class="p">:</span><span class="mo">00</span><span class="p">:</span><span class="mi">52</span><span class="p">,</span><span class="mi">098</span> <span class="no">INFO</span> <span class="ss">spawned</span><span class="p">:</span> <span class="s1">&#39;apache2&#39;</span> <span class="n">with</span> <span class="n">pid</span> <span class="mi">11</span>
+</span><span class='line'><span class="no">Aug</span> <span class="mi">16</span> <span class="mi">16</span><span class="p">:</span><span class="mo">00</span><span class="p">:</span><span class="mi">53</span> <span class="n">docker</span> <span class="mi">2014</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">16</span> <span class="mi">13</span><span class="p">:</span><span class="mo">00</span><span class="p">:</span><span class="mi">53</span><span class="p">,</span><span class="mi">315</span> <span class="no">INFO</span> <span class="ss">success</span><span class="p">:</span> <span class="n">apache2</span> <span class="n">entered</span> <span class="no">RUNNING</span> <span class="n">state</span><span class="p">,</span> <span class="n">process</span> <span class="n">has</span> <span class="n">stayed</span> <span class="n">up</span> <span class="k">for</span> <span class="o">&gt;</span> <span class="n">than</span> <span class="mi">1</span> <span class="n">seconds</span> <span class="p">(</span><span class="n">startsecs</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>As you recall CoreOs ships with fleet so you can basically run any fleet command and see what containers (units) are running on your system:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">core</span><span class="vi">@panamax</span><span class="o">-</span><span class="n">vm</span> <span class="o">~</span> <span class="err">$</span> <span class="n">fleetctl</span> <span class="n">list</span><span class="o">-</span><span class="n">units</span>
+</span><span class='line'><span class="no">UNIT</span>          <span class="no">STATE</span>       <span class="no">LOAD</span>    <span class="no">ACTIVE</span>      <span class="no">SUB</span>     <span class="no">DESC</span>            <span class="no">MACHINE</span>
+</span><span class='line'><span class="no">DB</span><span class="o">.</span><span class="n">service</span>      <span class="n">launched</span> <span class="n">loaded</span>   <span class="n">active</span>       <span class="n">running</span>      <span class="no">MySQL</span>           <span class="mi">0890</span><span class="n">a9ee</span><span class="o">.</span><span class="n">.</span><span class="o">.</span><span class="n">/</span><span class="mi">10</span><span class="o">.</span><span class="mi">0</span><span class="o">.</span><span class="mi">2</span><span class="o">.</span><span class="mi">15</span>
+</span><span class='line'><span class="no">Piwik</span><span class="o">.</span><span class="n">service</span>       <span class="n">launched</span> <span class="n">loaded</span>   <span class="n">active</span>       <span class="n">running</span>      <span class="no">Piwik</span> <span class="n">web</span> <span class="n">application</span> <span class="mi">0890</span><span class="n">a9ee</span><span class="o">.</span><span class="n">.</span><span class="o">.</span><span class="n">/</span><span class="mi">10</span><span class="o">.</span><span class="mi">0</span><span class="o">.</span><span class="mi">2</span><span class="o">.</span><span class="mi">15</span>
+</span><span class='line'><span class="n">jenkins_latest</span><span class="o">.</span><span class="n">service</span>   <span class="n">launched</span> <span class="n">loaded</span>   <span class="n">deactivating</span> <span class="n">stop</span><span class="o">-</span><span class="n">sigterm</span>   <span class="o">-</span>            <span class="mi">0890</span><span class="n">a9ee</span><span class="o">.</span><span class="n">.</span><span class="o">.</span><span class="n">/</span><span class="mi">10</span><span class="o">.</span><span class="mi">0</span><span class="o">.</span><span class="mi">2</span><span class="o">.</span><span class="mi">15</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Of course you can examine each image / service separately from the UI and see the container linking / exposed ports.
+<img class="left" src="/assets/images/panamax_service_piwik.png" title="'piwik serviceh'" ></p>
+
+<p>Same for the mysql image:<br/>
+you can see the container exposed ports, and system variables which are used by piwik to connect.
+<img class="left" src="/assets/images/panamax_service_mysql.png" title="'piwik service'" ></p>
+
+<p>The cool thing about panamax is &ldquo;forking&rdquo; a system by performing some changes and &ldquo;save as&rdquo; like so:
+<img class="left" src="/assets/images/panamax_save_changes.png" title="'save as'" ></p>
+
+<p>The first time you do this you will need to create a github token &ndash; make sure you have the following settings:
+<img class="left" src="/assets/images/github_app_token.png" title="'github token'" ></p>
+
+<p>Now I should choose my github repository and publish it &hellip;
+<img class="left" src="/assets/images/panamax_saveas.png" title="'panamax save as'" ></p>
+
+<p>And a few seconds later i have my own clone out there &hellip;
+<img class="left" src="/assets/images/github_my_fork.png" title="'piwik fork'" ></p>
+
+<h4>To summarize</h4>
+
+<p>Panamax takes away a lot of headaches, it is quite user friendly and easy to share with your colleagues, The power of it being linked to Github is awesome (but may limit the usage for non github users).
+As you could see in this post the steps taken to create a template / clone a template, perform the application wiring (with fleet) was a few clicks &ndash; there is of course an API for panamax but I assume I will be able to discuss that only after I experiment a bit more with it.
+Two thumbs up for <a href="http://www.centurylinklabs.com/">centurylinklabs</a> putting together this great tool &ndash; definitely a tool to keep an eye on.</p>
+
+<p>References used for this article:</p>
+
+<ul>
+<li><a href="http://www.centurylinklabs.com/">centurylinklabs</a> a great resource for Docker &ndash; iv&#8217;e been watching it for some time now &hellip;</li>
+<li><a href="http://panamax.io/">http://panamax.io/</a> &ndash; released Aug 12 2014</li>
+<li><a href="https://coreos.com">CoreOS website</a> &ndash; Linux for Massive Server Deployments</li>
+<li><a href="http://devo.ps/">devo.ps</a> &ndash; An API for Infrastructure</li>
+<li><a href="http://devo.ps/blog/zookeeper-vs-doozer-vs-etcd/">A nice blog post ZooKeeper vs. Doozer vs. Etcd</a></li>
+<li><a href="http://phusion.github.io/baseimage-docker/">Base Image Docker &ndash; worth a read</a></li>
+<li><a href="http://www.centurylinklabs.com/">centurylinklabs</a>&rsquo;s <a href="https://github.com/CenturyLinkLabs/panamax-public-templates">templates repository </a>.</li>
+</ul>
+
+</div>
+
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Haggai Philip Zagury</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-08-15T17:57:00+05:30" pubdate data-updated="true">Aug 15<span>th</span>, 2014</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://hagzag.github.io/blog/2014/08/15/pamnamax-docker-management-for-humans/" data-via="hagzag" data-counturl="http://hagzag.github.io/blog/2014/08/15/pamnamax-docker-management-for-humans/" >Tweet</a>
+  
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2014/07/19/JUC-2014-Hertzlia-overview/" title="Previous Post: Jenkins the software development framework for everyone [ JUC 2014 Hertzlia - overview ]">&laquo; Jenkins the software development framework for everyone [ JUC 2014 Hertzlia - overview ]</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2014/08/20/book-review-Managing-Windows-Servers-with-Chef/" title="Next Post: Book Review :: Managing Windows Servers with Chef by John Ewart">Book Review :: Managing Windows Servers with Chef by John Ewart &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="facebook_comments" aria-live="polite">
+      <noscript>Please enable JavaScript to view the comments powered by facebook</a></noscript>
+<div
+  class="fb-comments"
+  data-href="http://hagzag.github.io/blog/2014/08/15/pamnamax-docker-management-for-humans/"
+  data-num-posts="2"
+  data-width="800"
+  data-colorscheme="light" ></div>
+
+    </div>
+  </section>
+
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <span>
+  	<div class="linkedin">
+		<a href="http://about.me/hagzag"><img src="/images/Aboutme_gray_logo.png" width="160" height="33" border="0" alt="View Haggai Philip Zagury's profile on About.me"></a>
+
+  	<img src="/images/profile_large.png" alt="my_pic" width="150" height="150">
+		<a href="http://il.linkedin.com/in/hagzag"><img src="http://www.linkedin.com/img/webpromo/btn_myprofile_160x33.png" width="160" height="33" border="0" alt="View Haggai Philip Zagury's profile on LinkedIn"></a>
+	</div>
+ </span>
+</section>
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/09/10/chef-server-entrprise-features-now-available-in-oss-version/">Chef Server Enterprise Features Now Available in OSS Version</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/08/20/book-review-Managing-Windows-Servers-with-Chef/">Book Review :: Managing Windows Servers With Chef by John Ewart</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/08/15/pamnamax-docker-management-for-humans/">PanaMax - Docker Management for Humans</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/07/19/JUC-2014-Hertzlia-overview/">Jenkins the Software Development Framework for Everyone [ JUC 2014 Hertzlia - Overview ]</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/04/25/image-cm-ground-packer/">Image CM From the Ground Up With Packer</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/hagzag">@hagzag</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'hagzag',
+            count: 5,
+            skip_forks: false,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+<section class="googleplus googleplus-hidden">
+  <h1>
+    <a href="https://plus.google.com/hagzag?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+<a href="http://internetdefenseleague.org"><img src="http://internetdefenseleague.org/images/badges/final/super_badge.png" alt="Member of The Internet Defense League" /></a>
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Haggai Philip Zagury -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id; js.async = true;
+  //js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  js.src = "//connect.facebook.net/en_US/all.js#appId=222612811167194&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

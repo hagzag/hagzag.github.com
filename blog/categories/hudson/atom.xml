@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Hudson | Fractions on my timeline]]></title>
+  <link href="http://hagzag.github.io/blog/categories/hudson/atom.xml" rel="self"/>
+  <link href="http://hagzag.github.io/"/>
+  <updated>2014-09-10T08:13:34+05:30</updated>
+  <id>http://hagzag.github.io/</id>
+  <author>
+    <name><![CDATA[Haggai Philip Zagury]]></name>
+    <email><![CDATA[hagzag@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Achieving ALM with Open Source @ ILTAM]]></title>
+    <link href="http://hagzag.github.io/blog/2011/11/20/achieving-alm-with-open-source-at-iltam/"/>
+    <updated>2011-11-20T23:40:00+05:30</updated>
+    <id>http://hagzag.github.io/blog/2011/11/20/achieving-alm-with-open-source-at-iltam</id>
+    <content type="html"><![CDATA[<p>As a big fan of open source &amp; the fact I work for <a href="http://www.tikalk.com">Tikal Knowledge</a>, which provide Open Source Solutions for software development,
+ILTAM &ndash; &ldquo;The Israeli Users' Association of Advanced Technologies in Hi-Tech&rdquo;, asked me to give my POV on the subject, from and Open Source perspective of course &ndash; here it is &hellip;</p>
+
+<div markdown="1" align="center">
+    <iframe src="http://prezi.com/embed/eesk5es7zubx/?bgcolor=ffffff&amp;lock_to_path=0&amp;autoplay=no&amp;autohide_ctrls=0&amp;features=undefined&amp;disabled_features=undefined" width="650" height="500" frameBorder="0"></iframe>
+</div>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Maven Deployment Linker - plug-in]]></title>
+    <link href="http://hagzag.github.io/blog/2011/03/07/maven-deployment-linker-plug-in/"/>
+    <updated>2011-03-07T09:18:00+05:30</updated>
+    <id>http://hagzag.github.io/blog/2011/03/07/maven-deployment-linker-plug-in</id>
+    <content type="html"><![CDATA[<p><img class="left" src="/assets/images/hudson_logo.png" title="&lsquo;Hudson Logo&rsquo;" >This plug-in does something so simple yet very useful instead of archiving artifact it will list the deployments performed at build time to the Maven Proxy you are running regardless to the proxy vendor (Archiva, Artifactory or Nexus).
+All you need to do in your maven build is select 1 check-box:</p>
+
+<p><img src="/assets/images/link2m2deploy.png" title="&lsquo;Link to maven deployments&rsquo;" ></p>
+
+<p>You can also filter artifacts with regex.</p>
+
+<p><strong>The result is:</strong></p>
+
+<p><img src="/assets/images/artifacts.png" title="&lsquo;artifacts&rsquo;" ></p>
+
+<p>And the status bar shows:
+<img src="/assets/images/statusbar.png"></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[JBoss, Selenium, Maven, Hudson, M2 Extra Steps & Files Found Trigger plugins playing well together]]></title>
+    <link href="http://hagzag.github.io/blog/2010/09/12/JBoss-Selenium-Maven-Hudson-M2-Extra-Steps-Files-Found-Trigger-Plugins-Playing-Well-Together/"/>
+    <updated>2010-09-12T18:09:00+05:30</updated>
+    <id>http://hagzag.github.io/blog/2010/09/12/JBoss-Selenium-Maven-Hudson-M2-Extra-Steps-Files-Found-Trigger-Plugins-Playing-Well-Together</id>
+    <content type="html"><![CDATA[<p>JBoss, Selenium, Maven, Hudson, <a href="http://wiki.hudson-ci.org/display/HUDSON/M2+Extra+Steps+Plugin">M2 Extra Steps</a> &amp; <a href="http://wiki.hudson-ci.org/display/HUDSON/Files+Found+Trigger">Files Found Trigger</a> plugins &ndash; how do all these work together in a continuous build + Integration test life-cycle ?</p>
+
+<p><strong>The Story &ndash; The Use Case</strong>:</p>
+
+<p>We have two projects with two war artifacts which need to be deployed to a JBoss Application Server, whilst both webapps share a common base configuration, although the release life-cycle of each war have no correlation to the other.</p>
+
+<p>In production both application servers are running &amp; serving one another thus, Integration test should cover both JBoss instances &amp; test their web services.</p>
+
+<p>We are using selenium tests for both webapps and they need to run straight after a continuous build of each of the servers mentioned above. That said a change in project A or in project B should trigger the Integration tests job, whilst if either project A or project B are running the integration test plugin shouldn&rsquo;t run (at least until both projects / one of them is complete).</p>
+
+<p><strong>The &ldquo;work around&rdquo; &ndash; forcing the &ldquo;native Hudson&rdquo; configuration</strong> (which we didn&rsquo;t go with naturally):</p>
+
+<!-- more -->
+
+
+<p>Create a Job which builds Project A and Project B then as a downstream job will run ITest job. The problems with this method was &ndash;</p>
+
+<p><strong>1.</strong> Project A and Project B do not have the same release life-cycle therefore, I would be forced to have a separate build process for their release / chain the release of these webapps.</p>
+
+<p><strong>2.</strong> I would be building one of the projects for nothing (~ 10 minuets penalty) &ndash; if nothing changed in Project A / B why build the other for</p>
+
+<p>nothing?</p>
+
+<p>As a matter fo fact Project A doesn&rsquo;t change much, our consideration was &ndash; Project A will change once in two weeks whilst Project B will change on a daily basis &ndash; that is why we needed a smarter solution:</p>
+
+<p><strong>A more Creative </strong><strong>Solution</strong>:</p>
+
+<p><em>Step 1 &ndash; configure m2 &ldquo;extra steps&rdquo; post-build action for Project A &amp; B</em>:</p>
+
+<p>Project A &ndash; build a.war, and as a post build task it would copy the a.war into a shared location. For example purposes lets call it <em><strong>/sharedfolder</strong></em>, in Project B we would do the same.</p>
+
+<p>Upon a successful build of Project A and Project B we will result with <em><strong>/sharedfolder</strong></em> with a &amp; b war files in it. Let me point out these are two standard maven jobs which have the mvn clean install (or deploy) life-cycles and with <a href="http://wiki.hudson-ci.org/display/HUDSON/M2+Extra+Steps+Plugin">M2 extra steps plugin</a> you can run a shell / bash which will just copy a &amp; b wars to the <strong><em>/sharedfolder</em></strong>.</p>
+
+<p><img src="/assets/images/ExtraStepsPost.png" title="&lsquo;Post M2 steps&rsquo;" ></p>
+
+<p><em><strong>Please note</strong></em>: if running in distributed Hudson make <strong>/sharedfolder </strong>a location both the servers building a, b &amp; ITest Jobs can write to (NFS, SMB mount if you must).<strong><br/>
+</strong></p>
+
+<p><em>Step 2 &ndash; Add Files Found Trigger &amp; M2 Extra steps:</em></p>
+
+<p>1. Manage Hudson >> Manage plugins.</p>
+
+<p>2. Install the missing plugins (will be under the available tab if not installed already)</p>
+
+<p>3. Reload / Restart Hudson</p>
+
+<p>_Step 3 &ndash; create / configure ITest Job:<br/>
+_</p>
+
+<p>Create a freestyle (or maven depends on selenium configuration) job named <strong>Itest</strong> which has a <a href="http://wiki.hudson-ci.org/display/HUDSON/Files+Found+Trigger">Files Found Trigger</a> (SCM should be configured to checkout the selenium test &ndash; may it be Maven / Ant or whatever executes it for you :), in the Files found configuration have <strong><em>/sharedfolder </em></strong><strong>and </strong> <em><strong>a.war, b.war</strong></em> (note the &ldquo;,&rdquo; delimiter) watched for changes and configure the trigger to run every 5 / 10 minuets according to your preference &ndash; so the <strong>Files Found Trigger </strong>will test <em>/sharedfolder every $n minuets for changes in the filesystem and trigger a build accordingly.</em></p>
+
+<p><img src="/assets/images/FilesChangedTrigger_0.png" title="&lsquo;Files Changed Trigger&rsquo;" ></p>
+
+<p>I thought I was finished but The only problem was if either Project A or Project B was running I didn&rsquo;t want ITest to run until the Upstream project (either Project a  or b completes) and the built in upstream / downstream doesn&rsquo;t support &ldquo;wait for either Project A or Project B to complete&rdquo;.</p>
+
+<p>So:</p>
+
+<p><em>Step 4 &ndash; Add m2 &ldquo;extra steps&rdquo; pre-build action</em> <em>for Project A &amp; B</em>:</p>
+
+<p>I went back to Project A and Project B configuration and added a pre build snippet which removed <strong><em>/sharedfolder/a.war for Project A and </em></strong><strong><em>/sharedfolder/b.war for Project B.<br/>
+</em></strong>
+<img src="/assets/images/ExtraStepsPrenPost.png" title="&rsquo;re &amp; Post steps'" >
+<em>**</em></p>
+
+<p><strong><em>Now I have achieved &ndash; </em></strong><em>**</em>The Final result<em>**</em><strong><em>:</em></strong></p>
+
+<p><strong>1. </strong>No parallel building of Project A,B or ITest</p>
+
+<p><strong>2. </strong>ITest will be triggered wither if a.war or b.war will change (that is where the Files Found Trigger comes in)</p>
+
+<p><strong>3. </strong>I can still keep Project A &amp; Project B in their regular continuous life-cycle.</p>
+
+<p>Also<strong>note</strong> <strong>that</strong>: The FS-SCM (<a href="http://wiki.hudson-ci.org/display/HUDSON/File+System+SCM">File System SCM</a>) plugin (which seemed a good candidate at first) &ndash; will not work for you in this case, for on each change the Itest project will run. So even if Project A removed a.war this will be treated as a SCM change in the FS, and will trigger a new ITest build.</p>
+
+<p>Hope you find this tip helpful.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Hudson - pinned/pinning plugins]]></title>
+    <link href="http://hagzag.github.io/blog/2010/09/07/hudson-pinned-slash-pinning-plugins/"/>
+    <updated>2010-09-07T19:14:00+05:30</updated>
+    <id>http://hagzag.github.io/blog/2010/09/07/hudson-pinned-slash-pinning-plugins</id>
+    <content type="html"><![CDATA[<p><img class="left" src="/assets/images/hudson_logo.png" title="&lsquo;Hudson Logo&rsquo;" >If you wish to &ldquo;hang on&rdquo; to a certain plugin which shipps with hudson.war just unpin it in the Manage Hudson >> Manage Plugins page &ndash; this option is availabe sine <a href="http://www.hudson-ci.org/download/war/1.374/hudson.war">1.374 release</a> (and you can alwasy grab the latest @: <a href="http://www.hudson-ci.org/latest/hudson.war">latest</a>)</p>
+
+<p>See full explanation below quoted from <a href="http://wiki.hudson-ci.org">hudson wiki</a>:</p>
+
+<p>The notion of <strong>pinned plugins</strong> applies to plugins that are bundled with Hudson, such as the Subversion plugin.</p>
+
+<p>Normally, when you upgrade/downgrade Hudson, its built-in plugins overwrite whatever versions of the plugins you currently have in $HUDSON_HOME. This ensures that you use the consistent version of those plugins. However, this behavior also means that those plugins can be never manually updated, as every time you start Hudson they&rsquo;ll be replaced by the bundled versions.</p>
+
+<p>So when you manually update those bundled plugins, Hudson will mark those plugins as pinned to the particular version. Pinned plugins will never be overwritten by the bundled plugins during Hudson boot up. However, by definition, with pinned plugins you lose the benefit of automatic upgrade when you upgrade Hudson.</p>
+
+<p>So the plugin manager in Hudson allows you to explicitly unpin plugins. On file system, Hudson creates an empty file called $HUDSON_HOME/plugins/plugin.hpi.pinned to indicate the pinning. This file can be manually created/deleted to control the pinning behavior.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Remove the All view in Hudson + view enhancement plugins]]></title>
+    <link href="http://hagzag.github.io/blog/2010/09/01/remove-the-all-view-in-hudson-plus-view-enhancement-plugins/"/>
+    <updated>2010-09-01T19:22:00+05:30</updated>
+    <id>http://hagzag.github.io/blog/2010/09/01/remove-the-all-view-in-hudson-plus-view-enhancement-plugins</id>
+    <content type="html"><![CDATA[<p><img class="left" src="/assets/images/hudson_logo.png" title="&lsquo;Hudson Logo&rsquo;" >I had tow motivations of getting rid of the All view</p>
+
+<ol>
+<li>The <em><strong>All view</strong></em> is quite annoying don&rsquo;t you think? After using Hudson for a while you have tens/hundreds of jobs lined up in a huge list &ndash; who needs that right.</li>
+<li>I wanted a &ldquo;<em><strong>hidden jobs section</strong></em>&rdquo; &ndash; Jobs no one but myself (and who ever needs access to it) can see.</li>
+</ol>
+
+
+<p>In order to get rid of it (the <em><strong>All view</strong>)****</em>simply:
+ <!-- more --></p>
+
+<ol>
+<li>Create a new view call it &ldquo;xyz&rdquo; and add what ever you want to it &ndash; and there are quite a few plugins you can adopt for see examples <a href="#vep">below</a>,</li>
+<li>Navigate to hudson >> configure hudson (<a href="http://[hudson_url]/hudson/configure">http://[hudson_url]/hudson/configure</a>) and chenge the default view to your &ldquo;xyz&rdquo; view.</li>
+<li>Select the <em><strong>All view</strong></em> in Hudson&rsquo;s home page and you should be able to delete it.</li>
+</ol>
+
+
+<p>View Enhancement plugins:</p>
+
+<ul>
+<li><a href="http://wiki.hudson-ci.org/display/HUDSON/Sectioned+View+Plugin">Sectioned View Plugin</a> &mdash;&ndash; This plugin provides a new view implementation that can be divided into sections. Each section can display different information about the selected jobs. An extension point is also provided to define new types of sections.</li>
+<li><a href="http://wiki.hudson-ci.org/display/HUDSON/Nested+View+Plugin">Nested View Plugin</a> &mdash;&ndash; View type to allow grouping job views into multiple levels instead of one big list of tabs.</li>
+<li><a href="http://wiki.hudson-ci.org/display/HUDSON/Status+View+Plugin">Status View Plugin</a> &mdash;&ndash; View type to show jobs filtered by the status of the last completed build.</li>
+<li><a href="http://wiki.hudson-ci.org/display/HUDSON/Last+Success+Description+Column+Plugin">Last Success Description Column Plugin</a> &mdash;&ndash; Column showing the last success description that can be configured in views (works with the <a href="http://wiki.hudson-ci.org/display/HUDSON/Description+Setter+Plugin">Description setter plugin</a> )</li>
+<li><p><a href="http://wiki.hudson-ci.org/display/HUDSON/Last+Success+Version+Column+Plugin">Last Success Version Column Plugin</a> &mdash;&ndash; Adds a column showing last successful version that can be configured in views.</p></li>
+<li><p><a href="http://wiki.hudson-ci.org/display/HUDSON/Last+Failure+Version+Column+Plugin">Last Failure Version Column Plugin</a> &mdash;&ndash; Adds a column showing last failed version that can be configured in views.</p></li>
+<li><a href="http://wiki.hudson-ci.org/display/HUDSON/Cron+Column+Plugin">Cron Column Plugin</a> &mdash;&ndash; View column showing the cron trigger expressions that can be configured on a job.</li>
+<li><a href="http://wiki.hudson-ci.org/display/HUDSON/Maven+Info+Plugin">Maven Info Plugin</a> &mdash;&ndash; Adds columns configurable in views to show info about Maven jobs.</li>
+<li><a href="http://wiki.hudson-ci.org/display/HUDSON/View+Job+Filters">View Job Filters</a> &mdash;&ndash; Manage multiple views and hundreds of jobs much more easily. This plug-in provides more ways to include/exclude jobs from a view, including filtering by SCM path, and by any job or build status type, as well as &ldquo;chaining&rdquo; of filters and negating filters.</li>
+<li><a href="http://wiki.hudson-ci.org/display/HUDSON/Job+Type+Column+Plugin">Job Type Column Plugin</a> &mdash;&ndash; Adds column showing job type that can be configured in views.</li>
+</ul>
+
+
+<p>I&rsquo;m sure there are others &hellip;</p>
+
+<p>Hope you find this useful I know I did :)</p>
+]]></content>
+  </entry>
+  
+</feed>

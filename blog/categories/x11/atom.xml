@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: X11 | Fractions on my timeline]]></title>
+  <link href="http://hagzag.github.io/blog/categories/x11/atom.xml" rel="self"/>
+  <link href="http://hagzag.github.io/"/>
+  <updated>2014-09-10T08:13:34+05:30</updated>
+  <id>http://hagzag.github.io/</id>
+  <author>
+    <name><![CDATA[Haggai Philip Zagury]]></name>
+    <email><![CDATA[hagzag@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[X11 on mointain lion - where?]]></title>
+    <link href="http://hagzag.github.io/blog/2013/08/11/x11-on-mointain-lion-where-did-it-go/"/>
+    <updated>2013-08-11T08:12:00+05:30</updated>
+    <id>http://hagzag.github.io/blog/2013/08/11/x11-on-mointain-lion-where-did-it-go</id>
+    <content type="html"><![CDATA[<p><img class="left" src="/assets/images/X11-icon.png" title="&lsquo;X11-icon&rsquo;" > I needed to get X11 forwarding on my Macosx Mountain Lion, (this post applies to every MaxOS since 10.8.x) see apples&rsquo;s kb on the subject @<a href="http://support.apple.com/kb/HT5293">http://support.apple.com/kb/HT5293</a>.</p>
+
+<p>Just go to <a href="http://xquartz.macosforge.org/">http://xquartz.macosforge.org/</a> and grab the latest <a href="http://xquartz.macosforge.org/downloads/SL/XQuartz-2.7.4.dmg">dmg</a>.</p>
+
+<p>Once XQuartz is installed you must logout / login from your system and then you can X11 forwad via Teminal like so:</p>
+
+<pre><code>ssh -X username@host
+</code></pre>
+
+<p>Enjoy.</p>
+]]></content>
+  </entry>
+  
+</feed>

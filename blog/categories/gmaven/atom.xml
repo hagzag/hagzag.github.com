@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Gmaven | Fractions on my timeline]]></title>
+  <link href="http://hagzag.github.io/blog/categories/gmaven/atom.xml" rel="self"/>
+  <link href="http://hagzag.github.io/"/>
+  <updated>2014-09-10T08:13:34+05:30</updated>
+  <id>http://hagzag.github.io/</id>
+  <author>
+    <name><![CDATA[Haggai Philip Zagury]]></name>
+    <email><![CDATA[hagzag@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Itest & Remote invocation of parametrized & tokenized builds with Hudson CI]]></title>
+    <link href="http://hagzag.github.io/blog/2009/12/05/Itest-and-remote-invocation/"/>
+    <updated>2009-12-05T09:11:00+05:30</updated>
+    <id>http://hagzag.github.io/blog/2009/12/05/Itest-and-remote-invocation</id>
+    <content type="html"><![CDATA[<p><strong><em>Background</em>:</strong></p>
+
+<p>In one of my previous projects I was asked to setup the environment / automate <strong>integration tests</strong> (Referred to as Itest from now on) which required a machine with 2 CPU&rsquo;s &amp; 5 GB RAM, this means that in any case a developer wishing to run Itests will never be able to run them locally, and will have to use some existing server.</p>
+
+<p>The problem with my previous statement is that the developer, whilst checking his tests will be busy most of the time preparing his Itest environment, rather then checking the integrity of his tests, need I say that the fact we need 2 CPU&rsquo;s &amp; 5GB RAM means the server takes time to load and only once it is up you can start testing.</p>
+
+<p><strong>From a Continues Integration point of view</strong>, these tests should run as part of the Nightly build, automatically &amp; with no user intervention and of course the running server should be using the latest tests from SCM.</p>
+
+<p>The big question was: <strong><em>how do we achieve all of the above with one Maven Project one Job in Hudson-CI and reuse this code as a Maven module for every new scenario we are testing?</em></strong></p>
+
+<p><strong><em>Solution</em></strong>:</p>
+
+<p>Hudson, Maven &amp; some Groovy on top (<em>or beneath in order to be accurate</em>):</p>
+
+<ol>
+<li><a href="http://www.hudson-ci.org/">Hudson</a> &ndash; a built in mechanism of Tokenized builds &amp; parametrized builds which can be invoked by browsing a url</li>
+<li><a href="http://maven.apache.org/">Maven</a> &ndash; or any other build tool for that matter can invoke a Hudson url</li>
+<li><a href="http://groovy.codehaus.org/">Groovy</a> &ndash; the logic of build invocation is performed by <a href="http://docs.codehaus.org/display/GMAVEN/GMaven+1.0+Release">Maven Groovy Plugin</a> &ndash; this is what the client choose, and did most of the writing.</li>
+</ol>
+
+
+<p><strong><em><img src="/assets/images/banner-100.png" alt="Hudson logo" /></em></strong><img src="/assets/images/Maven_logo_0.gif" alt="" /><img src="/assets/images/medium.png" alt="Gmaven" /></p>
+
+<p>OK so how does this all come together?</p>
+
+<p><strong>On the <em>Maven side / Developer&rsquo;s side</em></strong> there is a &ldquo;skeleton&rdquo; parent pom with some Groovy logic (I will ask clients permission to attach the code to this post) of how to build the hudson url &amp; pass the token&rsquo;s.</p>
+
+<p>Parent pom includes Groovy logic which uses the a <a href="http://groovy.codehaus.org/modules/http-builder/apidocs/groovyx/net/http/URIBuilder.html#toURL%28%29">url.toURL</a> method whilst passing a token and a parameter to hudson, a time to wait period which waits until we receive &ldquo;Build Successful&rdquo; from Hudson and fail after a set period of time (or it will run for ever &hellip;) &ndash; parent pom is not to invoke any build but is there so its modules will inherit the url construction logic.</p>
+
+<p>Maven module <strong><em>X</em></strong> has parameters therefore executes the constructed <em>Hudsonurl</em> + <em>Hudsontoken</em> + <em>Jobparam</em>, so does Maven module <em><strong>Y</strong></em> &amp; <em><strong>Z</strong></em> etc etc &hellip;</p>
+
+<p><em><strong>In Hudson</strong></em></p>
+
+<ul>
+<li>A slave machine dedicated for Itest / a slave capable &amp; available of running the Itest job &ndash; how to set up will be posted in a separate post</li>
+<li>A valid url Token, so it can only be invoked by people / code who &ldquo;know&rdquo; the Token</li>
+<li>A Parameter which is passed to Hudson Build step</li>
+</ul>
+
+
+<p><img src="/assets/images/HCI-string_param_0.png" alt="Hudson String Param" /></p>
+
+<p><img src="/assets/images/HCI-job_token_0.png" alt="Hudson Job Tiken" /></p>
+
+<p><em><strong>Please note</strong></em><strong>:</strong></p>
+
+<ul>
+<li>Token option is available only when running from within a servlet container if your test driving this with java -jar this option will not be available!.</li>
+<li>The defualt value of &ldquo;default&rdquo; is there so when hudson runs with no parameter this value will take presence if ot is not there build will not be able to run!.</li>
+</ul>
+
+
+<p>In a freestyle project the build can look like this (for win / linux):</p>
+
+<p><img src="/assets/images/HCI-job-builder.png" alt="Hudson Job Builder" /></p>
+
+<hr />
+
+<p><strong><em>Future Enhancements</em></strong><em>(might need to add in the future)</em>:</p>
+
+<p>As this project involves and there are more and more developers we will need more than one continues integration machine, and we do not want to start specifying the name of the machine inside the project&rsquo;s pom or we will find ourselves editing the pom several times a week.</p>
+
+<p>A Hudson built in solution would be to tie the job to a Group of Nodes rather than a specific Slave Hostname, and add a few machines to that group this will result in the ability to invoke multiple jobs simultaneously.</p>
+]]></content>
+  </entry>
+  
+</feed>

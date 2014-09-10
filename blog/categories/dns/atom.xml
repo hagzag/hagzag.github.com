@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: DNS | Fractions on my timeline]]></title>
+  <link href="http://hagzag.github.io/blog/categories/dns/atom.xml" rel="self"/>
+  <link href="http://hagzag.github.io/"/>
+  <updated>2014-09-10T08:13:34+05:30</updated>
+  <id>http://hagzag.github.io/</id>
+  <author>
+    <name><![CDATA[Haggai Philip Zagury]]></name>
+    <email><![CDATA[hagzag@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Docker Service Discovery with Skydns and Skydock]]></title>
+    <link href="http://hagzag.github.io/blog/2014/01/31/docker-service-discovery-skydns-and-skydock/"/>
+    <updated>2014-01-31T14:31:00+05:30</updated>
+    <id>http://hagzag.github.io/blog/2014/01/31/docker-service-discovery-skydns-and-skydock</id>
+    <content type="html"><![CDATA[<p><img class="left" src="/assets/images/docker-logo-100x134.png" title="&lsquo;Docker logo small&rsquo;" >
+Hi guys,</p>
+
+<p>I stumbled upon skydock on github =&gt;&nbsp;<a href="https://github.com/crosbymichael/skydock">https://github.com/crosbymichael/skydock</a>,&nbsp;<span style="line-height: 1.6em;">Sky dock uses </span><a href="https://github.com/skynetservices/skydns">skydns</a><span style="line-height: 1.6em;"> for service resolution via dns using </span><a href="https://github.com/skynetservices/skydns">skydns</a><span style="line-height: 1.6em;"> service.</span></p>
+
+<p><span style="line-height: 1.6em;">Gave it a try myself and it looks promising especially when skydock and skydns have a small foot print runnig as containers, according to michael he is working on a cross docker feature which means name resolution will work with more than 1 instance of Docker which sounds like a service discovery solution to an entire landscape &ndash; Star this repo on github this looks like a killer adon to Docker which will make the usage very very easy in terms of configuration.</span></p>
+
+<p><span style="line-height: 1.6em;">In addition you will see that you also get loadbalancing out of the box &ndash; this will be a killer feature when it will be abl to run between more than one Dokcer daemon.</span></p>
+
+<!-- more -->
+
+
+<p><span style="line-height: 1.6em;">I followed Michael Crosby&#39;s</span>&nbsp;demo on this awesome tool on youtube:</p>
+
+<object width="770" height="433"><param name="movie" value="//www.youtube.com/v/Nw42q1ofrV0?version=3&amp;hl=en_US"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://hagzag.github.io//www.youtube.com/v/Nw42q1ofrV0?version=3&amp;hl=en_US" type="application/x-shockwave-flash" width="770" height="433" allowscriptaccess="always" allowfullscreen="true"></embed></object>
+
+
+<p>As always hope you find this useful.</p>
+
+<p>Happy Docking :)</p>
+]]></content>
+  </entry>
+  
+</feed>

@@ -1,0 +1,377 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Itest & Remote invocation of parametrized & tokenized builds with Hudson CI - Fractions on my timeline</title>
+  <meta name="author" content="Haggai Philip Zagury">
+
+  
+  <meta name="description" content="Background: In one of my previous projects I was asked to setup the environment / automate integration tests (Referred to as Itest from now on) which &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://hagzag.github.io/blog/2009/12/05/Itest-and-remote-invocation">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Fractions on my timeline" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-38752767-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner">
+
+<hgroup>
+	<!-- <div class="left" style="float:left; width: 128px; height: 128px;"> -->
+		<img src="/images/Line-chart-icon.png" alt="icon">
+	<!-- </div>	 -->
+  	<!-- <div class="right" style="float:left; position: relative;"> -->
+	  <h1><a href="/">Fractions on my timeline</a></h1>
+	  
+	    <h2>My "journeys", challenges and stuff I want to say</h2>
+	  
+  	<!-- </div>	 -->
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:hagzag.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Itest & Remote Invocation of Parametrized & Tokenized Builds With Hudson CI</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-12-05T09:11:00+05:30" pubdate data-updated="true">Dec 5<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p><strong><em>Background</em>:</strong></p>
+
+<p>In one of my previous projects I was asked to setup the environment / automate <strong>integration tests</strong> (Referred to as Itest from now on) which required a machine with 2 CPU&rsquo;s &amp; 5 GB RAM, this means that in any case a developer wishing to run Itests will never be able to run them locally, and will have to use some existing server.</p>
+
+<p>The problem with my previous statement is that the developer, whilst checking his tests will be busy most of the time preparing his Itest environment, rather then checking the integrity of his tests, need I say that the fact we need 2 CPU&rsquo;s &amp; 5GB RAM means the server takes time to load and only once it is up you can start testing.</p>
+
+<p><strong>From a Continues Integration point of view</strong>, these tests should run as part of the Nightly build, automatically &amp; with no user intervention and of course the running server should be using the latest tests from SCM.</p>
+
+<p>The big question was: <strong><em>how do we achieve all of the above with one Maven Project one Job in Hudson-CI and reuse this code as a Maven module for every new scenario we are testing?</em></strong></p>
+
+<p><strong><em>Solution</em></strong>:</p>
+
+<p>Hudson, Maven &amp; some Groovy on top (<em>or beneath in order to be accurate</em>):</p>
+
+<ol>
+<li><a href="http://www.hudson-ci.org/">Hudson</a> &ndash; a built in mechanism of Tokenized builds &amp; parametrized builds which can be invoked by browsing a url</li>
+<li><a href="http://maven.apache.org/">Maven</a> &ndash; or any other build tool for that matter can invoke a Hudson url</li>
+<li><a href="http://groovy.codehaus.org/">Groovy</a> &ndash; the logic of build invocation is performed by <a href="http://docs.codehaus.org/display/GMAVEN/GMaven+1.0+Release">Maven Groovy Plugin</a> &ndash; this is what the client choose, and did most of the writing.</li>
+</ol>
+
+
+<p><strong><em><img src="/assets/images/banner-100.png" alt="Hudson logo" /></em></strong><img src="/assets/images/Maven_logo_0.gif" alt="" /><img src="/assets/images/medium.png" alt="Gmaven" /></p>
+
+<p>OK so how does this all come together?</p>
+
+<p><strong>On the <em>Maven side / Developer&rsquo;s side</em></strong> there is a &ldquo;skeleton&rdquo; parent pom with some Groovy logic (I will ask clients permission to attach the code to this post) of how to build the hudson url &amp; pass the token&rsquo;s.</p>
+
+<p>Parent pom includes Groovy logic which uses the a <a href="http://groovy.codehaus.org/modules/http-builder/apidocs/groovyx/net/http/URIBuilder.html#toURL%28%29">url.toURL</a> method whilst passing a token and a parameter to hudson, a time to wait period which waits until we receive &ldquo;Build Successful&rdquo; from Hudson and fail after a set period of time (or it will run for ever &hellip;) &ndash; parent pom is not to invoke any build but is there so its modules will inherit the url construction logic.</p>
+
+<p>Maven module <strong><em>X</em></strong> has parameters therefore executes the constructed <em>Hudsonurl</em> + <em>Hudsontoken</em> + <em>Jobparam</em>, so does Maven module <em><strong>Y</strong></em> &amp; <em><strong>Z</strong></em> etc etc &hellip;</p>
+
+<p><em><strong>In Hudson</strong></em></p>
+
+<ul>
+<li>A slave machine dedicated for Itest / a slave capable &amp; available of running the Itest job &ndash; how to set up will be posted in a separate post</li>
+<li>A valid url Token, so it can only be invoked by people / code who &ldquo;know&rdquo; the Token</li>
+<li>A Parameter which is passed to Hudson Build step</li>
+</ul>
+
+
+<p><img src="/assets/images/HCI-string_param_0.png" alt="Hudson String Param" /></p>
+
+<p><img src="/assets/images/HCI-job_token_0.png" alt="Hudson Job Tiken" /></p>
+
+<p><em><strong>Please note</strong></em><strong>:</strong></p>
+
+<ul>
+<li>Token option is available only when running from within a servlet container if your test driving this with java -jar this option will not be available!.</li>
+<li>The defualt value of &ldquo;default&rdquo; is there so when hudson runs with no parameter this value will take presence if ot is not there build will not be able to run!.</li>
+</ul>
+
+
+<p>In a freestyle project the build can look like this (for win / linux):</p>
+
+<p><img src="/assets/images/HCI-job-builder.png" alt="Hudson Job Builder" /></p>
+
+<hr />
+
+<p><strong><em>Future Enhancements</em></strong><em>(might need to add in the future)</em>:</p>
+
+<p>As this project involves and there are more and more developers we will need more than one continues integration machine, and we do not want to start specifying the name of the machine inside the project&rsquo;s pom or we will find ourselves editing the pom several times a week.</p>
+
+<p>A Hudson built in solution would be to tie the job to a Group of Nodes rather than a specific Slave Hostname, and add a few machines to that group this will result in the ability to invoke multiple jobs simultaneously.</p>
+</div>
+
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Haggai Philip Zagury</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-12-05T09:11:00+05:30" pubdate data-updated="true">Dec 5<span>th</span>, 2009</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/gmaven/'>Gmaven</a>, <a class='category' href='/blog/categories/groovy/'>Groovy</a>, <a class='category' href='/blog/categories/hudson/'>Hudson</a>, <a class='category' href='/blog/categories/mavne/'>Mavne</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://hagzag.github.io/blog/2009/12/05/Itest-and-remote-invocation/" data-via="hagzag" data-counturl="http://hagzag.github.io/blog/2009/12/05/Itest-and-remote-invocation/" >Tweet</a>
+  
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2009/11/26/Backing-up-hudson-ci/" title="Previous Post: Backing-Up Hudson-CI configration">&laquo; Backing-Up Hudson-CI configration</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2010/01/06/Ant-early-release/" title="Next Post: Apprentelly Ant-1.80RC1 has been release on the 12th of January 2010">Apprentelly Ant-1.80RC1 has been release on the 12th of January 2010 &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="facebook_comments" aria-live="polite">
+      <noscript>Please enable JavaScript to view the comments powered by facebook</a></noscript>
+<div
+  class="fb-comments"
+  data-href="http://hagzag.github.io/blog/2009/12/05/Itest-and-remote-invocation/"
+  data-num-posts="2"
+  data-width="800"
+  data-colorscheme="light" ></div>
+
+    </div>
+  </section>
+
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <span>
+  	<div class="linkedin">
+		<a href="http://about.me/hagzag"><img src="/images/Aboutme_gray_logo.png" width="160" height="33" border="0" alt="View Haggai Philip Zagury's profile on About.me"></a>
+
+  	<img src="/images/profile_large.png" alt="my_pic" width="150" height="150">
+		<a href="http://il.linkedin.com/in/hagzag"><img src="http://www.linkedin.com/img/webpromo/btn_myprofile_160x33.png" width="160" height="33" border="0" alt="View Haggai Philip Zagury's profile on LinkedIn"></a>
+	</div>
+ </span>
+</section>
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/09/10/chef-server-entrprise-features-now-available-in-oss-version/">Chef Server Enterprise Features Now Available in OSS Version</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/08/20/book-review-Managing-Windows-Servers-with-Chef/">Book Review :: Managing Windows Servers With Chef by John Ewart</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/08/15/pamnamax-docker-management-for-humans/">PanaMax - Docker Management for Humans</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/07/19/JUC-2014-Hertzlia-overview/">Jenkins the Software Development Framework for Everyone [ JUC 2014 Hertzlia - Overview ]</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/04/25/image-cm-ground-packer/">Image CM From the Ground Up With Packer</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/hagzag">@hagzag</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'hagzag',
+            count: 5,
+            skip_forks: false,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+<section class="googleplus googleplus-hidden">
+  <h1>
+    <a href="https://plus.google.com/hagzag?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+<a href="http://internetdefenseleague.org"><img src="http://internetdefenseleague.org/images/badges/final/super_badge.png" alt="Member of The Internet Defense League" /></a>
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Haggai Philip Zagury -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id; js.async = true;
+  //js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  js.src = "//connect.facebook.net/en_US/all.js#appId=222612811167194&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

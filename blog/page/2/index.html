@@ -1,0 +1,1074 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Fractions on my timeline</title>
+  <meta name="author" content="Haggai Philip Zagury">
+
+  
+  <meta name="description" content="For the past ~6 monthes or so I have been working solely with chef-solo.
+There are quite a few helpers for solo out there such as: soloist &ndash; &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://hagzag.github.io/blog/page/2">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Fractions on my timeline" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-38752767-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner">
+
+<hgroup>
+	<!-- <div class="left" style="float:left; width: 128px; height: 128px;"> -->
+		<img src="/images/Line-chart-icon.png" alt="icon">
+	<!-- </div>	 -->
+  	<!-- <div class="right" style="float:left; position: relative;"> -->
+	  <h1><a href="/">Fractions on my timeline</a></h1>
+	  
+	    <h2>My "journeys", challenges and stuff I want to say</h2>
+	  
+  	<!-- </div>	 -->
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:hagzag.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/10/27/manage-data-bags-in-solo-mode/">Manage Data Bags in Solo Mode</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-10-27T15:08:00+05:30" pubdate data-updated="true">Oct 27<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><img class="left" src="/assets/images/Opscode_chef_logo.png" title="'Chef Logo'" > For the past ~6 monthes or so I have been working solely with <a href="http://docs.opscode.com/chef_solo.html">chef-solo</a>.
+There are quite a few helpers for solo out there such as:</p>
+
+<ol>
+<li>soloist &ndash; <a href="https://github.com/mkocher/soloist">https://github.com/mkocher/soloist</a></li>
+<li>knife-solo &ndash; <a href="https://github.com/matschaffer/knife-solo">https://github.com/matschaffer/knife-solo</a>
+&amp; a few more.</li>
+</ol>
+
+
+<p>What kept annoying me for some time is I couldn&rsquo;t manage databas with knife whilst working in solo mode &hellip; ARRRRRRGH!!!</p>
+
+<p>It looked somthing like:</p>
+
+<pre><code>[oper@sandbox chef_repo]$ knife data bag create admins
+ERROR: The object you are looking for could not be found
+Response: &lt;!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN"&gt;
+&lt;html&gt;&lt;head&gt;
+&lt;title&gt;404 Not Found&lt;/title&gt;
+&lt;/head&gt;&lt;body&gt;
+&lt;h1&gt;Not Found&lt;/h1&gt;
+&lt;p&gt;The requested URL /data was not found on this server.&lt;/p&gt;
+&lt;hr&gt;
+&lt;address&gt;Apache/2.2.15 (CentOS) Server at : Port 80&lt;/address&gt;
+&lt;/body&gt;&lt;/html&gt;
+</code></pre>
+
+<p>Then came <a href="https://github.com/thbishop/knife-solo_data_bag">knife-solo_data_bag</a> I am quite embaressed to say ;) I haven&rsquo;t found this sooner.
+Now with a totally bogus knife.rb file I can generate / edit / manager databags with knife-solo &amp; knife-solo_data_bag.</p>
+
+<p>Again, hope you find this useful, I know I do ;)</p>
+
+<p>HP</p>
+</div>
+  
+  
+
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/10/20/mounting-s3-buckets-with-f3fs/">S3 - Mounting S3 Buckets With S3fs</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-10-20T20:32:00+05:30" pubdate data-updated="true">Oct 20<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><img class="left" src="/assets/images/amazon-s3.png" title="'S3 logo'" >A <code>cheap</code> solution on Amazon s3 for uploading files to s3 via SSH</p>
+
+<p>I needed to upload files from my Corporate environment in a <code>push mode</code> meaning I do not open any &ldquo;special&rdquo; ports in my environemnt in order to enable users to put files on S3.
+I am curentelly testing to see how robust this solution really is but basically what I found myself doing is install s3fs (<a href="https://code.google.com/p/s3fs/">link to project page</a>) like so:</p>
+
+<pre><code>wget http://s3fs.googlecode.com/files/s3fs-1.73.tar.gz
+tar xvzf s3fs-1.73.tar.gz
+cd s3fs-1.73
+./configure --prefix=/usr
+make &amp;&amp; make install
+</code></pre>
+
+<p>I was installing this for Suse but for Amazon linux/redhat etc you might find a package see: <a href="http://rpmfind.net/linux/rpm2html/search.php?query=fuse-s3fs">here</a>.</p>
+
+<p>Once the package is installed you can use <code>s3fs</code></p>
+
+<pre><code>s3fs BUCKET:[PATH] MOUNTPOINT [OPTION]...
+
+s3fs dev_tools /mnt/dev_tools/ 
+</code></pre>
+
+<p>Worth noting you do not need to specify the s3 url, you only specify the bucket name !</p>
+
+<p>The same thing / very similir in <code>/etc/fstab</code> will look like so:</p>
+
+<pre><code>s3fs#dev_tools /mnt/dev_tools fuse allow_other,user=youruser 0 0
+</code></pre>
+
+<p>The mount opts are <strong>extreemly important</strong> &ndash; without the <code>allow_other</code> flag the user cannot write to the directory.</p>
+
+<p>This is really awesome &ndash; we now jsut need to make sure the connectivity is reliable / fast enough and this will become very usefull.</p>
+
+<p>As always hope you find this useful.</p>
+</div>
+  
+  
+
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/10/13/bitbucket-discover-which-ssh-key-you-added-to-which-user/">BITBUCKET :: Discover Which SSH-KEY You Added to Which BitBucket Account</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-10-13T21:02:00+05:30" pubdate data-updated="true">Oct 13<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><img class="left" src="/assets/images/bblogo.png" title="'BitBucket logo'" >If you don&rsquo;t know what bitbucket is it might be because you never need <code>free &amp; private</code> git repository &hellip;</p>
+
+<p>I needed them so often for different projects / consultancies which had to be private, I forgot which account has my laptops private key, Which was <strong>frustrating</strong> for I was trying to add the ssh key to my account and it kept saying <strong>&ldquo;Someone has already registered that SSH key&rdquo;</strong>, at first i thought &ldquo;What do they care &ndash; I can add the same key to 10 accounts?&rdquo;</p>
+
+<p>Well, I guess security wise the BitBucket guys know why, and I tend to agree with them, The big question which came to mind was how do I know which account is using my key ?</p>
+
+<p>So apparentelly the answer is quite simple:</p>
+
+<pre><code>ssh -T git@bitbucket.org
+</code></pre>
+
+<p>which yielded:</p>
+
+<pre><code>logged in as tikalk_hagzag
+You can use git or hg to connect to Bitbucket. Shell access is disabled.
+</code></pre>
+
+<p>Once I knew which account was using the key I could remove it and add it to the account I wanted &ndash; just in case you were wondering which key you addedd to which account.</p>
+
+<p>As always hope you find this info useful.</p>
+
+<p>After writing this post I stubled upon: <a href="https://confluence.atlassian.com/display/BBKB/SSH+key+is+already+registered">this link</a></p>
+
+<p>Until next time HP</p>
+</div>
+  
+  
+
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/08/16/cheffile-and-librarian-locks/">Cheffile &amp; &#8216;Librarian Locks&#8217;</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-08-16T00:56:00+05:30" pubdate data-updated="true">Aug 16<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><img class="left" src="/assets/images/librarian.png" title="'librarian chef'" >
+If you don&rsquo;t know what librarian is &ndash; get to know it :) (it makes life much easier)[<a href="http://rubydoc.info/gems/librarian-chef">http://rubydoc.info/gems/librarian-chef</a>] than way back when &hellip;</p>
+
+<p>The most annoying thing happend to me earlier this evening, I was working on a cookbook [A chef cookbook &hellip;, I don&rsquo;t actually do the cooking at home :)], and running librarian install yielded the following error:</p>
+
+<pre><code>"Cheffile and Cheffile.lock are out of sync!"
+</code></pre>
+
+<p>So like a good boy I remoced the Cheffile.lock and ran it again resulting with the same damn error message &hellip; arrrrrr !</p>
+
+<p>So after examening my Cheffile over and over I noticed I have listed a dependency from two different location somthing like the followin [ clieng url&rsquo;s omitted from snippet ]:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'> <span class="c">#!/usr/bin/env ruby</span>
+</span><span class='line'>  <span class="c">#^syntax detection</span>
+</span><span class='line'>  site <span class="s2">&quot;http://shelf.clients_domain.corp:8080&quot;</span>
+</span><span class='line'>  cookbook <span class="s1">&#39;simple_proxy&#39;</span>, :git <span class="o">=</span>&gt; <span class="s1">&#39;git://clients_domain.corp/hagzag/simple_proxy.git&#39;</span>, :ref <span class="o">=</span>&gt; <span class="s1">&#39;master&#39;</span>
+</span><span class='line'>  cookbook <span class="s1">&#39;nw-abap&#39;</span>,     :git <span class="o">=</span>&gt; <span class="s1">&#39;git://clients_domain.corp/hagzag/nw-abap.git&#39;</span>, :ref <span class="o">=</span>&gt; <span class="s1">&#39;master&#39;</span>
+</span><span class='line'>  cookbook <span class="s1">&#39;sapinst&#39;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c"># for lvm volume creation do this once ...</span>
+</span><span class='line'>  cookbook <span class="s1">&#39;lvm&#39;</span>, :site <span class="o">=</span>&gt; <span class="s1">&#39;http://clients_domain.corp:8080&#39;</span>
+</span><span class='line'>  cookbook <span class="s1">&#39;sap-lvm&#39;</span>
+</span><span class='line'>  cookbook <span class="s1">&#39;line&#39;</span>,      :site <span class="o">=</span>&gt; <span class="s1">&#39;http://community.opscode.com/api/v1&#39;</span>
+</span><span class='line'>
+</span><span class='line'>  cookbook <span class="s1">&#39;nfs&#39;</span>, :site <span class="o">=</span>&gt; <span class="s1">&#39;http://clients_domain.corp:8080&#39;</span>
+</span><span class='line'>  cookbook <span class="s1">&#39;line&#39;</span>, :site <span class="o">=</span>&gt; <span class="s1">&#39;http://clients_domain.corp:8080&#39;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>If you look a line numbers 11 &amp; 14 you will see I am specifying the smae cookbook from tow different sources &hellip;, this is a good thing, your dependecny mechanisem / tool isn&rsquo;t making decitions for you [ unlike Maven for exmaple &hellip; ].</p>
+
+<p>So in order to avoid this error and to comtinue working I had to remove one if the lines and I was good to go.</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'> ...
+</span><span class='line'>  <span class="c">#cookbook &#39;line&#39;,      :site =&gt; &#39;http://community.opscode.com/api/v1&#39;</span>
+</span><span class='line'>
+</span><span class='line'>  cookbook <span class="s1">&#39;nfs&#39;</span>, :site <span class="o">=</span>&gt; <span class="s1">&#39;http://clients_domain.corp:8080&#39;</span>
+</span><span class='line'>  cookbook <span class="s1">&#39;line&#39;</span>, :site <span class="o">=</span>&gt; <span class="s1">&#39;http://clients_domain.corp:8080&#39;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Another fraction on my time line &hellip;</p>
+
+<p>Enjoy.</p>
+</div>
+  
+  
+
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/08/11/x11-on-mointain-lion-where-did-it-go/">X11 on Mointain Lion - Where?</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-08-11T08:12:00+05:30" pubdate data-updated="true">Aug 11<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><img class="left" src="/assets/images/X11-icon.png" title="'X11-icon'" > I needed to get X11 forwarding on my Macosx Mountain Lion, (this post applies to every MaxOS since 10.8.x) see apples&rsquo;s kb on the subject @<a href="http://support.apple.com/kb/HT5293">http://support.apple.com/kb/HT5293</a>.</p>
+
+<p>Just go to <a href="http://xquartz.macosforge.org/">http://xquartz.macosforge.org/</a> and grab the latest <a href="http://xquartz.macosforge.org/downloads/SL/XQuartz-2.7.4.dmg">dmg</a>.</p>
+
+<p>Once XQuartz is installed you must logout / login from your system and then you can X11 forwad via Teminal like so:</p>
+
+<pre><code>ssh -X username@host
+</code></pre>
+
+<p>Enjoy.</p>
+</div>
+  
+  
+
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/07/13/install-xcode-cli-tools-via-script/">Install Xcode CLI Tools via Script</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-07-13T22:24:00+05:30" pubdate data-updated="true">Jul 13<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><img class="left" src="/assets/images/xcode_cli.png" title="'Xcode CLI Tools'" >
+Well just got a mac from my new project <a href="http://www.facebook.com/photo.php?fbid=10151661183017850&amp;l=69918509f3">FB Status</a>&hellip; &ndash; couldn&rsquo;t resist it :)</p>
+
+<p>One of the tasks was to setup an environment, and learn what a mac is :), a few days later I&rsquo;m in love but still I need a way to destroy an recover
+my environment.
+I have a few plans like bash_it / oh_my_zsh &amp; others, but until then I put togter a few scripts [ more to come ], the first of them is this one installing Xcode CLI Tools on Mac OSX Mountain Lion.</p>
+
+<p>Install or (un-install) with the following simple command:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'> sudo bash &lt; &lt;<span class="o">(</span>curl -L https://raw.github.com/hagzag/xcode-cli-install/master/install.sh<span class="o">)</span>
+</span><span class='line'>  sudo bash &lt; &lt;<span class="o">(</span>curl -L https://raw.github.com/hagzag/xcode-cli-install/master/uninstall.sh<span class="o">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The essence &hellip; see the rest on <a href="https://github.com/hagzag/xcode-cli-install">Github</a></p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>detect_osx_version<span class="o">()</span> <span class="o">{</span>
+</span><span class='line'>  <span class="nv">result</span><span class="o">=</span><span class="sb">`</span>sw_vers -productVersion<span class="sb">`</span>
+</span><span class='line'>  ...
+</span><span class='line'>  <span class="nv">osxversion</span><span class="o">=</span><span class="s2">&quot;10.8&quot;</span>
+</span><span class='line'>  <span class="nv">osxvername</span><span class="o">=</span><span class="s2">&quot;Mountain Lion&quot;</span>
+</span><span class='line'>  <span class="nv">cltools</span><span class="o">=</span>xcode462_cltools_10_86938259a.dmg
+</span><span class='line'>  <span class="nv">mountpath</span><span class="o">=</span><span class="s2">&quot;/Volumes/Command Line Tools (Mountain Lion)&quot;</span>
+</span><span class='line'>  <span class="nv">mpkg</span><span class="o">=</span><span class="s2">&quot;Command Line Tools (Mountain Lion).mpkg&quot;</span>
+</span><span class='line'>  <span class="nv">pkg_url</span><span class="o">=</span><span class="s2">&quot;https://www.dropbox.com/s/hw45wvjxrkrl59x/xcode462_cltools_10_86938259a.dmg&quot;</span>
+</span><span class='line'>  <span class="nv">pkgmd5</span><span class="o">=</span><span class="s2">&quot;90c5db99a589c269efa542ff0272fc28&quot;</span>
+</span><span class='line'>  ...
+</span><span class='line'><span class="o">}</span>
+</span><span class='line'>download_tools <span class="o">()</span> <span class="o">{</span>
+</span><span class='line'>  <span class="k">if</span> <span class="o">[</span> -f /tmp/<span class="nv">$cltools</span> <span class="o">]</span>; <span class="k">then</span>
+</span><span class='line'><span class="k">    if</span> <span class="o">[</span> <span class="sb">`</span>md5 -q /tmp/<span class="nv">$cltools</span><span class="sb">`</span> <span class="o">=</span> <span class="s2">&quot;${pkgmd5}&quot;</span> <span class="o">]</span>; <span class="k">then</span>
+</span><span class='line'><span class="k">      </span><span class="nb">echo</span> -e <span class="s2">&quot;$info $cltools already downloaded to /tmp/$cltools.&quot;</span>
+</span><span class='line'>    <span class="k">else</span>
+</span><span class='line'><span class="k">       </span>rm -f /tmp/<span class="nv">$cltools</span>
+</span><span class='line'>    <span class="k">fi</span>
+</span><span class='line'><span class="k">  else</span>
+</span><span class='line'><span class="k">    </span><span class="nb">cd</span> /tmp <span class="o">&amp;&amp;</span> wget <span class="nv">$pkg_url</span> -O ./<span class="nv">$cltools</span>
+</span><span class='line'>  <span class="k">fi</span>
+</span><span class='line'><span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'>install_tools<span class="o">()</span> <span class="o">{</span>
+</span><span class='line'>  <span class="c"># Mount the Command Line Tools dmg</span>
+</span><span class='line'>  <span class="nb">echo</span> -e <span class="s2">&quot;$info Mounting Command Line Tools...&quot;</span>
+</span><span class='line'>  hdiutil mount -nobrowse /tmp/<span class="nv">$cltools</span>
+</span><span class='line'>  <span class="c"># Run the Command Line Tools Installer</span>
+</span><span class='line'>  <span class="nb">echo</span> -e <span class="s2">&quot;$info Installing Command Line Tools...&quot;</span>
+</span><span class='line'>  installer -pkg <span class="s2">&quot;$mountpath/$mpkg&quot;</span> -target <span class="s2">&quot;/Volumes/Macintosh HD&quot;</span>
+</span><span class='line'>  <span class="c"># Unmount the Command Line Tools dmg</span>
+</span><span class='line'>  <span class="nb">echo</span> -e <span class="s2">&quot;$info Unmounting Command Line Tools...&quot;</span>
+</span><span class='line'>  hdiutil unmount <span class="s2">&quot;$mountpath&quot;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nv">gcc_bin</span><span class="o">=</span><span class="sb">`</span>which gcc<span class="sb">`</span>
+</span><span class='line'>  gcc --version &amp;&gt;/dev/null <span class="o">&amp;&amp;</span> <span class="nb">echo</span> -e <span class="s2">&quot;$info gcc found in $gcc_bin&quot;</span>
+</span><span class='line'><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><img class="right" src="/assets/images/DropBox_logo.png" title="'DropBox logo'" ></p>
+
+<p>I took the liberty (not sure it&rsquo;s mine to take &hellip; but still), locating Xcode CLI tools for both mountain lion (10.8) and Lion (10.7) on <a href="http://www.dropbox.com">DropBox</a>, ecause Apple (like Oracle and other Giants) won&rsquo;t let you download without a userid / pass which is quite irretating &hellip;</p>
+
+<p>As Always hope you guy&rsquo;s enjoy this.
+HP</p>
+</div>
+  
+  
+
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/07/08/juc-video-net-ci-slash-cd-with-jenkins/">JUC Video - .Net CI/CD With Jenkins</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-07-08T22:37:00+05:30" pubdate data-updated="true">Jul 8<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>The guy&rsquo;s from <a href="http://www.jfrog.com/">Jfrog</a> were kind enough to put this session on youtube &ndash; here it is enjoy</p>
+
+<iframe width="770" height="433" src="//www.youtube.com/embed/C5-98Fln1jg" frameborder="0" allowfullscreen></iframe>
+
+
+<p>comments are welcome !
+HP</p>
+</div>
+  
+  
+
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/06/19/go-social-with-ifttt/">Go Social With Ifttt - if This Then That</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-06-19T19:47:00+05:30" pubdate data-updated="true">Jun 19<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><img class="left" src="/assets/images/ifttt.png" title="'ifttt logo small'" >
+So all I want to do is post a link on facebook everytimr I publish a new article on my <a href="http://octopress.org/">Octopress</a> Post (without the need to do it manually &hellip;).</p>
+
+<p>Create an account @ <a href="https://ifttt.com/">https://ifttt.com/</a><br/><br/><br/>
+Create a rule:
+<img class="center" src="/assets/images/ifttt-start.png" title="'ifttt start'" ></p>
+
+<p>If RSS
+<img class="center" src="/assets/images/ifttt-stage2.png" title="'ifttt stage2'" ></p>
+
+<p>Then &ndash; for this exmaple &ndash; post to FaceBook &hellip;
+<img class="center" src="/assets/images/ifttt-facebook.png" title="'ifttt stage2'" ></p>
+
+<p>I&rsquo;ll submit this post ot github and see if this actually works &ndash; if it does a short status message should rise on my Facebook page.</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2013/06/19/go-social-with-ifttt/">More where that came from (Continue reading &#8230;) &rarr;</a>
+    </footer>
+  
+
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/06/16/using-jenkins-cli-as-job-gen/">Using Jenkins-cli as Job Gen</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-06-16T01:06:00+05:30" pubdate data-updated="true">Jun 16<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><img class="left" src="/assets/images/jenkins140x140.jpg" title="'Jenkins logo small'" >
+Well a common use case for doing stuff with Jenkins jobs / configuration [ for example: enabling jobs, disabling jobs, executing jobs etc] is to use Jenkins-cli.jar which is included in your jenkins distribution.</p>
+
+<p>In a large company where branches are branched on a daily basis and you need a build for each branch, job creation could become a bottleneck [ so could branch creation &ndash; but that a different topic :) ].</p>
+
+<p>So my use case was to create a Job Generator which would take an existing job from branch 1.0 and create a job ( &amp; the ranch but as I said different topic ) for branch 2.0 with the corresponding name, so as I mentioned thank god for Jenkins in general, Jenkins-cli and in addition to that a shell script, <a href="http://www.gnu.org/software/sed/">sed</a>, <a href="http://xmlstar.sourceforge.net/">xmlstarlet</a> and again jenkins job parameters.</p>
+
+<p>I needed a script which would export the job configuration to an xml file, search and replace for the SCM url, create the job so lets see how its done:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>execJenkinsCli<span class="o">(){</span> <span class="c"># excute jenkins-cli jar </span>
+</span><span class='line'>        <span class="nv">jenkins_clinet_jar</span><span class="o">=</span>./jenkins-cli.jar
+</span><span class='line'>        <span class="c"># download only if it&amp;#39;s newwer than the local version [ curl -z ], the cli jar should be ofthe smae jenkins version ...</span>
+</span><span class='line'>        curl -s -z ./jenkins-cli.jar <span class="k">${</span><span class="nv">JENKINS_URL</span><span class="k">}</span>/jnlpJars/jenkins-cli.jar -o <span class="k">${</span><span class="nv">jenkins_clinet_jar</span><span class="k">}</span> <span class="o">||</span> <span class="o">{</span> <span class="nb">echo</span> &amp;quot;Echo  cannot obtain jenkins-cli.jar exiting&amp;quot;; <span class="nb">exit </span>2;<span class="o">}</span>
+</span><span class='line'>        <span class="nv">cli_cmd</span><span class="o">=</span><span class="nv">$1</span>
+</span><span class='line'>        <span class="nv">cmd_params</span><span class="o">=</span><span class="nv">$2</span>
+</span><span class='line'>        <span class="nv">cmd_prefix</span><span class="o">=</span>&amp;quot;<span class="k">${</span><span class="nv">JAVA_CMD</span><span class="k">}</span> -jar <span class="k">${</span><span class="nv">jenkins_clinet_jar</span><span class="k">}</span> -s <span class="k">${</span><span class="nv">JENKINS_URL</span><span class="k">}</span>&amp;quot;
+</span><span class='line'>
+</span><span class='line'>        <span class="k">${</span><span class="nv">cmd_prefix</span><span class="k">}</span> who-am-i | grep &amp;#39;Authenticated as: anonymous&amp;#39; &amp;amp;&amp;gt;/dev/null &amp;amp;&amp;amp; <span class="nv">anon</span><span class="o">=</span>0
+</span><span class='line'>        <span class="c">#anon=$?</span>
+</span><span class='line'>        <span class="k">if</span> <span class="o">[</span> &amp;quot;<span class="nv">$anon</span>&amp;quot; !<span class="o">=</span> &amp;quot;0&amp;quot; <span class="o">]</span>; <span class="k">then</span>
+</span><span class='line'>                <span class="c">#printf &amp;quot;[ $FUNCNAME ] using jenkins-cli with private key auth&amp;quot;</span>
+</span><span class='line'>                <span class="nb">exec</span> <span class="k">${</span><span class="nv">cmd_prefix</span><span class="k">}</span> <span class="k">${</span><span class="nv">cli_cmd</span><span class="k">}</span> <span class="k">${</span><span class="nv">cmd_params</span><span class="k">}</span>
+</span><span class='line'>        <span class="k">elif</span> <span class="o">[</span> &amp;quot;x&amp;quot; <span class="o">=</span> &amp;quot;x<span class="k">${</span><span class="nv">JENKINS_USER</span><span class="k">}</span>&amp;quot; <span class="o">]</span> <span class="o">||</span> <span class="o">[</span> &amp;quot;x&amp;quot;  <span class="o">=</span> &amp;quot;x<span class="k">${</span><span class="nv">JENKINS_PASS</span><span class="k">}</span>&amp;quot; <span class="o">]</span>; <span class="k">then</span>
+</span><span class='line'><span class="k">                </span><span class="nb">printf</span> &amp;quot;<span class="o">[</span> <span class="nv">$FUNCNAME</span> <span class="o">]</span> cannot determin jenkins credentials<span class="se">\n</span>&amp;quot;;
+</span><span class='line'>                <span class="nb">exit </span>3;
+</span><span class='line'>        <span class="k">else</span>
+</span><span class='line'><span class="k">                </span><span class="nb">exec</span> <span class="k">${</span><span class="nv">cmd_prefix</span><span class="k">}</span> <span class="k">${</span><span class="nv">cli_cmd</span><span class="k">}</span> <span class="k">${</span><span class="nv">cmd_params</span><span class="k">}</span> --username <span class="k">${</span><span class="nv">JENKINS_USER</span><span class="k">}</span> --password <span class="k">${</span><span class="nv">JENKINS_PASS</span><span class="k">}</span>
+</span><span class='line'>        <span class="k">fi</span>
+</span><span class='line'><span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'>execJenkinsCli get-job <span class="k">${</span><span class="nv">tmpl_job_name</span><span class="k">}</span>  | <span class="se">\</span>
+</span><span class='line'>  <span class="k">${</span><span class="nv">XML</span><span class="k">}</span> ed -O -S -P -u &amp;#39;//project/scm/locations/hudson.scm.SubversionSCM_-ModuleLocation/remote&amp;#39; -v <span class="k">${</span><span class="nv">scm_url</span><span class="k">}</span> | <span class="se">\</span>
+</span><span class='line'>  execJenkinsCli create-job <span class="k">${</span><span class="nv">new_job_name</span><span class="k">}</span>
+</span><span class='line'>
+</span><span class='line'>  execJenkinsCli <span class="nb">enable</span>-job <span class="k">${</span><span class="nv">new_job_name</span><span class="k">}</span> <span class="c"># our template is usually disabled, thus the cloned one is too ...</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The full jobGen wrapper script can be <a href="https://gist.github.com/hagzag/9b0d9d74d1920e248959">found here</a></p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2013/06/16/using-jenkins-cli-as-job-gen/">More where that came from (Continue reading &#8230;) &rarr;</a>
+    </footer>
+  
+
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/06/14/xmlstarlet-is-a-nifty-command-line-xml-toolkit/">Xmlstarlet Is a Nifty Command Line XML Toolkit</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-06-14T09:17:00+05:30" pubdate data-updated="true">Jun 14<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><img class="left" src="/assets/images/xmlstarlet.png" title="'xmlstarlet Logo'" ></p>
+
+<p>So, I was writing a post on jenkins-cli and mentioned how to create jobs from CLI using tools like xmlstarlet [ in adition to others ] &ndash; and it felt as if I am drifting off topic (ans it&#39;s starting to happen here too so &hellip; ), so I cam up with this post showing some of the great power this tool has</p>
+
+<p>xmlstarlet is a nifty tool to work with on xml xpaths &ndash; iv&#39;e been using it for various tasks in the last 2-3 years,</p>
+
+<p>In our exmaple in order to get the scmurl xpath you can do sothing like the following:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>curl -s <span class="k">${</span><span class="nv">JENKINS_URL</span><span class="k">}</span>/job/<span class="k">${</span><span class="nv">JOB_NAME</span><span class="k">}</span>/config.xml -u youruser:yourpasswd | xmlstarlet el -a
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>So this section in the xml is actually:</p>
+
+<p><img src="/assets/images/in_job_config_xml.png" alt="scm url in config.xml" /></p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>project/scm/locations/hudson.scm.SubversionSCM_-ModuleLocation/remote
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>So all I have to so is insert / esit the xml file and create the new job:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>xmlstarlet ed -O -S -P -u //project/scm/locations/hudson.scm.SubversionSCM_-ModuleLocation/remote -v &amp;quot;<span class="k">${</span><span class="nv">scm_url</span><span class="k">}</span>&amp;quot;
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>All wev&#39;e seen above is two usages of xmlstarlet which is as I mentioned 10% of what this tool can do &ndash; weve seen&nbsp;</p>
+
+<ol>
+<li>xml xpath listing of an entire xml document: <em><strong>xmlstarlet el -a</strong></em></li>
+<li>xml editing: <em><strong>xmlstarlet ed -O -S -P -u</strong></em> well xml updating to be exact [ <em><strong>-u</strong></em> ]</li>
+</ol>
+
+
+<p>Feel free to get this tool on your favorite OS</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2013/06/14/xmlstarlet-is-a-nifty-command-line-xml-toolkit/">More where that came from (Continue reading &#8230;) &rarr;</a>
+    </footer>
+  
+
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/06/08/dot-net-oss-ci-and-cd-with-jenkins-jenkins-user-conference-2013/">.NET OSS CI &amp; CD With Jenkins @ Jenkins User Conference 2013</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-06-08T19:42:00+05:30" pubdate data-updated="true">Jun 8<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>A copy of a presentation I gave yesterday @ <a href="http://www.cloudbees.com/jenkins/juc/juc-2013.cb">JUC Jenkins User Conference 2013</a></p>
+
+<p><script async class="speakerdeck-embed" data-id="14b5a450b0c40130690d2e6f0be13e84" data-ratio="1.33333333333333" src="//speakerdeck.com/assets/embed.js"></script></p>
+
+
+<p>Originally posted @: <a href="http://www.tikalk.com/alm/juc-2013-net-oss-ci-cd-jenkins">my Blog on tikalk.com</a></p>
+</div>
+  
+  
+
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/05/05/Git-Internals/">Git Internals</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-05-05T22:00:00+05:30" pubdate data-updated="true">May 5<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I found this information very supporting during my personal jorney into learning git, the internals IMO shows the mind shift one has to do when using Git after using any other SCM tool.</p>
+
+<p><script async class="speakerdeck-embed" data-id="9c9899c096f1013054d24e4027241f59" data-ratio="1.33333333333333" src="//speakerdeck.com/assets/embed.js"></script></p>
+
+
+
+</div>
+  
+  
+
+
+
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/blog/page/3/">&larr; Older</a>
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <span>
+  	<div class="linkedin">
+		<a href="http://about.me/hagzag"><img src="/images/Aboutme_gray_logo.png" width="160" height="33" border="0" alt="View Haggai Philip Zagury's profile on About.me"></a>
+
+  	<img src="/images/profile_large.png" alt="my_pic" width="150" height="150">
+		<a href="http://il.linkedin.com/in/hagzag"><img src="http://www.linkedin.com/img/webpromo/btn_myprofile_160x33.png" width="160" height="33" border="0" alt="View Haggai Philip Zagury's profile on LinkedIn"></a>
+	</div>
+ </span>
+</section>
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/09/10/chef-server-entrprise-features-now-available-in-oss-version/">Chef Server Enterprise Features Now Available in OSS Version</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/08/20/book-review-Managing-Windows-Servers-with-Chef/">Book Review :: Managing Windows Servers With Chef by John Ewart</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/08/15/pamnamax-docker-management-for-humans/">PanaMax - Docker Management for Humans</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/07/19/JUC-2014-Hertzlia-overview/">Jenkins the Software Development Framework for Everyone [ JUC 2014 Hertzlia - Overview ]</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/04/25/image-cm-ground-packer/">Image CM From the Ground Up With Packer</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  
+  <a href="https://github.com/hagzag">@hagzag</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'hagzag',
+            count: 5,
+            skip_forks: false,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+<section class="googleplus googleplus-hidden">
+  <h1>
+    <a href="https://plus.google.com/hagzag?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+<a href="http://internetdefenseleague.org"><img src="http://internetdefenseleague.org/images/badges/final/super_badge.png" alt="Member of The Internet Defense League" /></a>
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Haggai Philip Zagury -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id; js.async = true;
+  //js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  js.src = "//connect.facebook.net/en_US/all.js#appId=222612811167194&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

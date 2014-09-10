@@ -1,0 +1,389 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Subversion - server-side action - auto add property to file - Fractions on my timeline</title>
+  <meta name="author" content="Haggai Philip Zagury">
+
+  
+  <meta name="description" content="Problem: I am at a clients location which develops on windows and the &ldquo;EOL&rdquo; end of line is what is called CRLF unlike unix/linux which is &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://hagzag.github.io/blog/2008/11/09/subversion-server-side-action">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Fractions on my timeline" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-38752767-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner">
+
+<hgroup>
+	<!-- <div class="left" style="float:left; width: 128px; height: 128px;"> -->
+		<img src="/images/Line-chart-icon.png" alt="icon">
+	<!-- </div>	 -->
+  	<!-- <div class="right" style="float:left; position: relative;"> -->
+	  <h1><a href="/">Fractions on my timeline</a></h1>
+	  
+	    <h2>My "journeys", challenges and stuff I want to say</h2>
+	  
+  	<!-- </div>	 -->
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:hagzag.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Subversion - Server-side Action - Auto Add Property to File</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-11-09T09:11:00+05:30" pubdate data-updated="true">Nov 9<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p><img class="left" src="/assets/images/subversion.jpg" title="'Subversion Logo'" ><strong>Problem:</strong></p>
+
+<p>I am at a clients location which develops on windows and the &ldquo;EOL&rdquo; end of line is what is called CRLF unlike unix/linux which is naturally the servers platform which uses LF only (<a href="http://svnbook.red-bean.com/en/1.1/ch07s02.html">more details about CRLF/LF here</a>).</p>
+
+<p style="text-align:center;">we had to solve two issues</p>
+
+<ol>
+<li>Set a property on the level of SVN to set a default EOL of CRLF to certain file types for example .bat and .properties</li>
+<li>Set the property to all the files with those extensions which already exist in repository.</li>
+</ol>
+
+
+<p>For issue <strong><a href="http://search.twitter.com/search?q=%231">#1</a></strong> a few methods could apply in the client side &ndash; but we wanted to solve this on server side after investigating this issue the solution was quite simple &ndash; with the help of our ALM team of course.</p>
+
+<p>Edit the file called svnserve which is located under $SVNROOT/conf/svnserve.conf and add the following lines:</p>
+
+<pre><code>[miscellany]
+enable-auto-props = yes 
+[auto-props]
+*.png = svn:mime-type=image/png
+*.jpg = svn:mime-type=image/jpeg
+*.bat = svn:eol-style=CRLF
+*.txt = svn:eol-style=CRLF
+*.properties = svn:eol-style=CRLF
+</code></pre>
+
+<p>As you can see I added a few more extensions while I was at it.</p>
+
+<p><strong>Please note:</strong></p>
+
+<p>SVN usually &ldquo;guesses&rdquo; the type of file and has a classification called &ldquo;native&rdquo; the native classification tags the file in its native OS mode for example a .sh file will automatically receive an LF end of line although I guess there are a few extensions which SVN doesn&rsquo;t recognize the result would be a file which is broken up into two lines instead of the original line brakes the developer used whilst editing the file.</p>
+
+<p>for issue <a href="http://search.twitter.com/search?q=%232">#2</a> this has two methods</p>
+
+<p>one: commit files manually + add  svn:eol-style=CRLF to each file then commit it to SVN and of course from this revision onwards the file will have a CRLF eol</p>
+
+<p>second: and the more elegant way is two write a short script which will set a property to all files with .bat &amp; .properties extension and of course submit this to SVN.</p>
+
+<p>I used the following <a href="http://svn.collab.net/repos/svn/trunk/contrib/client-side/svn_apply_autoprops.py">script</a>:  checkout the repository you wish to enforce the properties on in my case &ldquo;trunk&rdquo;</p>
+
+<pre><code>[Myserver]$ mkdir trunk
+[Myserver]$ svn co http://Myserver/svn/repos/trunk trunk
+[Myserver]$ cd trunk
+[Myserver]$ wget http://svn.collab.net/repos/svn/trunk/contrib/client-side/svn_apply_autoprops.py
+[Myserver]$ chmod u+x svn_apply_autoprops.py
+</code></pre>
+
+<p>now run the script &ndash; the script automatically runs on CWD &ldquo;.&rdquo;!</p>
+
+<pre><code>[Myserver]$./svn_apply_autoprops.py
+ 
+</code></pre>
+
+<p>check a few of your files to see that properties were set to your specification &ndash; the specifiactaions are inherited from the $SVNROOT/conf/svnconf.conf file as stated earlier in this article.</p>
+
+<pre><code>[Myserver]$ svn pl svn pl base/javalib/antInstaller/LICENSE-ant.txt
+</code></pre>
+
+<p>your output should be something like:</p>
+
+<p>Properties on &lsquo;base/javalib/antInstaller/LICENSE-ant.txt&rsquo;:<br/>
+svn:eol-style</p>
+
+<p>you can do the same checkup with tortoise.</p>
+
+<p>Once you are sure all properties were made to your WC to your satisfaction you can commit your changes to repository (you will have to have &ldquo;rw&rdquo; perms to trunk in order to commit !)</p>
+
+<pre><code>[Myserver]$ svn commit http://myserver/svn/repos/trunk -m "add properties to files / CRLF property"
+</code></pre>
+
+<p>update / checkout from a different machine / working copy and see if your changes were submitted successfully &ndash;</p>
+
+<p>Thats it, mission accomplished.</p>
+
+<p>Hope you find this useful.</p>
+</div>
+
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Haggai Philip Zagury</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-11-09T09:11:00+05:30" pubdate data-updated="true">Nov 9<span>th</span>, 2008</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/crlf/'>CRLF</a>, <a class='category' href='/blog/categories/lf/'>LF</a>, <a class='category' href='/blog/categories/scm/'>SCM</a>, <a class='category' href='/blog/categories/subversion/'>Subversion</a>, <a class='category' href='/blog/categories/svn-properties/'>svn properties</a>, <a class='category' href='/blog/categories/svn-props/'>svn_props</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://hagzag.github.io/blog/2008/11/09/subversion-server-side-action/" data-via="hagzag" data-counturl="http://hagzag.github.io/blog/2008/11/09/subversion-server-side-action/" >Tweet</a>
+  
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2008/11/08/subversion-propertyset/" title="Previous Post: Subversion: set property to multiple & existent files">&laquo; Subversion: set property to multiple & existent files</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2009/09/01/first-oss-baby-rocker/" title="Next Post: The first OSS baby rocker">The first OSS baby rocker &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="facebook_comments" aria-live="polite">
+      <noscript>Please enable JavaScript to view the comments powered by facebook</a></noscript>
+<div
+  class="fb-comments"
+  data-href="http://hagzag.github.io/blog/2008/11/09/subversion-server-side-action/"
+  data-num-posts="2"
+  data-width="800"
+  data-colorscheme="light" ></div>
+
+    </div>
+  </section>
+
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <span>
+  	<div class="linkedin">
+		<a href="http://about.me/hagzag"><img src="/images/Aboutme_gray_logo.png" width="160" height="33" border="0" alt="View Haggai Philip Zagury's profile on About.me"></a>
+
+  	<img src="/images/profile_large.png" alt="my_pic" width="150" height="150">
+		<a href="http://il.linkedin.com/in/hagzag"><img src="http://www.linkedin.com/img/webpromo/btn_myprofile_160x33.png" width="160" height="33" border="0" alt="View Haggai Philip Zagury's profile on LinkedIn"></a>
+	</div>
+ </span>
+</section>
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/09/10/chef-server-entrprise-features-now-available-in-oss-version/">Chef Server Enterprise Features Now Available in OSS Version</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/08/20/book-review-Managing-Windows-Servers-with-Chef/">Book Review :: Managing Windows Servers With Chef by John Ewart</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/08/15/pamnamax-docker-management-for-humans/">PanaMax - Docker Management for Humans</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/07/19/JUC-2014-Hertzlia-overview/">Jenkins the Software Development Framework for Everyone [ JUC 2014 Hertzlia - Overview ]</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/04/25/image-cm-ground-packer/">Image CM From the Ground Up With Packer</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/hagzag">@hagzag</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'hagzag',
+            count: 5,
+            skip_forks: false,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+<section class="googleplus googleplus-hidden">
+  <h1>
+    <a href="https://plus.google.com/hagzag?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+<a href="http://internetdefenseleague.org"><img src="http://internetdefenseleague.org/images/badges/final/super_badge.png" alt="Member of The Internet Defense League" /></a>
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Haggai Philip Zagury -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id; js.async = true;
+  //js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  js.src = "//connect.facebook.net/en_US/all.js#appId=222612811167194&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Drupal | Fractions on my timeline]]></title>
+  <link href="http://hagzag.github.io/blog/categories/drupal/atom.xml" rel="self"/>
+  <link href="http://hagzag.github.io/"/>
+  <updated>2014-09-10T08:13:34+05:30</updated>
+  <id>http://hagzag.github.io/</id>
+  <author>
+    <name><![CDATA[Haggai Philip Zagury]]></name>
+    <email><![CDATA[hagzag@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Performing backup with Git]]></title>
+    <link href="http://hagzag.github.io/blog/2013/04/16/performing-backup-with-git/"/>
+    <updated>2013-04-16T16:30:00+05:30</updated>
+    <id>http://hagzag.github.io/blog/2013/04/16/performing-backup-with-git</id>
+    <content type="html"><![CDATA[<p><img class="left" src="/assets/images/git_logo.jpg" title="&lsquo;Git Logo&rsquo;" >~4 years ago I wrote a script which will sync my drupal files directory between two servers [ I used rsync for that ], the problem with rsync was that it fetches a checsum of every file and direcroty over SSH which was very slow, and the critical issue was I have no history of the data &ndash; and if I am maintaining multipule syncs whats the point in rsync.</p>
+
+<p>I looked @ svn at the time which was extreemly slow with binaries [ zip, tars etc ], Git and the git protocol in specific did the full sync [ ~1GB ] in under 45 minuets &ndash; over the Internet which was quite good IMO.</p>
+
+<p>I was talking with a collegue on such a solution the other day and I thought why not share this. So for purely educational puposes I put thist scripup as a Gist @:&nbsp;<a href="https://gist.github.com/hagzag/5396510">https://gist.github.com/hagzag/5396510</a>&nbsp;[ or part of the repository @:&nbsp;<a href="https://github.com/hagzag/files_repo/blob/master/syncFiles.sh">https://github.com/hagzag/files_repo/blob/master/syncFiles.sh</a>, but i am not sure it will survive there]&nbsp;&nbsp;and an acompenying repository called &quot;<a href="https://github.com/hagzag/files_repo">files_repo</a>&quot;.</p>
+
+<p>As you will see in the readme I am not sure it will do much for you but if you are consdering on using it read the following:</p>
+
+<ul>
+<li>create a repository [ e.g. on GitHub ]</li>
+<li>set the FILES_DIR parameter [ or default to /opt/data ]</li>
+<li>set the MY_GIT_REPO parameter [ or default to /opt/git-repo ]</li>
+<li>set my GIT_REMOTE parameter with the full git url of you repository [I didn&#39;t check this via https &hellip; ]</li>
+</ul>
+
+
+<p>Run the script, this is really custom to my use case, but shows another awsome aspect of git.</p>
+
+<p>Originally posted @: <a href="http://www.tikalk.com/alm/performing-backup-git">my Blog on tikalk.com</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Managing drupal with Drush (Drupal Shell)]]></title>
+    <link href="http://hagzag.github.io/blog/2010/08/27/TManage-Drupal-With-Drush/"/>
+    <updated>2010-08-27T09:18:00+05:30</updated>
+    <id>http://hagzag.github.io/blog/2010/08/27/TManage-Drupal-With-Drush</id>
+    <content type="html"><![CDATA[<p><img class="left" src="/assets/images/drush.png" title="&lsquo;Drush Logo&rsquo;" >Well, those of you who know me now I&rsquo;ve become a very big Drupal fan and one of the tools that will make your life much easier is <a href="http://drupal.org/project/drush">Drush</a>. Drush short for Drupal Shell and it works just like one.</p>
+
+<p>Download <a href="http://drupal.org/project/drush">Drush</a> and add it to your path &ndash; assuming you are using unix/linux (if you are using Windows then a <a href="http://drupal.org/node/330023">tutorial can be found here</a> it actually works I&rsquo;ve tried it).</p>
+
+<p>Drush dl will download latest stable Drupal to the current location ($PWD) and you are ready for your Drupal installation &ndash; OK so the bootstrap process isn&rsquo;t that simple because you still need to setup your environment (http, php, mysql/some other supported DB) but still it takes are of the downloading part making sure you are using the latest version etc.</p>
+
+<p>The real power in Drush comes when you have a large site with a bundle of distributed modules, and you need to start managing dependencies and versions. The problem with the standard way, <a href="http://yoursite/admin/build/modules,">http://yoursite/admin/build/modules,</a> is:</p>
+
+<ul>
+<li><p>It takes a year to load the page</p></li>
+<li><p>In order to solve dependencies you need to:</p></li>
+<li><p>Take a note of what you need to download</p></li>
+<li>Go to <a href="http://drupal.org/project/modules">http://drupal.org/project/modules</a></li>
+<li>Search and download</li>
+<li>Upload to your server</li>
+</ul>
+
+
+<p>This seems like to much work &ndash; Drush does all that for you, just cd to your Drupal installation directory run <em><strong>drush dl <module name\></strong></em> and Drush will get it and extract it for you under your sites/default/modules directory.</p>
+
+<p>Another bonus is you don&rsquo;t get stuck with those tar.gz files you need to manually remove after enabling the module.</p>
+
+<p>Thats not all, <em><strong>drush en <module name\></strong></em> &amp; <em><strong>drush up <module name\> </strong></em>will enable the module (again no need to navigate to sites/all/modules and use the check-box.</p>
+
+<p>If you run <em><strong>drush up</strong> </em>with no args Drush will attempt to update your Drupal installation and all the modules that need updates &ndash; be careful here for you do not want to break anything, for the upgrade includes your database tables !!!._<br/>
+_</p>
+
+<p>The last &ldquo;bonus&rdquo; is that Drush stores all the updated modules / files in &lt;site_root>/backup so you have all the old / updated data backed up in case you need to rollback (been there done that).</p>
+
+<p>For the full list of what drush can do for you &ndash; for exmaple if you rn multipul sites from the same drupal case and other options .. see drush help:</p>
+
+<p><code>_[me@mybox modules]# drush --help  
+Execute a drush command. Run \</code>drush help [command]` to view command-specific help.</p>
+
+<p>Examples:<br/>
+ drush dl cck zen                          Download CCK module and Zen theme.                  <br/>
+ drush &mdash;uri=<a href="http://example.com">http://example.com</a> status     Show status command for the example.com multi-site. <br/>
+ drush help &mdash;pipe                         A space delimited list of commands                 </p>
+
+<p>Options:<br/>
+ -r <path>, &mdash;root=<path>                  Drupal root directory to use (default: current directory)                <br/>
+ -l <uri>, &mdash;uri=<a href="http://example.com%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0">http://example.com%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0%C2%A0</a> URI of the drupal site to use (only needed in multisite environments)    <br/>
+ -v, &mdash;verbose                             Display extra information about the command.                             <br/>
+ -d, &mdash;debug                               Display even more information, including internal messages.              <br/>
+ -q, &mdash;quiet                               Hide all output                                                          <br/>
+ -y, &mdash;yes                                 Assume &lsquo;yes&rsquo; as answer to all prompts                                    <br/>
+ -n, &mdash;no                                  Assume &lsquo;no&rsquo; as answer to all prompts                                     <br/>
+ -s, &mdash;simulate                            Simulate all relevant actions (don&rsquo;t actually change the system)         <br/>
+ -i, &mdash;include                             A list of paths to search for drush commands                             <br/>
+ -c, &mdash;config                              Specify a config file to use. See example.drushrc.php                    <br/>
+ -u, &mdash;user                                Specify a user to login with. May be a name or a number.                 <br/>
+ -b, &mdash;backend                             Hide all output and return structured data (internal use only).          <br/>
+ -p, &mdash;pipe                                Emit a compact representation of the command for scripting.              <br/>
+ &mdash;nocolor                                 Suppress color highlighting on log messages.                             <br/>
+ &mdash;show-passwords                          Show database passwords in commands that display connection information. <br/>
+ -h, &mdash;help                                This help system.                                                        <br/>
+ &mdash;php                                     The absolute path to your PHP intepreter, if not &lsquo;php&rsquo; in the path. _`</p>
+]]></content>
+  </entry>
+  
+</feed>

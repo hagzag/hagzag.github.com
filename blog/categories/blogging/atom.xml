@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Blogging | Fractions on my timeline]]></title>
+  <link href="http://hagzag.github.io/blog/categories/blogging/atom.xml" rel="self"/>
+  <link href="http://hagzag.github.io/"/>
+  <updated>2014-09-10T08:13:34+05:30</updated>
+  <id>http://hagzag.github.io/</id>
+  <author>
+    <name><![CDATA[Haggai Philip Zagury]]></name>
+    <email><![CDATA[hagzag@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Why Octopress ?]]></title>
+    <link href="http://hagzag.github.io/blog/2013/02/24/why-octopress/"/>
+    <updated>2013-02-24T09:11:00+05:30</updated>
+    <id>http://hagzag.github.io/blog/2013/02/24/why-octopress</id>
+    <content type="html"><![CDATA[<p><img class="left" src="/assets/images/octopress.png" title="&lsquo;Octopress Logo&rsquo;" >
+Yes I am a Hacker wannabe [Octopress slogen is &ldquo;A blogging framewrok for hackers&rdquo; &hellip; ].</p>
+
+<p>Now seriously, i&rsquo;ve been down the road with many blog / CMS engines, <a href="http://ww.drupal.org">Drupal</a>, <a href="http://wordpress.org/">Wordpress</a> and all I really wanted was
+a note-pad with no fancy WYSIWYG editor with a bazillion plug-ins which will enable me to embed images / videos or a simple syntax highlighter.</p>
+
+<p>So I found <a href="http://octopress.org/">Octopress</a> which is just frekin' simple to use + it&rsquo;s cheap [hosting on Github Pages]</p>
+
+<blockquote><p>Octopress is a framework designed by Brandon Mathis for Jekyll, the blog aware static site generator powering Github Pages. To start blogging with Jekyll, you have to write your own HTML templates, CSS, Javascripts and set up your configuration. But with Octopress All of that is already taken care of. Simply clone or fork Octopress, install dependencies and the theme, and you’re set.</p></blockquote>
+
+<ul>
+<li>Social links preloaded, Facebook, Twitter, disqus &amp; other are built-in</li>
+<li>Syntax high-lighting built-in</li>
+<li>there are more good reasons <a href="http://octopress.org/docs/">here</a> <a href="https://github.com/imathis/octopress/wiki/3rd-party-plugins">and here</a></li>
+</ul>
+
+
+<p>The only problem was / is migrating all the stuff I have on-line so that is still a work in progress &hellip;
+&ndash;>So I guess I&rsquo;ll have to see if this ones sticks!&lt;&ndash;</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Job configuration change in Hudson 1.372]]></title>
+    <link href="http://hagzag.github.io/blog/2010/08/17/Job-configuration-change-in-Hudson-1.372/"/>
+    <updated>2010-08-17T09:11:00+05:30</updated>
+    <id>http://hagzag.github.io/blog/2010/08/17/Job-configuration-change-in-Hudson-1.372</id>
+    <content type="html"><![CDATA[<p><img class="left" src="/assets/images/hudson_logo.png" title="&lsquo;Hudson Logo&rsquo;" >Yesterday I upgraded hudson to the greatest an latest which was a seamless upgrade.</p>
+
+<p>A very obvious change in the Job configuration form was added instead of &ldquo;<strong>Tie Build to a node</strong>&rdquo;:
+<img src="/assets/images/old-slave-daialog_0.png" title="&lsquo;old_slave_selection_dialog&rsquo;" ></p>
+
+<p>There is now <strong>&ldquo;Restrict where this project can be run&rdquo;</strong>:</p>
+
+<p><img src="/assets/images/new-slave-daialog_0.png" title="&lsquo;new__slave_selection_dialog&rsquo;" ></p>
+
+<p>The disadvantage in this feature is if you want to a build to a node you need to know its name / node group name prior to the actual configuration. The Advantage of this feature is you can be more specific in where you want you build to run and with a large number of slaves this is quite important, <strong>Please note</strong>: &ldquo;old&rdquo; jobs aren&rsquo;t affected of this change.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Using Xvfb to run headless cucumber/selenium tests with Hudson]]></title>
+    <link href="http://hagzag.github.io/blog/2010/07/05/xvfb-tunning-headless-cellnium-test-with-hudson/"/>
+    <updated>2010-07-05T09:11:00+05:30</updated>
+    <id>http://hagzag.github.io/blog/2010/07/05/xvfb-tunning-headless-cellnium-test-with-hudson</id>
+    <content type="html"><![CDATA[<p><img class="left" src="/assets/images/hudson_logo.png" title="&lsquo;Hudson Logo&rsquo;" >Needed to run Sellenium tests myself on Linux (RHEL5 &amp; 4) didn&rsquo;t have this article to help me then see:</p>
+
+<p><a href="http://markgandolfo.com/2010/07/01/hudson-ci-server-running-cucumber-in-headless-mode-xvfb" title="http://markgandolfo.com/2010/07/01/hudson-ci-server-running-cucumber-in-headless-mode-xvfb">http://markgandolfo.com/2010/07/01/hudson-ci-server-running-cucumber-in-&hellip;</a></p>
+
+<p><strong>RHEL4 users please note:</strong></p>
+
+<ol>
+<li>you will need <strong>xorg-x11-Xvfb</strong> and not <strong>xorg-x11-server-Xvfb</strong> as stated in the above article.</li>
+<li>if you need Firefox (well who doesen&rsquo;t :) make sure you install it &ndash; it isn&rsquo;t installed by default on RHEL!.</li>
+</ol>
+
+
+<p>Hope you find this useful (I know I did &hellip;)</p>
+]]></content>
+  </entry>
+  
+</feed>

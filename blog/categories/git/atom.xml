@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: git | Fractions on my timeline]]></title>
+  <link href="http://hagzag.github.io/blog/categories/git/atom.xml" rel="self"/>
+  <link href="http://hagzag.github.io/"/>
+  <updated>2014-09-10T08:13:34+05:30</updated>
+  <id>http://hagzag.github.io/</id>
+  <author>
+    <name><![CDATA[Haggai Philip Zagury]]></name>
+    <email><![CDATA[hagzag@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Git - adding forgotten files]]></title>
+    <link href="http://hagzag.github.io/blog/2013/12/27/git-adding-forgotten-files/"/>
+    <updated>2013-12-27T21:28:00+05:30</updated>
+    <id>http://hagzag.github.io/blog/2013/12/27/git-adding-forgotten-files</id>
+    <content type="html"><![CDATA[<p><img class="left" src="/assets/images/git_logo.jpg" title="&lsquo;Git Logo&rsquo;" >How many time have you committed something to git and forgot to add a file (or two &hellip;), if this was perforce / subversion / other,&nbsp;your screwed :) with git all you need to do is:</p>
+
+<p><span style="white-space: pre-wrap; background-color: rgb(247, 247, 247); color: rgb(34, 34, 34); font-family: 'Courier 10 Pitch', Courier, monospace; font-size: 15px; line-height: 21px; font-style: italic;">git commit &mdash;amend &ndash;C HEAD</span></p>
+
+<p>This instructs git too add any indexed files to the commit + the &#39;-C&#39; reuses your previous commit message &ndash; no need to re-type it !</p>
+
+<p>Please note: this works nicely before you push to a remote, if you already pushed the &quot;missing&nbsp; files&quot; commit to your remote master you will have to pull &amp; merge which makes the 1 commit ( &quot;missing files&quot; commit) into 3 which kind of takes the point out of doing this &hellip; so make sure you use this technique wisely.&nbsp;</p>
+
+<p><span style="line-height: 1.6em;">Have I told you lately how git is awesome :)</span></p>
+]]></content>
+  </entry>
+  
+</feed>

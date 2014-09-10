@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Visual Studio | Fractions on my timeline]]></title>
+  <link href="http://hagzag.github.io/blog/categories/visual-studio/atom.xml" rel="self"/>
+  <link href="http://hagzag.github.io/"/>
+  <updated>2014-09-10T08:13:34+05:30</updated>
+  <id>http://hagzag.github.io/</id>
+  <author>
+    <name><![CDATA[Haggai Philip Zagury]]></name>
+    <email><![CDATA[hagzag@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[.NET OSS CI &amp; CD with Jenkins @ Jenkins User Conference 2013]]></title>
+    <link href="http://hagzag.github.io/blog/2013/06/08/dot-net-oss-ci-and-cd-with-jenkins-jenkins-user-conference-2013/"/>
+    <updated>2013-06-08T19:42:00+05:30</updated>
+    <id>http://hagzag.github.io/blog/2013/06/08/dot-net-oss-ci-and-cd-with-jenkins-jenkins-user-conference-2013</id>
+    <content type="html"><![CDATA[<p>A copy of a presentation I gave yesterday @ <a href="http://www.cloudbees.com/jenkins/juc/juc-2013.cb">JUC Jenkins User Conference 2013</a></p>
+
+<p><script async class="speakerdeck-embed" data-id="14b5a450b0c40130690d2e6f0be13e84" data-ratio="1.33333333333333" src="http://hagzag.github.io//speakerdeck.com/assets/embed.js"></script></p>
+
+
+<p>Originally posted @: <a href="http://www.tikalk.com/alm/juc-2013-net-oss-ci-cd-jenkins">my Blog on tikalk.com</a></p>
+]]></content>
+  </entry>
+  
+</feed>

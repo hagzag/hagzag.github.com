@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: jenkins | Fractions on my timeline]]></title>
+  <link href="http://hagzag.github.io/blog/categories/jenkins/atom.xml" rel="self"/>
+  <link href="http://hagzag.github.io/"/>
+  <updated>2014-09-10T08:13:34+05:30</updated>
+  <id>http://hagzag.github.io/</id>
+  <author>
+    <name><![CDATA[Haggai Philip Zagury]]></name>
+    <email><![CDATA[hagzag@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Jenkins the software development framework for everyone [ JUC 2014 Hertzlia - overview ]]]></title>
+    <link href="http://hagzag.github.io/blog/2014/07/19/JUC-2014-Hertzlia-overview/"/>
+    <updated>2014-07-19T23:00:00+05:30</updated>
+    <id>http://hagzag.github.io/blog/2014/07/19/JUC-2014-Hertzlia-overview</id>
+    <content type="html"><![CDATA[<p><img class="left" src="/assets/images/jenkins140x140.jpg" title="&lsquo;Jenkins logo small&rsquo;" >
+Hi all,</p>
+
+<p>Before I start I would like to say it was overwhelming to see that&nbsp;<em>Kohsuke Kawaguchi</em>, <em>Heath Dorn </em>and all other&nbsp;participants who took the trip to ISRAEL&nbsp;inspite of the delicate situation, took&nbsp;the time to participate in this event. And&nbsp;apart of a short distruption @ 09:15 it was a quite&nbsp;day for the Hertzliya area &hellip;</p>
+
+<p>This blog post is to serve as my JUC summary (Worth noting: this summary wasn&#39;t sponsered / ordered by any company and reflects my personal take of Jenkins and the Jenkins user conference.)</p>
+
+<p><img src="/assets/images/jenkins-herzlia-2014.jpg" alt="" /></p>
+
+<p><strong>The what (what is this guy talking about ?)</strong></p>
+
+<p>I have to say I had an&nbsp;epiphany this week in the <a href="http://www.cloudbees.com/jenkins-user-conference-2012-israel.cb">JUC Hertzlia</a>, Jenkins or Jenkins-ci as&nbsp;suggested&nbsp;in it name / domain name, isn&#39;t just a build server, its a <strong>Software Development Framework</strong>, it does much more than invoke your favorite build tool &hellip; and give me a chance to explain &hellip;</p>
+
+<p>In past years I used to refer to Jenkins (&amp; Hudson) as &quot;<em>a fancy cron</em> <em>job</em>&quot; (hope I didn&#39;t offend anyone &hellip;), but witnessing such a&nbsp;vast adoption and hearing from many companies about how they use Jenkins to drive their business makes me use this term &quot;<strong><em>framework</em></strong>&quot; because you can literally mold Jenkins into anything you want &hellip; and the&nbsp;<strong><em>for everyone</em></strong> part is to point our its not only for java as many people used to think &hellip; it is really a multi purpose <em><strong>software development framework</strong></em> which empowers our businesses.</p>
+
+<!-- more -->
+
+
+<p>I have just recently completed an Audit for one of my customers @ Tikal, which are using Jenkins to deploy their product into test,&nbsp;pre-prod &amp; prod utilizing tools like <em><strong>mcollective</strong></em>, <em><strong>chef</strong></em> etc, it&#39;s not all about CI anymore ! (KK I suggest a rename), Jenkins is much much more than CI!, the reason I refer to it as a <em>framework</em>, is that there are many more usages to Jenkins which never came to mind until you participate in these conferences &ndash; A huge&nbsp;thanks to <a href="http://www.jfrog.com/">Jfrog</a> &amp; <a href="http://www.cloudbees.com/">Cloudbees</a> for making it happen. I see companies using Jenkins to trigger backup &amp; restore procedures, spin up servers / autoscale (in production) and many more crazy ideas. This is due to the flexibility in Jenkins&#39;s design, ease of use and extensibility &ndash; there are over <strong>900 plugins</strong> to Jenkins. If you need to make Jenkins do something it doesn&#39;t already do &ndash;&gt; let&#39;s write a plugin for it &hellip; And&nbsp;thanks to the design and the tooling offered by the Jenkins community&nbsp;that makes all this possible.</p>
+
+<p><strong>The why / how &ndash; my JUC Hertzlia summary &hellip;</strong></p>
+
+<p>The&nbsp;<em>epiphany &ndash;&gt;&nbsp;</em>In the last 3 JUC&#39;s in ISRAEL (this year was the 4th), I gave a talk on Jenkins and how I use it in the&nbsp;many projects I participate/d in, and this year I felt I have nothing new to say &hellip; and then without noticing and hearing the different talks I noticed I was so wrong (yes I am not always right ;)) &hellip;, Jenkins is the enabler of many processes we implement into our workflow. In <a href="http://prezi.com/u4zb3h6s5vql/devops-4-devlopers/">JUC 2012 presentation</a>&nbsp;I referred to Jenkins as the &quot;<u>conveyor of business</u>&quot; driving our software from concept to production utilizing maven, chef and open-stack and I was happy to see that the talks we witnessed both in 2013 and 2014 are exactly where the&nbsp;<strong>Jenkins framework</strong> is going, you can see plugins &amp; processes which refer to Jenkins as the business enabler, it is now a mission critical system not just a &quot;backend&quot; system used by development.</p>
+
+<p>JUC Hertzlia a had a few great talks by quite a few companies which are all saying how great Jenkins and its&nbsp;<span style="color: rgb(0, 0, 0); font-family: 'trebuchet ms', sans-serif; line-height: normal;">ecosystem</span> are. Creator &amp; maintainer of Jenkins&nbsp;<strong><a href="http://www.cloudbees.com/company-team.cb#KohsukeKawaguchi">Kohsuke Kawaguchi</a>&nbsp;</strong><span style="line-height: 1.6em;">shared the roadmap and a few plugins he was able to reach in order to talk about.&nbsp;As I recall KK himself said he apologizes but these are the plugins he was able to reach in order to talk about and he hopes no one was offended because he didn&#39;t talk about their plugin &hellip;, this reminds me two years ago in 2012 JUC when I talked about the Jenkins Multijob plugin where KK said I had no idea you guys were developing it ;). These are the reasons I call Jenkins a framework is it doing so much and being used in so many ways it is hard to keep track of it.</span></p>
+
+<p>One slide which caught my eye was the following one:</p>
+
+<p><img src="/assets/images/Leaderboard-1.jpg" alt="" /></p>
+
+<p>Taken from &ndash;&gt; <a href="http://pages.zeroturnaround.com/Java-Tools-Technologies.html?utm_source=Java%20Tools%20&amp;amp;%20Technologies%202014&amp;amp;utm_medium=allreports&amp;amp;utm_campaign=rebellabs&amp;amp;utm_rebellabsid=88">this link</a> and although&nbsp;this slide is very Java oriented (J rebel &hellip;), I think that it gives a clear picture of what is going on in the Java Enterprise market and can reflect on other segments, the numbers may differ give or take 5-10%, which is quite impressive.</p>
+
+<p><a href="http://www.cloudbees.com/company-team.cb#KohsukeKawaguchi">Kohsuke Kawaguchi</a> The Keynote speaker gave the opening and closing talks describing the main project focus which is on <a href="https://github.com/jenkinsci/workflow-plugin">workflow</a> and improving slave connectivity of both JNLP and SSH slaves basically improving they &quot;reporting&quot; capabilities between the master and slave, In addition &quot;out sourcing&quot; / sharing the Jenkins infrastructure testing, One of the pains I have had in a few projects is testing a Jenkins upgrade In one of my previous projects we came up with a set of shell scripts which did that in a very inefficient way, and I think being able to utlize the &quot;Jenkins official integration testing suite&quot; will drive stability into the upgrade lifecycle of Jenkins and perhaps enable us to be less conservative with LTS releases and using more and more cutting edge releases (latest).</p>
+
+<p><img alt="" src="http://hagzag.github.io/assets/images/oops-jenkins.png" style="width: 50px; height: 57px; margin-left: 5px; margin-right: 5px; float: left;" /><span style="line-height: 1.6em;">&nbsp;</span><img alt="" src="http://hagzag.github.io/assets/images/happy-jenkins.png" style="width: 45px; height: 58px; margin-left: 5px; margin-right: 5px; float: left;" />
+There is actually a pattern here we can see more and more of, which was also presented by <em><strong>Ohad Basan</strong></em> from RedHad who described their entire build pipeline using Jenkins and puppet utilizing pattens from the openstack approach of how to utilize Jenkins and achieve a deployment pipeline, Ohad mentioned the <a href="https://wiki.jenkins-ci.org/display/JENKINS/Build+Pipeline+Plugin">build pipeline</a> &amp; <a href="https://wiki.jenkins-ci.org/display/JENKINS/Multijob+Plugin">multijob</a> plugins and how the build pipeline plugin was more flexible considering it could trigger the same build with different parameters in the same execution.</p>
+
+<p>The openstack approach should definitely be looked at when designing a CI &amp; CD solution and it&#39;s open &ndash;&gt;&nbsp;<a href="https://jenkins.openstack.org/">jenkins.openstack.org</a>&nbsp;&amp;&nbsp;<a href="http://ci.openstack.org/jenkins.html">ci.openstack.org/jenkins.html</a>.</p>
+
+<p>Lastly unrelated to the main theme specified above there where three other notable talks:</p>
+
+<ol>
+<li><span class="n fn" style="margin: 0px; padding: 0px; border: 0px; outline: 0px; font-weight: inherit; font-style: inherit; font-family: inherit; vertical-align: baseline; font-variant: inherit; line-height: inherit;"><em><strong>Oren Katz</strong></em> from&nbsp;</span>Liveperson: using Jenkins to test infrastructure and update Ganglia monitor in order to enable their support desk to find issues before they become issues, quite impressive implementation, the only thing I was not clear about was the usage of <em><strong>rsync</strong></em> instead of<strong><em>&nbsp;SCM.</em></strong></li>
+<li><em><em><strong>Nir Koren</strong></em> from SAP:</em> I don&#39;t have this years presentation yet but there is his talk titled &quot;Quality on submit&quot; and <a href="http://www.slideshare.net/AgileSparks/nir-koren-qos?qid=22f1c81b-4986-47e3-b1e3-ed2b0daeeb6a&amp;amp;v=qf1&amp;amp;b=&amp;amp;from_search=1">the slides</a>, Nir describes a process which is quite refreshing in a huge company (65,000 employees) like SAP and how Jenkins plays a key role in their development &amp; deployment processes.</li>
+<li><em><strong>Baruch Sadogursky</strong></em> from&nbsp;JFrog: using bintray to streamline your binaries, another great project (IMO) which enables you to freely store your binaries in the cloud for nothing also referred to &quot;<em><strong>Github for Binaries</strong></em>&quot;</li>
+</ol>
+
+
+<p>To conclude, there are quite a few approaches for how to use Jenkins and I hope this post / JUC summary might introduce a new term &quot;<em><strong>the Jenkins framework</strong></em>&quot;, Jenkins is a project to keep an&nbsp;eye on, for I am not sure if there is a limit to its grasp. Until next year&#39;s JUC &hellip;</p>
+
+<p>Over and out, (references below)</p>
+
+<p>HP&nbsp;</p>
+
+<p>References:</p>
+
+<ol>
+<li>JUC Hertzlia: <a href="http://www.cloudbees.com/jenkins/juc-2014/herzliya">http://www.cloudbees.com/jenkins/juc-2014/herzliya</a></li>
+<li>Cloudbees:&nbsp;<a href="http://www.cloudbees.com/">http://www.cloudbees.com/</a></li>
+<li>JUC 2012 presentation<a href="http://prezi.com/u4zb3h6s5vql/devops-4-devlopers/">http://prezi.com/u4zb3h6s5vql/devops-4-devlopers/</a></li>
+<li>Jenkins / jrevel statistics:&nbsp;<a href="http://pages.zeroturnaround.com/Java-Tools-Technologies.html?utm_source=Java%20Tools%20&amp;amp;%20Technologies%202014&amp;amp;utm_medium=allreports&amp;amp;utm_campaign=rebellabs&amp;amp;utm_rebellabsid=88">this link</a></li>
+<li>Phonix&nbsp;server<em>&nbsp;</em><a href="http://martinfowler.com/bliki/PhoenixServer.html">http://martinfowler.com/bliki/PhoenixServer.html</a></li>
+<li>Snowflake server <a href="http://martinfowler.com/bliki/SnowflakeServer.html">http://martinfowler.com/bliki/SnowflakeServer.html</a></li>
+<li>Chef Jenkins cookbook <a href="https://github.com/opscode-cookbooks/jenkins">https://github.com/opscode-cookbooks/jenkins</a></li>
+<li>Chaos Monkey <a href="https://github.com/Netflix/SimianArmy/wiki/Chaos-Monkey">https://github.com/Netflix/SimianArmy/wiki/Chaos-Monkey</a></li>
+<li>workflow plugin:&nbsp;<a href="https://github.com/jenkinsci/workflow-plugin">https://github.com/jenkinsci/workflow-plugin</a></li>
+<li> Openstack&#39;s jenkins instance: <a href="http://jenkins.openstack.org/">http://jenkins.openstack.org/</a></li>
+<li> Openstakcs ci spec:&nbsp;<a href="http://ci.openstack.org/jenkins.html">http://ci.openstack.org/jenkins.html</a></li>
+<li> Delivery pipeline plugin: <a href="https://wiki.jenkins-ci.org/display/JENKINS/Delivery+Pipeline+Plugin">https://wiki.jenkins-ci.org/display/JENKINS/Delivery+Pipeline+Plugin</a></li>
+<li> MultiJob plugin:&nbsp;<a href="https://wiki.jenkins-ci.org/display/JENKINS/Multijob+Plugin">https://wiki.jenkins-ci.org/display/JENKINS/Multijob+Plugin</a></li>
+</ol>
+
+
+<p>&nbsp;</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Tikal Fuseday - Jenkins as a service]]></title>
+    <link href="http://hagzag.github.io/blog/2014/01/05/fuseday-jenkins-as-a-service/"/>
+    <updated>2014-01-05T18:28:00+05:30</updated>
+    <id>http://hagzag.github.io/blog/2014/01/05/fuseday-jenkins-as-a-service</id>
+    <content type="html"><![CDATA[<p><img class="left" src="/assets/images/jenkins140x140.jpg" title="&lsquo;Jenkins logo small&rsquo;" ></p>
+
+<h2>Synopsis</h2>
+
+<p>In order to summarize our Fuse day I would like to take a moment and explain our end goal.</p>
+
+<p>The <strong><em>end goal</em></strong> consist of:</p>
+
+<ul>
+<li>Amazon Instance running multiple tenants of Jenkins</li>
+<li>A CLI / Web interface which will eventually manage this &ldquo;Multi Jenkins&rdquo; instance in a way that one can create a new instance on the fly.</li>
+<li><p>At the tenant level:</p>
+
+<ul>
+<li>Each tenant will utilize the Jenkins scm sync plugin and in that manor maintain configuration in a git repo for disaster recovery.</li>
+<li>Each tenant will have it&rsquo;s own custom authentication and authorization strategy.</li>
+<li>Each Jenkins tenant will have is own plugin-stack and we already know we might have different tenant types for example Java, Ruby etc, so we would like to have 1 base plugin- stack + a domain specific plugin-stack suitable for each tenant type.</li>
+<li>Each tenant will have it&rsquo;s own listen port, hence we will need a reverse proxy to serve clean urls for each tenant based on his name / dns name.</li>
+</ul>
+</li>
+</ul>
+
+
+<!-- more -->
+
+
+<h2>The Plan</h2>
+
+<p>We gathered around the white board [well, it was really a transparent window, but don&rsquo;t be picky] and discussed our options&nbsp;&ndash; we cam up with two options:</p>
+
+<ol>
+<li>Use <a href="https://github.com/opscode-cookbooks/jenkins">Opscode&rsquo;s Jenkins chef cookbook</a> with some customizations in order to support the requirements above.</li>
+<li>Use Docker which will, instantiate isolated Jenkins tenants on one Amazon instance.</li>
+</ol>
+
+
+<p>We had a good feeling we will not be able to do all these tasks in one day, but we have to start somewhere &hellip;</p>
+
+<p>So we split into two groups <strong>One group the Chef Group</strong> &amp; the <strong>Docker group</strong>.</p>
+
+<p>Each group had an initial goal running a Jenkins instance using Chef &amp; Docker and once that is achieved start building the plugin sets.</p>
+
+<p>In the Chef Group<strong> [ Schachar Ben Zeev, Yoram Micaeli, Timor Raiman &amp; yours truly ] we did the following</strong>:</p>
+
+<p>&nbsp;</p>
+
+<h3>Chef</h3>
+
+<p>Use: <a href="https://github.com/tikalk-cookbooks/alm">https://github.com/tikalk-cookbooks/alm</a> a chef-solo repository which manages all the dependency and can be used by us in order to develop it.</p>
+
+<p>&nbsp;</p>
+
+<h3>Vagrant</h3>
+
+<p>Use Vagrant in order to instantiate a local instance on Virtual Box and start iterating on that see <a href="https://github.com/tikalk-cookbooks/alm/blob/master/Vagrantfile">Vagranfile on github</a> &ndash; in this use case&nbsp;<strong><em>vagrant up ci</em></strong><em> would do the trick of running 1 instance of jenkins ci-server on our vm.</em></p>
+
+<p><em>So by lunch we had a Vagrant file with a VirtualBox instance running</em></p>
+
+<p>The way we achieved that was by creating a chef role and instructed the Vagrant provisioner to use it:</p>
+
+<p><img src="/assets/images/image001.png" alt="" /></p>
+
+<p>So our cookbook at this stage is empty, no need to do anything for this first instance!</p>
+
+<p>The key in this is our <strong><em>chef.add_role</em></strong>, which sets some parameters used by the Jenkins cookbook:</p>
+
+<p><img src="/assets/images/image004.png" alt="" /></p>
+
+<p>&nbsp;</p>
+
+<p>At this stage it hit us we will need some mechanism of invoking chef on our machine and editing the run-list / node object (our &ldquo;dna.json&rdquo; file in the Vagrant jargon) in order to be able to run more than 1 Jenkins instance, In addition to that we had to start building our plugin-stacks.</p>
+
+<p>Timor came up with an idea, which suggested we would generate a datbag per tenant with the following parameters:</p>
+
+<ol>
+<li>Tenant id =&gt; numerical value</li>
+<li>Company Name =&gt; the name of the customer</li>
+<li>Dns Prefix (e-mail suffix) / fqdn of the tenant</li>
+<li>Expire Date &ndash; considering it&rsquo;s a time based tenant it will be removed / blocked if the Expire data is larger than this date.</li>
+<li>Purge Date &ndash; how long is the tenants grace period</li>
+<li>Jenkins Version &ndash; what version of Jenkins is this tenant going to run</li>
+<li>Sync SCM repo &ndash; the repository we will store the data in</li>
+<li>Plugin stacks &ndash; an Array of plugin sets selected by the customer</li>
+<li>Specific plugins &ndash; a plugin set outside of the stacks</li>
+</ol>
+
+
+<p>We came up with this 1<sup>st</sup> version of databag:</p>
+
+<p><img src="/assets/images/image006.png" alt="" /></p>
+
+<p>And whilst we were using data bags we thought why not hold the plugin-sets in a database too like so:</p>
+
+<p>The base databag:</p>
+
+<p><img src="/assets/images/image008.png" alt="" /></p>
+
+<p>A Stack (Java) specific databag:</p>
+
+<p><img src="/assets/images/image010.png" alt="" /></p>
+
+<p>At this stage we started to understand how we could use the chef paradigm utilizing the node object and define a service, we had to do the following:</p>
+
+<ol>
+<li>Collect the information needed in order to construct the databag per user &ndash; based on the hellorandm example</li>
+<li>Connect to the remote machine and run chef (chef solo / server is still debatable) with that json file</li>
+<li>Analyze the chef-run input in order to determine it&rsquo;s success / failure</li>
+<li>Report back to the cli/ui tool.</li>
+</ol>
+
+
+<p>At this stage we ran out of time, but what we are now taking offline is:</p>
+
+<ol>
+<li>Continue the chef-solo + data bag route where we insatiate new tenants from the Jenkins cookbook &ndash; in the current state of the cookbook it looks like we will need to write our own / expand it to facilitate more than 1 Jenkins tenant on 1 Amazon Instance.</li>
+<li>Writing a rest based service which will run on the amazon instance and listen on a web&nbsp; / cli tool for a json object. Once delivered the service will then invoke chef on the node with the new tenant. Another option I am checking out is using <a href="http://puppetlabs.com/mcollective">Mcollective</a> in order to pass a json to the node and instantiate the run (Mcollective already has a CLI ! &ndash; so perhaps all we need to do is expand it for our needs ?)</li>
+</ol>
+
+
+<p>I stumbled upon &ldquo;<a href="http://www.cryptocracy.com/blog/2011/08/21/using-mcollective-with-chef/">Mcollective with chef</a>&rdquo; blog post which is worth cheking out.</p>
+
+<ol>
+<li>Consider combining Docker / Vagrant to do the heavy lifting: The second route in parallel just concluded and reported their finding on Docker (stay tuned for their blog post and findings) &ndash; Another &ldquo;Timor search&rdquo; yielded <a href="https://github.com/hw-cookbooks/lxc">https://github.com/hw-cookbooks/lxc</a> which is basically doing &ldquo;Docker style&rdquo; management of LXC instances so we could have a complete isolated instance running on LXC hosting mutipule Jenkins tenants in this case we will not need to expand the Jenkins cookbook &hellip;</li>
+<li>Write the CLI to interact with the service running on the instance</li>
+<li>Write the Web</li>
+</ol>
+
+
+<p>To summarize: It was a good experience seeing different point of views and methods on how to accomplish this, we will definitely continue hacking on this in our Bi-Weekly workshops and of course following Fuse Days.</p>
+
+<p>We would most appreciate your comments / suggestions / ideas we might have missed.</p>
+
+<p>In addition, the Chef related work is on github under the <a href="https://github.com/tikalk-cookbooks">tikalk-cookbooks</a> organization with the <a href="https://github.com/tikalk-cookbooks/alm">ALM</a> &ndash; &ldquo;chef repo&rdquo; and others feel free to smooch around.</p>
+
+<p>Happy Hacking.</p>
+
+<p>HP</p>
+]]></content>
+  </entry>
+  
+</feed>

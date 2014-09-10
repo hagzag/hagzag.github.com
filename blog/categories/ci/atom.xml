@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: CI | Fractions on my timeline]]></title>
+  <link href="http://hagzag.github.io/blog/categories/ci/atom.xml" rel="self"/>
+  <link href="http://hagzag.github.io/"/>
+  <updated>2014-09-10T08:13:34+05:30</updated>
+  <id>http://hagzag.github.io/</id>
+  <author>
+    <name><![CDATA[Haggai Philip Zagury]]></name>
+    <email><![CDATA[hagzag@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[JUC video - .Net CI/CD with Jenkins]]></title>
+    <link href="http://hagzag.github.io/blog/2013/07/08/juc-video-net-ci-slash-cd-with-jenkins/"/>
+    <updated>2013-07-08T22:37:00+05:30</updated>
+    <id>http://hagzag.github.io/blog/2013/07/08/juc-video-net-ci-slash-cd-with-jenkins</id>
+    <content type="html"><![CDATA[<p>The guy&rsquo;s from <a href="http://www.jfrog.com/">Jfrog</a> were kind enough to put this session on youtube &ndash; here it is enjoy</p>
+
+<iframe width="770" height="433" src="http://hagzag.github.io//www.youtube.com/embed/C5-98Fln1jg" frameborder="0" allowfullscreen></iframe>
+
+
+<p>comments are welcome !
+HP</p>
+]]></content>
+  </entry>
+  
+</feed>

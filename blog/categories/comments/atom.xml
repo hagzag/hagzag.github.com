@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Comments | Fractions on my timeline]]></title>
+  <link href="http://hagzag.github.io/blog/categories/comments/atom.xml" rel="self"/>
+  <link href="http://hagzag.github.io/"/>
+  <updated>2014-09-10T08:13:34+05:30</updated>
+  <id>http://hagzag.github.io/</id>
+  <author>
+    <name><![CDATA[Haggai Philip Zagury]]></name>
+    <email><![CDATA[hagzag@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Adding Facebook comments to Octopress]]></title>
+    <link href="http://hagzag.github.io/blog/2013/02/24/adding-facbook-comments-to-octopress/"/>
+    <updated>2013-02-24T08:47:00+05:30</updated>
+    <id>http://hagzag.github.io/blog/2013/02/24/adding-facbook-comments-to-octopress</id>
+    <content type="html"><![CDATA[<p>Inspired by <a href="http://blog.grambo.me.uk/blog/2012/02/20/adding-facebook-comments-to-octopress/">This post</a> Comments are now in FaceBook (Sorry disqus &hellip;).</p>
+
+<p>So now you should see something like the following (If you have JavaScript enabled of-course):
+<img src="/assets/images/FB_comments.png" title="FaceBook Comments Example" alt="FaceBook Comments" /></p>
+]]></content>
+  </entry>
+  
+</feed>

@@ -1,0 +1,388 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Jenkins the software development framework for everyone [ JUC 2014 Hertzlia - overview ] - Fractions on my timeline</title>
+  <meta name="author" content="Haggai Philip Zagury">
+
+  
+  <meta name="description" content="Hi all, Before I start I would like to say it was overwhelming to see that&nbsp;Kohsuke Kawaguchi, Heath Dorn and all other&nbsp;participants who &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://hagzag.github.io/blog/2014/07/19/JUC-2014-Hertzlia-overview">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Fractions on my timeline" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-38752767-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner">
+
+<hgroup>
+	<!-- <div class="left" style="float:left; width: 128px; height: 128px;"> -->
+		<img src="/images/Line-chart-icon.png" alt="icon">
+	<!-- </div>	 -->
+  	<!-- <div class="right" style="float:left; position: relative;"> -->
+	  <h1><a href="/">Fractions on my timeline</a></h1>
+	  
+	    <h2>My "journeys", challenges and stuff I want to say</h2>
+	  
+  	<!-- </div>	 -->
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:hagzag.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Jenkins the Software Development Framework for Everyone [ JUC 2014 Hertzlia - Overview ]</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-07-19T23:00:00+05:30" pubdate data-updated="true">Jul 19<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p><img class="left" src="/assets/images/jenkins140x140.jpg" title="'Jenkins logo small'" >
+Hi all,</p>
+
+<p>Before I start I would like to say it was overwhelming to see that&nbsp;<em>Kohsuke Kawaguchi</em>, <em>Heath Dorn </em>and all other&nbsp;participants who took the trip to ISRAEL&nbsp;inspite of the delicate situation, took&nbsp;the time to participate in this event. And&nbsp;apart of a short distruption @ 09:15 it was a quite&nbsp;day for the Hertzliya area &hellip;</p>
+
+<p>This blog post is to serve as my JUC summary (Worth noting: this summary wasn&#39;t sponsered / ordered by any company and reflects my personal take of Jenkins and the Jenkins user conference.)</p>
+
+<p><img src="/assets/images/jenkins-herzlia-2014.jpg" alt="" /></p>
+
+<p><strong>The what (what is this guy talking about ?)</strong></p>
+
+<p>I have to say I had an&nbsp;epiphany this week in the <a href="http://www.cloudbees.com/jenkins-user-conference-2012-israel.cb">JUC Hertzlia</a>, Jenkins or Jenkins-ci as&nbsp;suggested&nbsp;in it name / domain name, isn&#39;t just a build server, its a <strong>Software Development Framework</strong>, it does much more than invoke your favorite build tool &hellip; and give me a chance to explain &hellip;</p>
+
+<p>In past years I used to refer to Jenkins (&amp; Hudson) as &quot;<em>a fancy cron</em> <em>job</em>&quot; (hope I didn&#39;t offend anyone &hellip;), but witnessing such a&nbsp;vast adoption and hearing from many companies about how they use Jenkins to drive their business makes me use this term &quot;<strong><em>framework</em></strong>&quot; because you can literally mold Jenkins into anything you want &hellip; and the&nbsp;<strong><em>for everyone</em></strong> part is to point our its not only for java as many people used to think &hellip; it is really a multi purpose <em><strong>software development framework</strong></em> which empowers our businesses.</p>
+
+<!-- more -->
+
+
+<p>I have just recently completed an Audit for one of my customers @ Tikal, which are using Jenkins to deploy their product into test,&nbsp;pre-prod &amp; prod utilizing tools like <em><strong>mcollective</strong></em>, <em><strong>chef</strong></em> etc, it&#39;s not all about CI anymore ! (KK I suggest a rename), Jenkins is much much more than CI!, the reason I refer to it as a <em>framework</em>, is that there are many more usages to Jenkins which never came to mind until you participate in these conferences &ndash; A huge&nbsp;thanks to <a href="http://www.jfrog.com/">Jfrog</a> &amp; <a href="http://www.cloudbees.com/">Cloudbees</a> for making it happen. I see companies using Jenkins to trigger backup &amp; restore procedures, spin up servers / autoscale (in production) and many more crazy ideas. This is due to the flexibility in Jenkins&#39;s design, ease of use and extensibility &ndash; there are over <strong>900 plugins</strong> to Jenkins. If you need to make Jenkins do something it doesn&#39;t already do &ndash;&gt; let&#39;s write a plugin for it &hellip; And&nbsp;thanks to the design and the tooling offered by the Jenkins community&nbsp;that makes all this possible.</p>
+
+<p><strong>The why / how &ndash; my JUC Hertzlia summary &hellip;</strong></p>
+
+<p>The&nbsp;<em>epiphany &ndash;&gt;&nbsp;</em>In the last 3 JUC&#39;s in ISRAEL (this year was the 4th), I gave a talk on Jenkins and how I use it in the&nbsp;many projects I participate/d in, and this year I felt I have nothing new to say &hellip; and then without noticing and hearing the different talks I noticed I was so wrong (yes I am not always right ;)) &hellip;, Jenkins is the enabler of many processes we implement into our workflow. In <a href="http://prezi.com/u4zb3h6s5vql/devops-4-devlopers/">JUC 2012 presentation</a>&nbsp;I referred to Jenkins as the &quot;<u>conveyor of business</u>&quot; driving our software from concept to production utilizing maven, chef and open-stack and I was happy to see that the talks we witnessed both in 2013 and 2014 are exactly where the&nbsp;<strong>Jenkins framework</strong> is going, you can see plugins &amp; processes which refer to Jenkins as the business enabler, it is now a mission critical system not just a &quot;backend&quot; system used by development.</p>
+
+<p>JUC Hertzlia a had a few great talks by quite a few companies which are all saying how great Jenkins and its&nbsp;<span style="color: rgb(0, 0, 0); font-family: 'trebuchet ms', sans-serif; line-height: normal;">ecosystem</span> are. Creator &amp; maintainer of Jenkins&nbsp;<strong><a href="http://www.cloudbees.com/company-team.cb#KohsukeKawaguchi">Kohsuke Kawaguchi</a>&nbsp;</strong><span style="line-height: 1.6em;">shared the roadmap and a few plugins he was able to reach in order to talk about.&nbsp;As I recall KK himself said he apologizes but these are the plugins he was able to reach in order to talk about and he hopes no one was offended because he didn&#39;t talk about their plugin &hellip;, this reminds me two years ago in 2012 JUC when I talked about the Jenkins Multijob plugin where KK said I had no idea you guys were developing it ;). These are the reasons I call Jenkins a framework is it doing so much and being used in so many ways it is hard to keep track of it.</span></p>
+
+<p>One slide which caught my eye was the following one:</p>
+
+<p><img src="/assets/images/Leaderboard-1.jpg" alt="" /></p>
+
+<p>Taken from &ndash;&gt; <a href="http://pages.zeroturnaround.com/Java-Tools-Technologies.html?utm_source=Java%20Tools%20&amp;amp;%20Technologies%202014&amp;amp;utm_medium=allreports&amp;amp;utm_campaign=rebellabs&amp;amp;utm_rebellabsid=88">this link</a> and although&nbsp;this slide is very Java oriented (J rebel &hellip;), I think that it gives a clear picture of what is going on in the Java Enterprise market and can reflect on other segments, the numbers may differ give or take 5-10%, which is quite impressive.</p>
+
+<p><a href="http://www.cloudbees.com/company-team.cb#KohsukeKawaguchi">Kohsuke Kawaguchi</a> The Keynote speaker gave the opening and closing talks describing the main project focus which is on <a href="https://github.com/jenkinsci/workflow-plugin">workflow</a> and improving slave connectivity of both JNLP and SSH slaves basically improving they &quot;reporting&quot; capabilities between the master and slave, In addition &quot;out sourcing&quot; / sharing the Jenkins infrastructure testing, One of the pains I have had in a few projects is testing a Jenkins upgrade In one of my previous projects we came up with a set of shell scripts which did that in a very inefficient way, and I think being able to utlize the &quot;Jenkins official integration testing suite&quot; will drive stability into the upgrade lifecycle of Jenkins and perhaps enable us to be less conservative with LTS releases and using more and more cutting edge releases (latest).</p>
+
+<p><img alt="" src="/assets/images/oops-jenkins.png" style="width: 50px; height: 57px; margin-left: 5px; margin-right: 5px; float: left;" /><span style="line-height: 1.6em;">&nbsp;</span><img alt="" src="/assets/images/happy-jenkins.png" style="width: 45px; height: 58px; margin-left: 5px; margin-right: 5px; float: left;" />
+There is actually a pattern here we can see more and more of, which was also presented by <em><strong>Ohad Basan</strong></em> from RedHad who described their entire build pipeline using Jenkins and puppet utilizing pattens from the openstack approach of how to utilize Jenkins and achieve a deployment pipeline, Ohad mentioned the <a href="https://wiki.jenkins-ci.org/display/JENKINS/Build+Pipeline+Plugin">build pipeline</a> &amp; <a href="https://wiki.jenkins-ci.org/display/JENKINS/Multijob+Plugin">multijob</a> plugins and how the build pipeline plugin was more flexible considering it could trigger the same build with different parameters in the same execution.</p>
+
+<p>The openstack approach should definitely be looked at when designing a CI &amp; CD solution and it&#39;s open &ndash;&gt;&nbsp;<a href="https://jenkins.openstack.org/">jenkins.openstack.org</a>&nbsp;&amp;&nbsp;<a href="http://ci.openstack.org/jenkins.html">ci.openstack.org/jenkins.html</a>.</p>
+
+<p>Lastly unrelated to the main theme specified above there where three other notable talks:</p>
+
+<ol>
+<li><span class="n fn" style="margin: 0px; padding: 0px; border: 0px; outline: 0px; font-weight: inherit; font-style: inherit; font-family: inherit; vertical-align: baseline; font-variant: inherit; line-height: inherit;"><em><strong>Oren Katz</strong></em> from&nbsp;</span>Liveperson: using Jenkins to test infrastructure and update Ganglia monitor in order to enable their support desk to find issues before they become issues, quite impressive implementation, the only thing I was not clear about was the usage of <em><strong>rsync</strong></em> instead of<strong><em>&nbsp;SCM.</em></strong></li>
+<li><em><em><strong>Nir Koren</strong></em> from SAP:</em> I don&#39;t have this years presentation yet but there is his talk titled &quot;Quality on submit&quot; and <a href="http://www.slideshare.net/AgileSparks/nir-koren-qos?qid=22f1c81b-4986-47e3-b1e3-ed2b0daeeb6a&amp;amp;v=qf1&amp;amp;b=&amp;amp;from_search=1">the slides</a>, Nir describes a process which is quite refreshing in a huge company (65,000 employees) like SAP and how Jenkins plays a key role in their development &amp; deployment processes.</li>
+<li><em><strong>Baruch Sadogursky</strong></em> from&nbsp;JFrog: using bintray to streamline your binaries, another great project (IMO) which enables you to freely store your binaries in the cloud for nothing also referred to &quot;<em><strong>Github for Binaries</strong></em>&quot;</li>
+</ol>
+
+
+<p>To conclude, there are quite a few approaches for how to use Jenkins and I hope this post / JUC summary might introduce a new term &quot;<em><strong>the Jenkins framework</strong></em>&quot;, Jenkins is a project to keep an&nbsp;eye on, for I am not sure if there is a limit to its grasp. Until next year&#39;s JUC &hellip;</p>
+
+<p>Over and out, (references below)</p>
+
+<p>HP&nbsp;</p>
+
+<p>References:</p>
+
+<ol>
+<li>JUC Hertzlia: <a href="http://www.cloudbees.com/jenkins/juc-2014/herzliya">http://www.cloudbees.com/jenkins/juc-2014/herzliya</a></li>
+<li>Cloudbees:&nbsp;<a href="http://www.cloudbees.com/">http://www.cloudbees.com/</a></li>
+<li>JUC 2012 presentation<a href="http://prezi.com/u4zb3h6s5vql/devops-4-devlopers/">http://prezi.com/u4zb3h6s5vql/devops-4-devlopers/</a></li>
+<li>Jenkins / jrevel statistics:&nbsp;<a href="http://pages.zeroturnaround.com/Java-Tools-Technologies.html?utm_source=Java%20Tools%20&amp;amp;%20Technologies%202014&amp;amp;utm_medium=allreports&amp;amp;utm_campaign=rebellabs&amp;amp;utm_rebellabsid=88">this link</a></li>
+<li>Phonix&nbsp;server<em>&nbsp;</em><a href="http://martinfowler.com/bliki/PhoenixServer.html">http://martinfowler.com/bliki/PhoenixServer.html</a></li>
+<li>Snowflake server <a href="http://martinfowler.com/bliki/SnowflakeServer.html">http://martinfowler.com/bliki/SnowflakeServer.html</a></li>
+<li>Chef Jenkins cookbook <a href="https://github.com/opscode-cookbooks/jenkins">https://github.com/opscode-cookbooks/jenkins</a></li>
+<li>Chaos Monkey <a href="https://github.com/Netflix/SimianArmy/wiki/Chaos-Monkey">https://github.com/Netflix/SimianArmy/wiki/Chaos-Monkey</a></li>
+<li>workflow plugin:&nbsp;<a href="https://github.com/jenkinsci/workflow-plugin">https://github.com/jenkinsci/workflow-plugin</a></li>
+<li> Openstack&#39;s jenkins instance: <a href="http://jenkins.openstack.org/">http://jenkins.openstack.org/</a></li>
+<li> Openstakcs ci spec:&nbsp;<a href="http://ci.openstack.org/jenkins.html">http://ci.openstack.org/jenkins.html</a></li>
+<li> Delivery pipeline plugin: <a href="https://wiki.jenkins-ci.org/display/JENKINS/Delivery+Pipeline+Plugin">https://wiki.jenkins-ci.org/display/JENKINS/Delivery+Pipeline+Plugin</a></li>
+<li> MultiJob plugin:&nbsp;<a href="https://wiki.jenkins-ci.org/display/JENKINS/Multijob+Plugin">https://wiki.jenkins-ci.org/display/JENKINS/Multijob+Plugin</a></li>
+</ol>
+
+
+<p>&nbsp;</p>
+</div>
+
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Haggai Philip Zagury</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-07-19T23:00:00+05:30" pubdate data-updated="true">Jul 19<span>th</span>, 2014</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/juc/'>JUC</a>, <a class='category' href='/blog/categories/jenkins/'>jenkins</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://hagzag.github.io/blog/2014/07/19/JUC-2014-Hertzlia-overview/" data-via="hagzag" data-counturl="http://hagzag.github.io/blog/2014/07/19/JUC-2014-Hertzlia-overview/" >Tweet</a>
+  
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2014/04/25/image-cm-ground-packer/" title="Previous Post: Image CM from the Ground up with packer">&laquo; Image CM from the Ground up with packer</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2014/08/15/pamnamax-docker-management-for-humans/" title="Next Post: PanaMax - Docker Management for Humans">PanaMax - Docker Management for Humans &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="facebook_comments" aria-live="polite">
+      <noscript>Please enable JavaScript to view the comments powered by facebook</a></noscript>
+<div
+  class="fb-comments"
+  data-href="http://hagzag.github.io/blog/2014/07/19/JUC-2014-Hertzlia-overview/"
+  data-num-posts="2"
+  data-width="800"
+  data-colorscheme="light" ></div>
+
+    </div>
+  </section>
+
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <span>
+  	<div class="linkedin">
+		<a href="http://about.me/hagzag"><img src="/images/Aboutme_gray_logo.png" width="160" height="33" border="0" alt="View Haggai Philip Zagury's profile on About.me"></a>
+
+  	<img src="/images/profile_large.png" alt="my_pic" width="150" height="150">
+		<a href="http://il.linkedin.com/in/hagzag"><img src="http://www.linkedin.com/img/webpromo/btn_myprofile_160x33.png" width="160" height="33" border="0" alt="View Haggai Philip Zagury's profile on LinkedIn"></a>
+	</div>
+ </span>
+</section>
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/09/10/chef-server-entrprise-features-now-available-in-oss-version/">Chef Server Enterprise Features Now Available in OSS Version</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/08/20/book-review-Managing-Windows-Servers-with-Chef/">Book Review :: Managing Windows Servers With Chef by John Ewart</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/08/15/pamnamax-docker-management-for-humans/">PanaMax - Docker Management for Humans</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/07/19/JUC-2014-Hertzlia-overview/">Jenkins the Software Development Framework for Everyone [ JUC 2014 Hertzlia - Overview ]</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/04/25/image-cm-ground-packer/">Image CM From the Ground Up With Packer</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/hagzag">@hagzag</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'hagzag',
+            count: 5,
+            skip_forks: false,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+<section class="googleplus googleplus-hidden">
+  <h1>
+    <a href="https://plus.google.com/hagzag?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+<a href="http://internetdefenseleague.org"><img src="http://internetdefenseleague.org/images/badges/final/super_badge.png" alt="Member of The Internet Defense League" /></a>
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Haggai Philip Zagury -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id; js.async = true;
+  //js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  js.src = "//connect.facebook.net/en_US/all.js#appId=222612811167194&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

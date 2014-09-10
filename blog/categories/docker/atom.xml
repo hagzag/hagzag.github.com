@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Docker | Fractions on my timeline]]></title>
+  <link href="http://hagzag.github.io/blog/categories/docker/atom.xml" rel="self"/>
+  <link href="http://hagzag.github.io/"/>
+  <updated>2014-09-10T08:13:34+05:30</updated>
+  <id>http://hagzag.github.io/</id>
+  <author>
+    <name><![CDATA[Haggai Philip Zagury]]></name>
+    <email><![CDATA[hagzag@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Docker Service Discovery with Skydns and Skydock]]></title>
+    <link href="http://hagzag.github.io/blog/2014/01/31/docker-service-discovery-skydns-and-skydock/"/>
+    <updated>2014-01-31T14:31:00+05:30</updated>
+    <id>http://hagzag.github.io/blog/2014/01/31/docker-service-discovery-skydns-and-skydock</id>
+    <content type="html"><![CDATA[<p><img class="left" src="/assets/images/docker-logo-100x134.png" title="&lsquo;Docker logo small&rsquo;" >
+Hi guys,</p>
+
+<p>I stumbled upon skydock on github =&gt;&nbsp;<a href="https://github.com/crosbymichael/skydock">https://github.com/crosbymichael/skydock</a>,&nbsp;<span style="line-height: 1.6em;">Sky dock uses </span><a href="https://github.com/skynetservices/skydns">skydns</a><span style="line-height: 1.6em;"> for service resolution via dns using </span><a href="https://github.com/skynetservices/skydns">skydns</a><span style="line-height: 1.6em;"> service.</span></p>
+
+<p><span style="line-height: 1.6em;">Gave it a try myself and it looks promising especially when skydock and skydns have a small foot print runnig as containers, according to michael he is working on a cross docker feature which means name resolution will work with more than 1 instance of Docker which sounds like a service discovery solution to an entire landscape &ndash; Star this repo on github this looks like a killer adon to Docker which will make the usage very very easy in terms of configuration.</span></p>
+
+<p><span style="line-height: 1.6em;">In addition you will see that you also get loadbalancing out of the box &ndash; this will be a killer feature when it will be abl to run between more than one Dokcer daemon.</span></p>
+
+<!-- more -->
+
+
+<p><span style="line-height: 1.6em;">I followed Michael Crosby&#39;s</span>&nbsp;demo on this awesome tool on youtube:</p>
+
+<object width="770" height="433"><param name="movie" value="//www.youtube.com/v/Nw42q1ofrV0?version=3&amp;hl=en_US"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://hagzag.github.io//www.youtube.com/v/Nw42q1ofrV0?version=3&amp;hl=en_US" type="application/x-shockwave-flash" width="770" height="433" allowscriptaccess="always" allowfullscreen="true"></embed></object>
+
+
+<p>As always hope you find this useful.</p>
+
+<p>Happy Docking :)</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Docking your services with Docker]]></title>
+    <link href="http://hagzag.github.io/blog/2014/01/29/Docking-your-services-with-Docekr/"/>
+    <updated>2014-01-29T22:03:00+05:30</updated>
+    <id>http://hagzag.github.io/blog/2014/01/29/Docking-your-services-with-Docekr</id>
+    <content type="html"><![CDATA[<p><img class="left" src="/assets/images/docker-logo-100x134.png" title="&lsquo;Docker logo small&rsquo;" >
+The &quot;Big Bang&quot; is an awesome title (don&#39;t mind if I say so &hellip;), our apps are divided into micro-services &ndash; and so is our hosting OS, the following slides attempt to show how LXC and Docker simplify the complexity of our Micro Services deployment.</p>
+
+<p>Presentation is available via:&nbsp;<a href="http://bit.ly/1evpfya">http://bit.ly/1evpfya</a> + embeded below (Continue reading link &hellip;)</p>
+
+<!-- more -->
+
+
+
+
+<script async class="speakerdeck-embed" data-id="d9ce0c606a7c0131697922f4e5e61bb3" data-ratio="1.33333333333333" src="http://hagzag.github.io//speakerdeck.com/assets/embed.js"></script>
+
+
+
+
+<div style="margin-bottom:5px">**[Docking your services_with_docker](https://www.slideshare.net/tikalknowledge/docking-your-serviceswithdocker "Docking your services_with_docker") ** from **[Tikal Knowledge](http://www.slideshare.net/tikalknowledge)**</div>
+
+
+<p>Happy Docking :)</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Docker Friendly Vagrant Box]]></title>
+    <link href="http://hagzag.github.io/blog/2014/01/22/Docekr-Frendly-Vagrant-Box/"/>
+    <updated>2014-01-22T22:03:00+05:30</updated>
+    <id>http://hagzag.github.io/blog/2014/01/22/Docekr-Frendly-Vagrant-Box</id>
+    <content type="html"><![CDATA[<p><img class="left" src="/assets/images/docker-logo-100x134.png" title="&lsquo;Docker logo small&rsquo;" >
+A stunning title I know &ndash; too many fancy words :)</p>
+
+<p>Make a long story short if you need (like me) to run docker on a vm &ndash; consdering I can&#39;t run LXC on my mac, and you want a lightweight linux distro to test drive docker, there are two great resources I came across:</p>
+
+<ol>
+<li>Use the default vagrant box which shipps with docker&#39;s git repository (<a href="https://github.com/dotcloud/docker">https://github.com/dotcloud/docker</a>) &ndash; see <a href="https://github.com/dotcloud/docker/blob/master/Vagrantfile">Vagrantfile</a></li>
+<li><p>User boot2docker linux distro (<a href="https://github.com/steeve/boot2docker">https://github.com/steeve/boot2docker</a>) &ndash; or even better use boot2docker image box complements of vagrant&#39;s author&nbsp;Mitchell Hashimoto. The vagrant box can beadded by running:&nbsp;</p>
+
+<p><pre style="box-sizing: border-box; font-family: Consolas, 'Liberation Mono', Courier, monospace; margin-top: 15px; margin-bottom: 15px; background-color: rgb(248, 248, 248); border: 1px solid rgb(221, 221, 221); line-height: 19px; overflow: auto; padding: 6px 10px; border-top-left-radius: 3px; border-top-right-radius: 3px; border-bottom-right-radius: 3px; border-bottom-left-radius: 3px; word-wrap: normal;">
+<code>vagrant init boot2docker https://github.com/mitchellh/boot2docker-vagrant-box/releases/download/v0.3.0/boot2docker.box</code></pre></p></li>
+</ol>
+
+
+<p>Happy Docking :)</p>
+]]></content>
+  </entry>
+  
+</feed>

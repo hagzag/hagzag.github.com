@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: boot2docker | Fractions on my timeline]]></title>
+  <link href="http://hagzag.github.io/blog/categories/boot2docker/atom.xml" rel="self"/>
+  <link href="http://hagzag.github.io/"/>
+  <updated>2014-09-10T08:13:34+05:30</updated>
+  <id>http://hagzag.github.io/</id>
+  <author>
+    <name><![CDATA[Haggai Philip Zagury]]></name>
+    <email><![CDATA[hagzag@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Docker Friendly Vagrant Box]]></title>
+    <link href="http://hagzag.github.io/blog/2014/01/22/Docekr-Frendly-Vagrant-Box/"/>
+    <updated>2014-01-22T22:03:00+05:30</updated>
+    <id>http://hagzag.github.io/blog/2014/01/22/Docekr-Frendly-Vagrant-Box</id>
+    <content type="html"><![CDATA[<p><img class="left" src="/assets/images/docker-logo-100x134.png" title="&lsquo;Docker logo small&rsquo;" >
+A stunning title I know &ndash; too many fancy words :)</p>
+
+<p>Make a long story short if you need (like me) to run docker on a vm &ndash; consdering I can&#39;t run LXC on my mac, and you want a lightweight linux distro to test drive docker, there are two great resources I came across:</p>
+
+<ol>
+<li>Use the default vagrant box which shipps with docker&#39;s git repository (<a href="https://github.com/dotcloud/docker">https://github.com/dotcloud/docker</a>) &ndash; see <a href="https://github.com/dotcloud/docker/blob/master/Vagrantfile">Vagrantfile</a></li>
+<li><p>User boot2docker linux distro (<a href="https://github.com/steeve/boot2docker">https://github.com/steeve/boot2docker</a>) &ndash; or even better use boot2docker image box complements of vagrant&#39;s author&nbsp;Mitchell Hashimoto. The vagrant box can beadded by running:&nbsp;</p>
+
+<p><pre style="box-sizing: border-box; font-family: Consolas, 'Liberation Mono', Courier, monospace; margin-top: 15px; margin-bottom: 15px; background-color: rgb(248, 248, 248); border: 1px solid rgb(221, 221, 221); line-height: 19px; overflow: auto; padding: 6px 10px; border-top-left-radius: 3px; border-top-right-radius: 3px; border-bottom-right-radius: 3px; border-bottom-left-radius: 3px; word-wrap: normal;">
+<code>vagrant init boot2docker https://github.com/mitchellh/boot2docker-vagrant-box/releases/download/v0.3.0/boot2docker.box</code></pre></p></li>
+</ol>
+
+
+<p>Happy Docking :)</p>
+]]></content>
+  </entry>
+  
+</feed>

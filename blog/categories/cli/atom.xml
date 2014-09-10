@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: cli | Fractions on my timeline]]></title>
+  <link href="http://hagzag.github.io/blog/categories/cli/atom.xml" rel="self"/>
+  <link href="http://hagzag.github.io/"/>
+  <updated>2014-09-10T08:13:34+05:30</updated>
+  <id>http://hagzag.github.io/</id>
+  <author>
+    <name><![CDATA[Haggai Philip Zagury]]></name>
+    <email><![CDATA[hagzag@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[xmlstarlet is a nifty Command Line XML Toolkit]]></title>
+    <link href="http://hagzag.github.io/blog/2013/06/14/xmlstarlet-is-a-nifty-command-line-xml-toolkit/"/>
+    <updated>2013-06-14T09:17:00+05:30</updated>
+    <id>http://hagzag.github.io/blog/2013/06/14/xmlstarlet-is-a-nifty-command-line-xml-toolkit</id>
+    <content type="html"><![CDATA[<p><img class="left" src="/assets/images/xmlstarlet.png" title="&lsquo;xmlstarlet Logo&rsquo;" ></p>
+
+<p>So, I was writing a post on jenkins-cli and mentioned how to create jobs from CLI using tools like xmlstarlet [ in adition to others ] &ndash; and it felt as if I am drifting off topic (ans it&#39;s starting to happen here too so &hellip; ), so I cam up with this post showing some of the great power this tool has</p>
+
+<p>xmlstarlet is a nifty tool to work with on xml xpaths &ndash; iv&#39;e been using it for various tasks in the last 2-3 years,</p>
+
+<p>In our exmaple in order to get the scmurl xpath you can do sothing like the following:</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>curl -s <span class="k">${</span><span class="nv">JENKINS_URL</span><span class="k">}</span>/job/<span class="k">${</span><span class="nv">JOB_NAME</span><span class="k">}</span>/config.xml -u youruser:yourpasswd | xmlstarlet el -a
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>So this section in the xml is actually:</p>
+
+<p><img src="/assets/images/in_job_config_xml.png" alt="scm url in config.xml" /></p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>project/scm/locations/hudson.scm.SubversionSCM_-ModuleLocation/remote
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>So all I have to so is insert / esit the xml file and create the new job:</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>xmlstarlet ed -O -S -P -u //project/scm/locations/hudson.scm.SubversionSCM_-ModuleLocation/remote -v &amp;quot;<span class="k">${</span><span class="nv">scm_url</span><span class="k">}</span>&amp;quot;
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>All wev&#39;e seen above is two usages of xmlstarlet which is as I mentioned 10% of what this tool can do &ndash; weve seen&nbsp;</p>
+
+<ol>
+<li>xml xpath listing of an entire xml document: <em><strong>xmlstarlet el -a</strong></em></li>
+<li>xml editing: <em><strong>xmlstarlet ed -O -S -P -u</strong></em> well xml updating to be exact [ <em><strong>-u</strong></em> ]</li>
+</ol>
+
+
+<p>Feel free to get this tool on your favorite OS</p>
+
+<!-- more -->
+
+
+<p>Ubutnu:</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>sudo apt-get install xmlstarlet
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+RH/CENTOS/Fedora</p>
+
+<pre><code>Download the latest epel-release rpm from http://dl.fedoraproject.org/pub/epel/${ver}/${arch} Install epel-release rpm:
+</code></pre>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>rpm -Uvh epel-release*rpm
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>Install xmlstarlet rpm package:</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>yum install xmlstarlet
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p><strong>Enjoy</strong> this toolkit &ndash; I love it :)</p>
+]]></content>
+  </entry>
+  
+</feed>
